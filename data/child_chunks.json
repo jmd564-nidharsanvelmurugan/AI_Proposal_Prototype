@@ -1,0 +1,182 @@
+[
+{
+"document_id": "PROP001",
+"id": "CHILD_EXEC_001",
+"section": "Executive Overview",
+"subsection": "Business Context",
+"chunk_type": "child",
+"actual_text_data": "The client operates in the financial services industry and requires improved executive reporting.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP006",
+"id": "CHILD_EXEC_011",
+"section": "Executive Overview",
+"subsection": "Business Context",
+"chunk_type": "child",
+"actual_text_data": "The healthcare organization seeks centralized analytics across multiple operational systems.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP001",
+"id": "CHILD_EXEC_002",
+"section": "Executive Overview",
+"subsection": "Current Challenges",
+"chunk_type": "child",
+"actual_text_data": "Reporting relies heavily on manual spreadsheet consolidation.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP007",
+"id": "CHILD_EXEC_012",
+"section": "Executive Overview",
+"subsection": "Current Challenges",
+"chunk_type": "child",
+"actual_text_data": "Customer analytics are fragmented across multiple retail platforms.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP002",
+"id": "CHILD_EXEC_003",
+"section": "Executive Overview",
+"subsection": "Business Objectives",
+"chunk_type": "child",
+"actual_text_data": "Provide leadership with near real-time visibility into pipeline performance.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP008",
+"id": "CHILD_EXEC_013",
+"section": "Executive Overview",
+"subsection": "Business Objectives",
+"chunk_type": "child",
+"actual_text_data": "Improve operational efficiency through centralized KPI monitoring.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP002",
+"id": "CHILD_EXEC_004",
+"section": "Executive Overview",
+"subsection": "Proposed Solution",
+"chunk_type": "child",
+"actual_text_data": "Implement a cloud-based reporting architecture using Azure services.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP009",
+"id": "CHILD_EXEC_014",
+"section": "Executive Overview",
+"subsection": "Proposed Solution",
+"chunk_type": "child",
+"actual_text_data": "Deploy a GenAI-powered knowledge assistant across portfolio companies.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP003",
+"id": "CHILD_EXEC_005",
+"section": "Executive Overview",
+"subsection": "Expected Outcomes",
+"chunk_type": "child",
+"actual_text_data": "Reduce time spent generating reports by more than 50 percent.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP010",
+"id": "CHILD_EXEC_015",
+"section": "Executive Overview",
+"subsection": "Expected Outcomes",
+"chunk_type": "child",
+"actual_text_data": "Accelerate executive decision-making through automated insights.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP003",
+"id": "CHILD_EXEC_006",
+"section": "Executive Overview",
+"subsection": "Strategic Vision",
+"chunk_type": "child",
+"actual_text_data": "Establish a reusable AI platform supporting future growth initiatives.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP009",
+"id": "CHILD_EXEC_016",
+"section": "Executive Overview",
+"subsection": "Strategic Vision",
+"chunk_type": "child",
+"actual_text_data": "Create a scalable knowledge ecosystem across portfolio companies.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP004",
+"id": "CHILD_EXEC_007",
+"section": "Executive Overview",
+"subsection": "Value Drivers",
+"chunk_type": "child",
+"actual_text_data": "Improve workforce productivity and operational visibility.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP006",
+"id": "CHILD_EXEC_017",
+"section": "Executive Overview",
+"subsection": "Value Drivers",
+"chunk_type": "child",
+"actual_text_data": "Reduce reporting costs through automation and standardization.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP004",
+"id": "CHILD_EXEC_008",
+"section": "Executive Overview",
+"subsection": "Project Scope Summary",
+"chunk_type": "child",
+"actual_text_data": "Scope includes architecture design, implementation, and knowledge transfer.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP008",
+"id": "CHILD_EXEC_018",
+"section": "Executive Overview",
+"subsection": "Project Scope Summary",
+"chunk_type": "child",
+"actual_text_data": "Scope covers data ingestion, modeling, and dashboard delivery.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP005",
+"id": "CHILD_EXEC_009",
+"section": "Executive Overview",
+"subsection": "Success Metrics",
+"chunk_type": "child",
+"actual_text_data": "Reporting cycle reduced from five days to one day.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP010",
+"id": "CHILD_EXEC_019",
+"section": "Executive Overview",
+"subsection": "Success Metrics",
+"chunk_type": "child",
+"actual_text_data": "Achieve greater than 90 percent stakeholder satisfaction.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP005",
+"id": "CHILD_EXEC_010",
+"section": "Executive Overview",
+"subsection": "Executive Recommendation",
+"chunk_type": "child",
+"actual_text_data": "Proceed with a phased discovery and implementation approach.",
+"vector_embedding": []
+},
+{
+"document_id": "PROP009",
+"id": "CHILD_EXEC_020",
+"section": "Executive Overview",
+"subsection": "Executive Recommendation",
+"chunk_type": "child",
+"actual_text_data": "Adopt a portfolio-wide AI strategy to maximize reuse and value.",
+"vector_embedding": []
+}
+]

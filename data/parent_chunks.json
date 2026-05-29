@@ -1,0 +1,147 @@
+[
+  {
+    "document_id": "PROP001",
+    "id": "PARENT_EXEC_001",
+    "metadata_keywords": {
+      "business_offering": "Financial Services",
+      "solution": "Data Advisory",
+      "region": "US",
+      "project_type": "Design and Discovery",
+      "commercial_use_case": "Operational Reporting",
+      "technical_use_case": "Data Platform",
+      "business_model": "B2B",
+      "existing_infra": "Yes",
+      "pe_relationship": "PE Portco"
+    },
+    "section": "Executive Overview",
+    "chunk_type": "parent",
+    "actual_text_data": "Executive overview for a financial services data advisory engagement.",
+    "vector_embedding": [],
+    "child_chunks": [
+      {
+        "id": "CHILD_EXEC_001",
+        "subsection": "Business Context"
+      },
+      {
+        "id": "CHILD_EXEC_002",
+        "subsection": "Current Challenges"
+      }
+    ]
+  },
+  {
+    "document_id": "PROP002",
+    "id": "PARENT_EXEC_002",
+    "metadata_keywords": {
+      "business_offering": "SaaS",
+      "solution": "Core Reporting",
+      "region": "UK",
+      "project_type": "Build",
+      "commercial_use_case": "Pipeline",
+      "technical_use_case": "Data Platform",
+      "business_model": "B2B",
+      "existing_infra": "Yes",
+      "pe_relationship": "PE Fund"
+    },
+    "section": "Executive Overview",
+    "chunk_type": "parent",
+    "actual_text_data": "Executive overview for SaaS reporting transformation.",
+    "vector_embedding": [],
+    "child_chunks": [
+      {
+        "id": "CHILD_EXEC_003",
+        "subsection": "Business Objectives"
+      },
+      {
+        "id": "CHILD_EXEC_004",
+        "subsection": "Proposed Solution"
+      }
+    ]
+  },
+  {
+    "document_id": "PROP003",
+    "id": "PARENT_EXEC_003",
+    "metadata_keywords": {
+      "business_offering": "Professional Services",
+      "solution": "Value Creation",
+      "region": "US",
+      "project_type": "Both",
+      "commercial_use_case": "Revenue Bridge",
+      "technical_use_case": "Gen AI",
+      "business_model": "B2B",
+      "existing_infra": "No",
+      "pe_relationship": "PE Portco"
+    },
+    "section": "Executive Overview",
+    "chunk_type": "parent",
+    "actual_text_data": "Executive overview for AI-driven revenue optimization.",
+    "vector_embedding": [],
+    "child_chunks": [
+      {
+        "id": "CHILD_EXEC_005",
+        "subsection": "Expected Outcomes"
+      },
+      {
+        "id": "CHILD_EXEC_006",
+        "subsection": "Strategic Vision"
+      }
+    ]
+  },
+  {
+    "document_id": "PROP004",
+    "id": "PARENT_EXEC_004",
+    "metadata_keywords": {
+      "business_offering": "Field Services",
+      "solution": "Core Reporting",
+      "region": "Europe",
+      "project_type": "Build",
+      "commercial_use_case": "Operational Reporting",
+      "technical_use_case": "Data Science",
+      "business_model": "B2B",
+      "existing_infra": "Yes",
+      "pe_relationship": "PE Fund"
+    },
+    "section": "Executive Overview",
+    "chunk_type": "parent",
+    "actual_text_data": "Executive overview for field service reporting platform.",
+    "vector_embedding": [],
+    "child_chunks": [
+      {
+        "id": "CHILD_EXEC_007",
+        "subsection": "Value Drivers"
+      },
+      {
+        "id": "CHILD_EXEC_008",
+        "subsection": "Project Scope Summary"
+      }
+    ]
+  },
+  {
+    "document_id": "PROP005",
+    "id": "PARENT_EXEC_005",
+    "metadata_keywords": {
+      "business_offering": "Financial Services",
+      "solution": "Due Diligence",
+      "region": "US",
+      "project_type": "Design and Discovery",
+      "commercial_use_case": "Risk Analysis",
+      "technical_use_case": "Gen AI",
+      "business_model": "B2B",
+      "existing_infra": "No",
+      "pe_relationship": "PE Fund"
+    },
+    "section": "Executive Overview",
+    "chunk_type": "parent",
+    "actual_text_data": "Executive overview for due diligence engagement.",
+    "vector_embedding": [],
+    "child_chunks": [
+      {
+        "id": "CHILD_EXEC_009",
+        "subsection": "Success Metrics"
+      },
+      {
+        "id": "CHILD_EXEC_010",
+        "subsection": "Executive Recommendation"
+      }
+    ]
+  }
+]
