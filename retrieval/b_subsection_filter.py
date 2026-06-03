@@ -147,35 +147,3 @@ def subsection_filter(
     conn.close()
 
     return results[:top_k]
-
-
-# ===================================
-# USER INPUT
-# ===================================
-
-search_type = int(
-    input(
-        """
-Choose Search Type
-
-1 -> Semantic Search
-2 -> Keyword Search
-
-Enter Choice:
-"""
-    )
-)
-
-results = subsection_filter(
-    subsection_query="Business Context",
-    child_ids=[
-        "CHILD_EXEC_001",
-        "CHILD_EXEC_002",
-        "CHILD_EXEC_003"
-    ],
-    search_type=search_type,
-    top_k=5
-)
-
-for r in results:
-    print(r)

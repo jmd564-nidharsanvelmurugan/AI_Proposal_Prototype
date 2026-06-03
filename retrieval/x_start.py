@@ -1,13 +1,8 @@
 from a_metadata_filter import get_candidate_chunks
-
 from b_subsection_filter import subsection_filter
-
 from b_keyword_search import keyword_search
-
 from b_vector_search import vector_search
-
 from c_hybrid_merger import hybrid_merge
-
 from e_mmr_dedup import mmr_dedup
 
 
@@ -30,6 +25,7 @@ request = {
 }
 
 
+
 # -----------------------------------
 # STEP 1
 # Metadata Filter
@@ -49,15 +45,36 @@ print(
     child_ids
 )
 
+
 # -----------------------------------
 # STEP 2
+# Choose Subsection Filter Type
+# -----------------------------------
+
+search_type = int(
+    input(
+        """
+Choose Subsection Filter Type
+
+1 -> Semantic Search
+2 -> Keyword Search
+
+Enter Choice:
+"""
+    )
+)
+
+
+# -----------------------------------
+# STEP 3
 # Subsection Filter
 # -----------------------------------
 
 chunks = (
     subsection_filter(
         request["subsection"],
-        child_ids
+        child_ids,
+        search_type=search_type
     )
 )
 
@@ -73,8 +90,9 @@ for c in chunks:
         c["subsection"]
     )
 
+
 # -----------------------------------
-# STEP 3
+# STEP 4
 # Keyword Search
 # -----------------------------------
 
@@ -85,8 +103,9 @@ keyword_results = (
     )
 )
 
+
 # -----------------------------------
-# STEP 4
+# STEP 5
 # Vector Search
 # -----------------------------------
 
@@ -97,9 +116,10 @@ vector_results = (
     )
 )
 
+
 # -----------------------------------
-# STEP 5
-# Display Both
+# STEP 6
+# Hybrid Merge
 # -----------------------------------
 
 both_keyword_vector = hybrid_merge(
@@ -107,12 +127,27 @@ both_keyword_vector = hybrid_merge(
     vector_results
 )
 
+print(
+    "\nHybrid Results Count:"
+)
+
+print(
+    len(both_keyword_vector)
+)
+
+
+# -----------------------------------
+# STEP 7
+# MMR Deduplication
+# -----------------------------------
 
 mmr_result = mmr_dedup(
     both_keyword_vector
 )
 
-print("\nMMR RESULTS\n")
+print(
+    "\nMMR RESULTS\n"
+)
 
 for chunk in mmr_result:
 

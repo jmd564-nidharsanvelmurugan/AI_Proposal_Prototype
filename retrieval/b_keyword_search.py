@@ -34,7 +34,7 @@ def keyword_search(
             matched_words
         )
 
-        if match_count > 0:
+        if match_count > 1:
 
             results.append({
 
@@ -64,5 +64,9 @@ def keyword_search(
             x["keyword_score"],
         reverse=True
     )
+    print("@@@@@@@@@@@@@")
+    print("Keyword result")
+    print(results)
+    print("@@@@@@@@@@@@@")
 
     return results
