@@ -4,3 +4,10 @@ pgvector
 sentence-transformers
 pandas
 python-dotenv
+langchain
+langchain-core
+langchain-openai
+openai
+pydantic
+python-dotenv
+langchain-groq
