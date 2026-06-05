@@ -6,6 +6,10 @@ from c_hybrid_merger import hybrid_merge
 from e_mmr_dedup import mmr_dedup
 
 
+
+
+
+
 request = {
 
     "solution":
@@ -18,10 +22,10 @@ request = {
         "Executive Overview",
 
     "subsection":
-        "Business Context",
+        "Financial Services Industry Overview",
 
     "query":
-        "Banking reporting"
+        "Centralized financial reporting and analytics modernization with Azure and Power BI"
 }
 
 

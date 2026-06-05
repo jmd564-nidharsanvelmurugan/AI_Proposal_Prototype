@@ -38,3 +38,42 @@ Query should be by the LLM from the quesrionnaire
 LLM input questionareie + section + subsection  -- > fecth the query from the questionairees 
 
 Query : Generate Business Context section for a banking reporting modernization project         ---------> by the LLM
+
+
+
+
+Questionnaire
+      ↓
+Metadata Extraction
+      ↓
+Template Generation
+      ↓
+Query Generation
+      ↓
+Business Context
+    ├── Financial Services Industry Overview
+    ├── Retail Banking Business Model
+    └── Commercial Lending Market Trends
+
+Overview
+    ├── Current State of Finance and Operations Teams
+    ├── Existing SQL Server and Salesforce Systems
+    └── Reporting Challenges
+
+...
+      ↓
+For each subsection:
+      ↓
+Metadata Filter
+      ↓
+Subsection Filter
+      ↓
+Keyword Search
+      ↓
+Vector Search
+      ↓
+Hybrid Merge
+      ↓
+MMR
+      ↓
+Top Chunks
