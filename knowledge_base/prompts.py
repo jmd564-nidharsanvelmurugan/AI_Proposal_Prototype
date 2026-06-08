@@ -1,17 +1,18 @@
-# =====================================================
-# Prompt Templates
-# =====================================================
-
 PROMPT_WITH_HEADINGS = """
 You are an expert proposal knowledge-base analyzer.
 
-The passage already contains subsection headings.
+The provided document is a complete proposal and already contains section headings and subsection headings.
 
-Tasks:
+Your task is to convert the proposal into a hierarchical knowledge-base structure.
+
+=====================================================
+TASKS
+=====================================================
 
 1. Extract Solution.
 
 Allowed Values:
+
 - Core Reporting
 - Due Diligence
 - Data Advisory
@@ -21,140 +22,445 @@ Allowed Values:
 2. Extract Region.
 
 Allowed Values:
+
 - US
 - UK
 - Europe
 
-3. Use the provided Main Section.
+3. Identify all MAIN SECTIONS present in the proposal.
 
-4. Identify all subsection headings.
+Examples:
 
-5. Extract the passage belonging to each subsection.
+- Business Context
+- Our Understanding of Your Needs
+- Objectives
+- Deliverables
+- Approach
+- Outcomes
+- Business Impact
 
-Rules:
+4. For each section:
 
-- Do not create new subsection names.
-- Use only subsection headings found in the passage.
-- Preserve passage text.
-- Return structured output only.
+- Identify all subsection headings contained within that section.
+- Extract the content belonging to each subsection.
 
-Main Section:
-{main_section}
+5. If a section does NOT contain subsection headings:
 
-Passage:
+- Store the entire section content under the section.
+- Return an empty subsection list.
+
+Example:
+
+Example:
+
+{{
+    "section_name": "Business Context",
+    "content": "...",
+    "subsections": []
+}}
+
+=====================================================
+STRICT CONTENT PRESERVATION RULES
+=====================================================
+
+This task is an extraction task, NOT a summarization task.
+
+The objective is to preserve every piece of content from the proposal exactly as it appears.
+
+MANDATORY RULES:
+
+1. Preserve ALL text.
+
+- Do not omit any sentence.
+- Do not omit any paragraph.
+- Do not omit any heading.
+- Do not omit any bullet point.
+- Do not omit any numbered item.
+- Do not omit any activity list.
+- Do not omit any phase description.
+- Do not omit any table-like content.
+- Do not omit any notes.
+- Do not omit any examples.
+
+2. Preserve wording exactly.
+
+- Do NOT rewrite.
+- Do NOT paraphrase.
+- Do NOT simplify.
+- Do NOT improve grammar.
+- Do NOT shorten content.
+- Do NOT merge sentences.
+
+3. Preserve structure exactly.
+
+If the original content contains:
+
+• bullet points
+
+- bullet points
+
+1. numbered lists
+
+a. alphabetic lists
+
+Phase 1:
+Phase 2:
+
+they must remain in the extracted content.
+
+4. Preserve line breaks.
+
+The content field should contain the original formatting as closely as possible.
+
+If the source contains:
+
+Phase 1: Design & Discovery
+
+Activities:
+
+• Conduct stakeholder interviews
+
+• Assess existing infrastructure
+
+then the extracted content must contain the same line breaks and bullets.
+
+5. Preserve complete section content.
+
+Every character belonging to a section or subsection must appear somewhere in the output.
+
+No content may be discarded.
+
+6. Never summarize.
+
+This is NOT a content generation task.
+
+This is NOT a proposal writing task.
+
+This is NOT a compression task.
+
+This is a document structure extraction task.
+
+7. Content Fidelity Check
+
+Before returning the response:
+
+- Verify every section contains all source text assigned to that section.
+- Verify every subsection contains all source text assigned to that subsection.
+- Verify no bullet points have been removed.
+- Verify no numbered items have been removed.
+- Verify no activities have been removed.
+- Verify no phases have been removed.
+
+=====================================================
+OUTPUT RULES
+=====================================================
+
+Return structured output only.
+
+Return:
+
+- solution
+- region
+- sections
+
+Each section must contain:
+
+- section_name
+- content
+- subsections
+
+Each subsection must contain:
+
+- subsection_name
+- content
+
+
+
+=====================================================
+CRITICAL EXTRACTION REQUIREMENT
+=====================================================
+
+The content field must contain the original extracted text.
+
+The content field must NOT contain:
+
+- summaries
+- condensed text
+- rewritten text
+- paraphrased text
+
+The content field must contain verbatim proposal content.
+
+The proposal content should be copied, not regenerated.
+
+=====================================================
+GENERIC NAMING RULES
+=====================================================
+
+Section names and subsection names must be reusable across multiple proposals.
+
+Do NOT use:
+
+- Client names
+- Company names
+- Organization names
+- Product names
+- Brand names
+- Customer names
+- Personal names
+- Project names
+- Account names
+- Geographic locations when they are client-specific
+
+Examples:
+
+BAD:
+
+- Alignment with Any Hour Group, LLC's Needs
+- ABC Corporation Reporting Challenges
+- Microsoft Data Strategy
+- XYZ Bank Current State Assessment
+
+GOOD:
+
+- Client Requirements Alignment
+- Reporting Challenges
+- Data Strategy
+- Current State Assessment
+
+BAD:
+
+- Any Hour Group Business Objectives
+- ABC Manufacturing Future Vision
+
+GOOD:
+
+- Business Objectives
+- Future State Vision
+
+If a heading contains a client name or company name:
+
+1. Preserve the original content exactly.
+2. Replace only the heading with a generalized business-oriented heading.
+3. Use terminology commonly found in consulting proposals and enterprise knowledge bases.
+
+Examples:
+
+Original Heading:
+"Alignment with Any Hour Group, LLC's Needs"
+
+Return:
+"Client Requirements Alignment"
+
+Original Heading:
+"ABC Corporation Reporting Challenges"
+
+Return:
+"Reporting Challenges"
+
+Original Heading:
+"Microsoft Data Platform Strategy"
+
+Return:
+"Data Platform Strategy"
+
+Original Heading:
+"XYZ Bank Business Objectives"
+
+Return:
+"Business Objectives"
+
+The generated section and subsection names should be reusable across different clients while preserving the original content.
+
+
+=====================================================
+PROPOSAL
+=====================================================
+
 {passage}
 """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 PROMPT_WITHOUT_HEADINGS = """
 You are an expert Proposal Knowledge Base Analyst.
 
-The provided passage originates from an existing proposal, RFP response, statement of work, consulting deliverable, or enterprise knowledge-base document.
+The provided document is a complete proposal.
 
-The passage does NOT contain subsection headings.
+The proposal may contain missing headings, inconsistent formatting, or flattened content resulting from PDF extraction.
 
-Your objective is to reconstruct the most appropriate business-oriented subsection structure that would likely have existed if the document had originally been authored using proposal best practices.
+Your objective is to reconstruct the proposal hierarchy.
 
-Tasks:
+=====================================================
+TASKS
+=====================================================
 
 1. Extract Solution.
 
 Allowed Values:
 
-* Core Reporting
-* Due Diligence
-* Data Advisory
-* Value Creation
-* Exit Prep
+- Core Reporting
+- Due Diligence
+- Data Advisory
+- Value Creation
+- Exit Prep
 
 2. Extract Region.
 
 Allowed Values:
 
-* US
-* UK
-* Europe
+- US
+- UK
+- Europe
 
-3. Use the provided Main Section exactly as given.
+3. Identify logical MAIN SECTIONS within the proposal.
 
-4. Analyze the passage and identify distinct business concepts, topics, objectives, challenges, requirements, approaches, findings, or recommendations.
+Examples:
 
-5. Generate meaningful business-oriented subsection names.
+- Business Context
+- Current State
+- Problem Statement
+- Objectives
+- Deliverables
+- Approach
+- Outcomes
+- Business Impact
 
-6. Split the passage into logical subsection passages.
+These are examples only.
 
-Subsection Naming Guidelines:
+Create section names that best match the content.
 
-Common proposal subsection examples include:
+4. Within each section:
 
-* Client Overview
-* Business Context
-* Industry Context
-* Current State Assessment
-* Existing Landscape
-* Current Challenges
-* Business Drivers
-* Strategic Objectives
-* Business Objectives
-* Reporting Requirements
-* Data Challenges
-* Governance Considerations
-* Stakeholder Considerations
-* Solution Overview
-* Proposed Approach
-* Future State Vision
-* Benefits and Value
-* Risk Considerations
-* Implementation Considerations
-* Expected Outcomes
+- Identify distinct business concepts.
+- Create meaningful subsection names.
+- Assign content to the most appropriate subsection.
 
-Important:
+5. If a section contains only a single business concept:
 
-* The above list is guidance only.
-* Do NOT force content into one of these subsection names.
-* If the content represents a different business concept, generate a more suitable business-oriented subsection name.
-* Always prioritize semantic alignment with the content over matching the example list.
+Return:
 
-Subsection Naming Rules:
+Example:
 
-* Every subsection name must represent a clear business concept.
-* Every subsection name should be meaningful when viewed independently.
-* Use terminology commonly found in consulting proposals, transformation programs, data and analytics engagements, business strategy documents, and enterprise knowledge bases.
-* Prefer specific business terminology over generic terminology.
-* Generate subsection names that improve future semantic search and retrieval.
+{{
+    "section_name": "Business Context",
+    "content": "...",
+    "subsections": []
+}}
 
-Do NOT generate generic subsection names such as:
+Do NOT create unnecessary subsection headings.
 
-* Introduction
-* Overview
-* Details
-* Information
-* Miscellaneous
-* Topic
-* Section
-* Part
-* Notes
-* Content
+=====================================================
+SECTION NAMING RULES
+=====================================================
 
-Passage Processing Rules:
+Section names should:
 
-* Preserve the original content exactly.
-* Do not summarize.
-* Do not rewrite.
-* Do not paraphrase.
-* Do not hallucinate additional content.
-* Divide the passage logically based on business meaning.
-* Create multiple subsections when multiple business concepts are present.
-* Do not merge unrelated business concepts into a single subsection.
+- Represent major proposal themes.
+- Follow consulting and proposal terminology.
+- Improve future retrieval quality.
+- Be meaningful when viewed independently.
 
-Output Rules:
+Avoid generic names such as:
 
-* Return structured output only.
-* Return only valid values for Solution and Region.
-* Use the provided Main Section exactly as given.
+- Introduction
+- Overview
+- Details
+- Information
+- Content
+- Miscellaneous
 
-Main Section:
-{main_section}
+=====================================================
+SUBSECTION NAMING RULES
+=====================================================
 
-Passage:
+Subsection names should:
+
+- Represent a specific business concept.
+- Improve semantic retrieval.
+- Use proposal terminology.
+- Be meaningful independently.
+
+Examples:
+
+- Business Context
+- Current Challenges
+- Problem Statement
+- Strategic Objectives
+- Proposed Solution
+- Future State Vision
+- Stakeholder Requirements
+- Data Challenges
+- Reporting Requirements
+- Benefits and Value
+- Expected Outcomes
+
+Use these as guidance only.
+
+=====================================================
+CONTENT RULES
+=====================================================
+
+- Preserve original content exactly.
+- Do not summarize.
+- Do not rewrite.
+- Do not paraphrase.
+- Do not hallucinate information.
+- Split content logically.
+- Keep related content together.
+- Create multiple subsections only when necessary.
+
+=====================================================
+OUTPUT RULES
+=====================================================
+
+Return structured output only.
+
+Return:
+
+- solution
+- region
+- sections
+
+Each section must contain:
+
+- section_name
+- content
+- subsections
+
+Each subsection must contain:
+
+- subsection_name
+- content
+
+=====================================================
+PROPOSAL
+=====================================================
+
 {passage}
 """
