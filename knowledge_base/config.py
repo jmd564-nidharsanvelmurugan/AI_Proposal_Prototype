@@ -1,7 +1,8 @@
+import os
 from typing import List
 from pydantic import BaseModel
 from dotenv import load_dotenv
-from langchain_groq import ChatGroq
+from langchain_openai import AzureChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
 from prompts import (
@@ -34,17 +35,18 @@ class ProposalKB(BaseModel):
 
 
 # =====================================================
-# LLM Setup
+# LLM Setup — Azure OpenAI (replaces Groq)
 # =====================================================
 
-llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
-    temperature=0
+llm = AzureChatOpenAI(
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    api_key=os.getenv("AZURE_OPENAI_KEY"),
+    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT_MODEL_NAME_1"),
+    api_version="2023-06-01-preview",
+    temperature=0,
 )
 
-structured_llm = llm.with_structured_output(
-    ProposalKB
-)
+structured_llm = llm.with_structured_output(ProposalKB)
 
 
 # =====================================================
@@ -52,16 +54,9 @@ structured_llm = llm.with_structured_output(
 # =====================================================
 
 def get_prompt(option: int):
-
     if option == 1:
-        return ChatPromptTemplate.from_template(
-            PROMPT_WITH_HEADINGS
-        )
-
-    return ChatPromptTemplate.from_template(
-        PROMPT_WITHOUT_HEADINGS
-    )
-
+        return ChatPromptTemplate.from_template(PROMPT_WITH_HEADINGS)
+    return ChatPromptTemplate.from_template(PROMPT_WITHOUT_HEADINGS)
 
 
 def get_passages():
@@ -70,11 +65,11 @@ Proposal Document
  
 1 Business Context
  
-Any Hour Group, LLC operates as a B2B SaaS provider within the United States, delivering technology solutions tailored to meet the evolving needs of its enterprise clients. The company’s business model centers on subscription-based software offerings, which necessitate a robust and scalable data infrastructure to support ongoing customer engagement and retention efforts.
+Any Hour Group, LLC operates as a B2B SaaS provider within the United States, delivering technology solutions tailored to meet the evolving needs of its enterprise clients. The company's business model centers on subscription-based software offerings, which necessitate a robust and scalable data infrastructure to support ongoing customer engagement and retention efforts.
  
 As a portfolio company under a private equity fund, Any Hour Group, LLC is positioned at a critical juncture where optimizing operational efficiencies and maximizing customer lifetime value are paramount. The existing data platform infrastructure provides a foundational capability for advanced analytics and business intelligence, enabling the organization to monitor key performance indicators and respond proactively to market dynamics.
  
-The focus on churn reduction underscores the strategic importance of leveraging data-driven insights to enhance customer retention. This emphasis aligns with the broader commercial imperative to sustain recurring revenue streams and drive long-term growth within a competitive SaaS landscape. The project’s design and discovery phase will build upon the current data platform to deepen understanding of customer behavior and identify actionable opportunities to mitigate attrition risks.
+The focus on churn reduction underscores the strategic importance of leveraging data-driven insights to enhance customer retention. This emphasis aligns with the broader commercial imperative to sustain recurring revenue streams and drive long-term growth within a competitive SaaS landscape. The project's design and discovery phase will build upon the current data platform to deepen understanding of customer behavior and identify actionable opportunities to mitigate attrition risks.
  
 2 Our Understanding of your needs
  
@@ -96,9 +91,9 @@ To address these challenges, we propose a comprehensive due diligence approach f
  
 • Align data governance and quality frameworks to ensure reliability and compliance across the data lifecycle.
  
-2.3 Alignment with Any Hour Group, LLC’s Needs
+2.3 Alignment with Any Hour Group, LLC's Needs
  
-This solution is precisely aligned with Any Hour Group, LLC’s strategic objectives and operational context:
+This solution is precisely aligned with Any Hour Group, LLC's strategic objectives and operational context:
  
 • Enhances Existing Infrastructure: Builds upon the current data platform, leveraging existing investments while addressing critical limitations.
  
@@ -120,13 +115,13 @@ a. Comprehensive Due Diligence Assessment
 Conduct a thorough evaluation of the existing data platform infrastructure to identify strengths, gaps, and opportunities related to churn management within the SaaS B2B environment.
  
 b. Churn Reduction Strategy Development
-Define actionable insights and strategic recommendations aimed at reducing customer churn, leveraging data-driven analysis tailored to the client’s commercial use case.
+Define actionable insights and strategic recommendations aimed at reducing customer churn, leveraging data-driven analysis tailored to the client's commercial use case.
  
 c. Data Platform Optimization
 Assess and design enhancements to the current data platform to improve data integration, quality, and accessibility, enabling more effective churn analytics and reporting.
  
 d. Alignment with Private Equity Objectives
-Ensure that all findings and proposed solutions align with the expectations and value creation goals of Any Hour Group, LLC’s private equity stakeholders.
+Ensure that all findings and proposed solutions align with the expectations and value creation goals of Any Hour Group, LLC's private equity stakeholders.
  
 e. Roadmap for Implementation
 Deliver a clear, prioritized roadmap outlining next steps for technology and process improvements, supporting scalable and sustainable churn management capabilities.
@@ -151,7 +146,7 @@ A clear articulation of churn-related business and technical use cases, includin
 b. Data Platform Evaluation and Recommendations
  
 • Data Architecture Review
-An evaluation of the current data platform’s architecture with respect to scalability, data quality, and integration capabilities relevant to churn analysis.
+An evaluation of the current data platform's architecture with respect to scalability, data quality, and integration capabilities relevant to churn analysis.
  
 • Gap Analysis and Roadmap
 Identification of critical gaps in data collection, processing, and reporting, accompanied by a prioritized roadmap for enhancements.
@@ -184,11 +179,11 @@ Each deliverable will be developed with a focus on enabling Any Hour Group, LLC 
  
 5 Approach :
  
-Any Hour Group, LLC’s engagement is designed to address the unique challenges and opportunities inherent in their SaaS-based, B2B business model, with a specific focus on churn reduction through a robust data platform. Recognizing the complexity of the existing data infrastructure and the criticality of aligning with private equity stakeholders’ expectations, our approach is meticulously tailored to deliver actionable insights and strategic value. This engagement leverages a phased methodology that balances thorough discovery with pragmatic design, ensuring that solutions are both innovative and implementable within the defined timeline.
+Any Hour Group, LLC's engagement is designed to address the unique challenges and opportunities inherent in their SaaS-based, B2B business model, with a specific focus on churn reduction through a robust data platform. Recognizing the complexity of the existing data infrastructure and the criticality of aligning with private equity stakeholders' expectations, our approach is meticulously tailored to deliver actionable insights and strategic value. This engagement leverages a phased methodology that balances thorough discovery with pragmatic design, ensuring that solutions are both innovative and implementable within the defined timeline.
  
 Phase 1: Design & Discovery, Duration: 6 weeks, Timeline: Week 1 to Week 6
 Summary:
-This initial phase focuses on gaining a comprehensive understanding of Any Hour Group, LLC’s current data landscape, business objectives, and churn-related challenges. It establishes the foundation for a data platform that supports precise churn analytics and decision-making.  
+This initial phase focuses on gaining a comprehensive understanding of Any Hour Group, LLC's current data landscape, business objectives, and churn-related challenges. It establishes the foundation for a data platform that supports precise churn analytics and decision-making.  
  
 Activities:  
  
@@ -204,7 +199,7 @@ Activities:
  
 • Validate findings and design approach with client leadership and technical teams
  
-This structured approach ensures that the engagement is grounded in a deep understanding of Any Hour Group, LLC’s operational realities and strategic priorities, enabling the delivery of a data platform that drives measurable improvements in customer retention and business performance.
+This structured approach ensures that the engagement is grounded in a deep understanding of Any Hour Group, LLC's operational realities and strategic priorities, enabling the delivery of a data platform that drives measurable improvements in customer retention and business performance.
  
 6 Outcomes :
  
@@ -216,7 +211,7 @@ Expected Results
  
 • Optimized Data Platform Utilization: Enhancement of the current data platform to support scalable analytics and reporting tailored to churn management.
  
-• Strategic Alignment: Clear articulation of business and technical requirements that align with Any Hour Group’s growth objectives and PE fund expectations.
+• Strategic Alignment: Clear articulation of business and technical requirements that align with Any Hour Group's growth objectives and PE fund expectations.
  
 • Risk Mitigation: Early identification of potential churn risks through data-driven discovery, reducing revenue leakage and improving customer lifetime value.
  
@@ -230,7 +225,7 @@ Expected Results
  
 • Data-Driven Culture: Strengthening the data platform fosters a culture of analytics-led decision-making across the organization.
  
-• Investment Confidence: Providing transparent, data-backed insights supports the PE fund’s oversight and strategic investment decisions.
+• Investment Confidence: Providing transparent, data-backed insights supports the PE fund's oversight and strategic investment decisions.
  
 • Scalable Foundation: Establishing a scalable data architecture that supports future analytics initiatives beyond churn management.
  
