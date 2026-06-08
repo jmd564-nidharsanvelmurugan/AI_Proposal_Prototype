@@ -316,10 +316,7 @@ def iterateor(response_iter , reponse_type = 2 , questionnaire = ""):
 })
     
 
-    text = input("continue - c/quit  SECTION - q")
-
-    if text == "q":
-      return all_generated
+    
     
 
  return all_generated

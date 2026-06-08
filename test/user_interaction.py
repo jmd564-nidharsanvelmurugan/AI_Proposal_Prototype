@@ -454,9 +454,7 @@ response = {
 # Generate Queries
 # =====================================================
 
-choice = input(
-    "\nGenerate retrieval queries? (yes/no): "
-).strip().lower()
+choice = "yes"
 
 if choice == "yes":
 
