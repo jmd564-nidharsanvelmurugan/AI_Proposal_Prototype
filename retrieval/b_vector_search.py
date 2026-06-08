@@ -62,10 +62,10 @@ def vector_search(
             x["distance"]
     )
 
-    print("@@@@@@@@@@@@@")
-    print("Vector result")
-    print(results)
-    print("@@@@@@@@@@@@@")
+    # print("@@@@@@@@@@@@@")
+    # print("Vector result")
+    # print(results)
+    # print("@@@@@@@@@@@@@")
 
     # print(results)
 

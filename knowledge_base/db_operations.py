@@ -57,7 +57,6 @@ def build_child_schemas(document_id: str, result):
         embedding = generate_embedding(subsection.subsection_passage)
         
         child_schemas.append({
-            "document_id": document_id,
             "id": child_id,
             "section": result.section,
             "subsection": subsection.subsection_name,

@@ -1,0 +1,191 @@
+[
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_BUS_001",
+    "section": "Business Context",
+    "subsection": "Financial Services Industry Overview",
+    "chunk_type": "child",
+    "actual_text_data": "ABC Financial Services operates in retail banking, commercial lending, and wealth management requiring SOX-compliant executive reporting with Azure cloud infrastructure.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_BUS_002",
+    "section": "Business Context",
+    "subsection": "Retail Banking Business Model",
+    "chunk_type": "child",
+    "actual_text_data": "Retail banking division serves B2B customers with manual KPI consolidation across SQL Server databases and Salesforce CRM requiring dashboard automation.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_BUS_003",
+    "section": "Business Context",
+    "subsection": "Commercial Lending Market Trends",
+    "chunk_type": "child",
+    "actual_text_data": "Commercial lending faces competitive pressure requiring real-time revenue trend analysis and anomaly detection using predictive forecasting models.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OVR_001",
+    "section": "Overview",
+    "subsection": "Current State of Finance and Operations Teams",
+    "chunk_type": "child",
+    "actual_text_data": "Finance and operations teams manually prepare duplicate reports using Excel and Power BI due to disconnected SQL Server and CRM systems.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OVR_002",
+    "section": "Overview",
+    "subsection": "Overview of Existing SQL Server and Salesforce Systems",
+    "chunk_type": "child",
+    "actual_text_data": "Current architecture uses SQL Server for transactional data and Salesforce for CRM with no integration between ERP and finance systems.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OVR_003",
+    "section": "Overview",
+    "subsection": "Challenges with Manual Report Preparation and KPI Consolidation",
+    "chunk_type": "child",
+    "actual_text_data": "Manual reporting causes slow report generation, inconsistent KPIs across departments, and delayed executive visibility into business performance.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_UND_001",
+    "section": "Understanding",
+    "subsection": "Leadership Visibility into Business Performance",
+    "chunk_type": "child",
+    "actual_text_data": "Chief Data Officer and CFO lack timely visibility into revenue trends and operational performance due to fragmented reporting systems.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_UND_002",
+    "section": "Understanding",
+    "subsection": "Inconsistent KPIs and Manual Reporting Pain Points",
+    "chunk_type": "child",
+    "actual_text_data": "Multiple teams prepare duplicate reports causing inconsistent KPI definitions and delayed decision-making for executive leadership.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_UND_003",
+    "section": "Understanding",
+    "subsection": "Process Inefficiencies in Report Generation and Distribution",
+    "chunk_type": "child",
+    "actual_text_data": "Report generation requires manual data extraction from SQL Server and Salesforce followed by Excel consolidation before Power BI visualization.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OBJ_001",
+    "section": "Objectives",
+    "subsection": "Centralized Enterprise Reporting Platform Vision",
+    "chunk_type": "child",
+    "actual_text_data": "Long-term vision requires enterprise analytics platform capable of supporting future acquisitions and integrating with CRM, ERP, and HR systems.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OBJ_002",
+    "section": "Objectives",
+    "subsection": "Automating Executive Reporting and KPI Distribution Processes",
+    "chunk_type": "child",
+    "actual_text_data": "Automate monthly executive reporting and daily KPI distribution with self-service dashboards for finance analysts and operations managers.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OBJ_003",
+    "section": "Objectives",
+    "subsection": "Enhancing Leadership Insights with Revenue Trends and Operational Performance",
+    "chunk_type": "child",
+    "actual_text_data": "Enable predictive forecasting and anomaly detection using AI to identify revenue trends and operational performance issues proactively.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_DEL_001",
+    "section": "Deliverables",
+    "subsection": "Discovery Report and Solution Architecture Expectations",
+    "chunk_type": "child",
+    "actual_text_data": "Discovery Report documents current state analysis with high-level solution architecture diagram showing Azure, Power BI, and data integration patterns.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_DEL_002",
+    "section": "Deliverables",
+    "subsection": "Wireframes and Roadmap Development",
+    "chunk_type": "child",
+    "actual_text_data": "Wireframes for executive KPI dashboard and 6-month phased roadmap with resource allocation and dependency management for ERP integration.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_DEL_003",
+    "section": "Deliverables",
+    "subsection": "Technical Detail and POC Requirements",
+    "chunk_type": "child",
+    "actual_text_data": "Proof-of-concept delivers working executive dashboard with SQL Server and Salesforce integration, limited budget and timeline constraints apply.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_APP_001",
+    "section": "Approach",
+    "subsection": "Batch and Near Real-Time Processing Considerations",
+    "chunk_type": "child",
+    "actual_text_data": "Daily batch processing for historical reporting with near real-time streaming for critical KPIs using Azure Event Hub and Power BI DirectQuery.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_APP_002",
+    "section": "Approach",
+    "subsection": "APIs and Required Reports for Executive KPI Dashboard",
+    "chunk_type": "child",
+    "actual_text_data": "Leverage Salesforce and ERP REST APIs to extract data for executive dashboard showing revenue, pipeline, churn, and upsell metrics.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_APP_003",
+    "section": "Approach",
+    "subsection": "Approval Workflows and Executive KPI Alerts",
+    "chunk_type": "child",
+    "actual_text_data": "Implement Power Automate approval workflows for report distribution with email alerts triggered when KPIs exceed defined thresholds.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OUT_001",
+    "section": "Outcomes",
+    "subsection": "Expected Business Outcomes and Improved Decision-Making",
+    "chunk_type": "child",
+    "actual_text_data": "Enable data-driven decisions with 70% faster reporting cycles and real-time visibility into business performance across all divisions.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OUT_002",
+    "section": "Outcomes",
+    "subsection": "KPIs for Reporting Cycle Time and Dashboard Adoption",
+    "chunk_type": "child",
+    "actual_text_data": "Track reporting cycle time reduction from 5 days to 1.5 days and executive dashboard adoption rate target of 90% within 3 months.",
+    "vector_embedding": []
+  },
+  {
+    "document_id": "PROP001",
+    "id": "CHILD_OUT_003",
+    "section": "Outcomes",
+    "subsection": "Risks and Success Criteria for Reporting Cycle Reduction",
+    "chunk_type": "child",
+    "actual_text_data": "Risk of poor executive visibility mitigated by weekly steering committee reviews with success measured by 70% reporting cycle reduction.",
+    "vector_embedding": []
+  }
+]

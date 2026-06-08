@@ -1,9 +1,10 @@
-from a_metadata_filter import get_candidate_chunks
-from b_subsection_filter import subsection_filter
-from b_keyword_search import keyword_search
-from b_vector_search import vector_search
-from c_hybrid_merger import hybrid_merge
-from e_mmr_dedup import mmr_dedup
+from .a_metadata_filter import get_candidate_chunks
+from .b_subsection_filter import subsection_filter
+from .b_keyword_search import keyword_search
+from .b_vector_search import vector_search
+from .c_hybrid_merger import hybrid_merge
+from .e_mmr_dedup import mmr_dedup
+from .g_generation import generate_content
 
 # ---------------------------------------------------
 # Iterate through generated template
@@ -11,8 +12,8 @@ from e_mmr_dedup import mmr_dedup
 
 all_results = {}
 
-
-response = {
+all_generated = []
+response_exmaple = {
     "metadata": {
         "business_offering": "Financial Services",
         "solution": "Data Advisory",
@@ -147,7 +148,19 @@ response = {
     ]
 }
 
-for section in response["sections"]:
+
+
+
+def iterateor(response_iter , reponse_type = 2 , questionnaire = ""):
+
+ response = {}
+
+ if reponse_type == 1:
+    response = response_iter
+ else:
+    response = response_exmaple
+
+ for section in response["sections"]:
 
     section_name = section["section"]
 
@@ -162,8 +175,8 @@ for section in response["sections"]:
         subsection_name = subsection["subsection"]
         query = subsection["query"]
 
-        print(f"\nSubsection : {subsection_name}")
-        print(f"Query      : {query}")
+        # print(f"\nSubsection : {subsection_name}")
+        # print(f"Query      : {query}")
 
         request = {
             "solution": response["metadata"]["solution"],
@@ -173,18 +186,24 @@ for section in response["sections"]:
             "query": query
         }
 
+        print("REQUEST*** :" , request)
+
         # -----------------------------------
         # STEP 1
         # Metadata Filter
         # -----------------------------------
 
-        child_ids = get_candidate_chunks(
+        child_ids = (get_candidate_chunks(
             request
-        )
+        ))
 
         print(
-            f"Candidate Chunks: {len(child_ids)}"
-        )
+    "\nCandidate Child IDs:\n"
+)
+
+        print(
+    child_ids
+)
 
         # -----------------------------------
         # STEP 2
@@ -251,13 +270,59 @@ for section in response["sections"]:
             hybrid_results
         )
 
-        print(
-            f"Final Results: {len(final_results)}"
-        )
+        # print(
+        #     f"Final Results: {len(final_results)}"
+        # )
+
+        for chunk in final_results:
+            print(chunk["chunk_id"],
+            "|",
+            chunk["similarity"],
+            "|",
+            chunk["text"])
+
+        # generated_subsection = 
 
         all_results[section_name][subsection_name] = final_results
 
-        # text = input("continue - c/quit - q")
+    section_wise = {
+    "section": section_name,
+    "sub_sections": all_results[section_name]
+   }
+   
 
-        # if text == "q":
-        #    exit()
+
+    
+
+    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    print(section_wise)
+    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+
+    
+    
+    print("Generated Content : ")
+    generated_section = generate_content(
+    questionnaire=questionnaire,
+    section=section_name,
+    sub_sections=all_results[section_name],
+    metadata=response_iter["metadata"]
+    )
+
+
+
+    all_generated.append({
+    "section": section_name,
+    "generated_content": generated_section
+})
+    
+
+    text = input("continue - c/quit  SECTION - q")
+
+    if text == "q":
+      return all_generated
+    
+
+ return all_generated
+    
+
+    

@@ -142,6 +142,7 @@ def subsection_filter(
             x["subsection_score"],
             reverse=True
         )
+    # print(results)
 
     cur.close()
     conn.close()

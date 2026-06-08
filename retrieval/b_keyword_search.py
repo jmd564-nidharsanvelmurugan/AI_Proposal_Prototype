@@ -64,9 +64,9 @@ def keyword_search(
             x["keyword_score"],
         reverse=True
     )
-    print("@@@@@@@@@@@@@")
-    print("Keyword result")
-    print(results)
-    print("@@@@@@@@@@@@@")
+    # print("@@@@@@@@@@@@@")
+    # print("Keyword result")
+    # print(results)
+    # print("@@@@@@@@@@@@@")
 
     return results

@@ -6,6 +6,23 @@ import json
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 
+import sys
+import os
+
+import json 
+
+project_root = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..")
+)
+
+sys.path.insert(0, project_root)
+
+# print("project_root =", project_root)
+# print("sys.path[0] =", sys.path[0])
+
+from retrieval.int_start import iterateor
+
+
 load_dotenv()
 
 # =====================================================
@@ -521,14 +538,36 @@ response = {
 # Display
 # =====================================================
 
-print(
-    json.dumps(
-        response,
-        indent=4
-    )
+# print(
+#     json.dumps(
+#         response,
+#         indent=4
+#     )
+# )
+
+
+
+
+print("######################################################")
+print("Calling Iterator .... ")
+
+
+
+word_doc = iterateor(
+    response_iter=response,
+    reponse_type=2,
+    questionnaire=questionnaire
 )
 
+# Pretty print
+print("WORD DOC")
+print(json.dumps(word_doc, indent=4, ensure_ascii=False))
 
+# Save to file
+with open("generated_proposal.json", "w", encoding="utf-8") as f:
+    json.dump(word_doc, f, indent=4, ensure_ascii=False)
+
+print("Saved to generated_proposal.json")
 
 
 
