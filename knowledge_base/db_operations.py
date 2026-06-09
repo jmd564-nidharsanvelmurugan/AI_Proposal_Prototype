@@ -48,6 +48,9 @@ def build_parent_schema(
     section_name: str,
     section_text: str
 ):
+    embedding = generate_embedding(
+            section_text
+        )
 
     return {
 
@@ -86,7 +89,7 @@ def build_parent_schema(
 
         "actual_text_data": section_text,
 
-        "vector_embedding": [],
+        "vector_embedding": embedding,
 
         "child_chunks": []
     }
@@ -149,13 +152,14 @@ def insert_parent_chunk(
             section,
             chunk_type,
             actual_text_data,
+            embedding,
             child_chunks
         )
         VALUES
         (
             %s,%s,%s,%s,%s,
             %s,%s,%s,%s,%s,
-            %s,%s,%s,%s,%s
+            %s,%s,%s,%s,%s,%s
         )
         """,
         (
@@ -194,6 +198,8 @@ def insert_parent_chunk(
             parent_schema["chunk_type"],
 
             parent_schema["actual_text_data"],
+
+            parent_schema["vector_embedding"],
 
             json.dumps(
                 parent_schema["child_chunks"]
