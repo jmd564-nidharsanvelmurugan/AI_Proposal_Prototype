@@ -1,6 +1,7 @@
 import json
+import uuid
 import psycopg2
-
+from typing import List, Dict, Any
 from sentence_transformers import SentenceTransformer
 
 
@@ -13,8 +14,8 @@ model = SentenceTransformer(
 )
 
 
-def generate_embedding(text: str):
-
+def generate_embedding(text: str) -> List[float]:
+    """Generate normalized embedding for text."""
     return model.encode(
         text,
         normalize_embeddings=True
@@ -26,7 +27,7 @@ def generate_embedding(text: str):
 # =====================================================
 
 def get_db_connection():
-
+    """Create and return database connection."""
     return psycopg2.connect(
         host="localhost",
         port="5432",
@@ -40,106 +41,102 @@ def get_db_connection():
 # Parent Builder
 # =====================================================
 
+def build_proposal_schema():
+
+
+
 def build_parent_schema(
     document_id: str,
     parent_id: str,
+    business_offering: str,
     solution: str,
     region: str,
+    project_type: str,
+    commercial_use_case: str,
+    technical_use_case: str,
+    business_model: str,
+    existing_infra: str,
+    pe_relationship: str,
     section_name: str,
-    section_text: str
-):
-    embedding = generate_embedding(
-            section_text
-        )
+    section_text: str,
+    child_chunks: List[Dict[str, Any]]
+) -> Dict[str, Any]:
+    """
+    Build parent chunk schema with flat metadata structure and embedding.
+    """
+    embedding = generate_embedding(section_text)
 
     return {
-
         "document_id": document_id,
-
         "id": parent_id,
-
-        "metadata_keywords": {
-
-            "business_offering": "",
-            "solution": solution,
-            "region": region,
-
-            "project_type":
-            "Design and Discovery",
-
-            "commercial_use_case":
-            "Operational Reporting",
-
-            "technical_use_case":
-            "Data Platform",
-
-            "business_model":
-            "B2B",
-
-            "existing_infra":
-            "Yes",
-
-            "pe_relationship":
-            "PE Portco"
-        },
-
+        "business_offering": business_offering,
+        "solution": solution,
+        "region": region,
+        "project_type": project_type,
+        "commercial_use_case": commercial_use_case,
+        "technical_use_case": technical_use_case,
+        "business_model": business_model,
+        "existing_infra": existing_infra,
+        "pe_relationship": pe_relationship,
         "section": section_name,
-
         "chunk_type": "parent",
-
         "actual_text_data": section_text,
-
-        "vector_embedding": embedding,
-
-        "child_chunks": []
+        "embedding": embedding,
+        "child_chunks": child_chunks
     }
 
 
 # =====================================================
 # Child Builder
 # =====================================================
+
 def build_child_schemas(
     document_id: str,
     section_name: str,
     subsections
-):
-
+) -> List[Dict[str, Any]]:
+    """
+    Build child chunk schemas for each subsection.
+    """
     child_schemas = []
 
     for subsection in subsections:
-
-        embedding = generate_embedding(
-            subsection.content
-        )
+        # Generate unique ID for each child chunk
+        child_id = str(uuid.uuid4())
+        
+        embedding = generate_embedding(subsection.content)
 
         child_schemas.append({
+            "id": child_id,
             "document_id": document_id,
             "section": section_name,
             "subsection": subsection.subsection_name,
-            "chunk_type": "child",
+            "subsection_name": subsection.subsection_name,  # For reference
             "actual_text_data": subsection.content,
-            "vector_embedding": embedding
+            "embedding": embedding
         })
 
     return child_schemas
 
 
+
+
+def insert_proposal_data():
+    
 # =====================================================
 # Insert Parent
 # =====================================================
 
-def insert_parent_chunk(
-    cursor,
-    conn,
-    parent_schema
-):
-
+def insert_parent_chunk(cursor, conn, parent_schema: Dict[str, Any]) -> None:
+    """
+    Insert a parent chunk into the database using flat metadata structure.
+    """
     cursor.execute(
         """
         INSERT INTO parent_chunks
         (
-            document_id,
             id,
+            document_id,
             business_offering,
             solution,
             region,
@@ -155,55 +152,25 @@ def insert_parent_chunk(
             embedding,
             child_chunks
         )
-        VALUES
-        (
-            %s,%s,%s,%s,%s,
-            %s,%s,%s,%s,%s,
-            %s,%s,%s,%s,%s,%s
-        )
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """,
         (
-            parent_schema["document_id"],
             parent_schema["id"],
-
-            parent_schema["metadata_keywords"]
-            ["business_offering"],
-
-            parent_schema["metadata_keywords"]
-            ["solution"],
-
-            parent_schema["metadata_keywords"]
-            ["region"],
-
-            parent_schema["metadata_keywords"]
-            ["project_type"],
-
-            parent_schema["metadata_keywords"]
-            ["commercial_use_case"],
-
-            parent_schema["metadata_keywords"]
-            ["technical_use_case"],
-
-            parent_schema["metadata_keywords"]
-            ["business_model"],
-
-            parent_schema["metadata_keywords"]
-            ["existing_infra"],
-
-            parent_schema["metadata_keywords"]
-            ["pe_relationship"],
-
+            parent_schema["document_id"],
+            parent_schema["business_offering"],
+            parent_schema["solution"],
+            parent_schema["region"],
+            parent_schema["project_type"],
+            parent_schema["commercial_use_case"],
+            parent_schema["technical_use_case"],
+            parent_schema["business_model"],
+            parent_schema["existing_infra"],
+            parent_schema["pe_relationship"],
             parent_schema["section"],
-
             parent_schema["chunk_type"],
-
             parent_schema["actual_text_data"],
-
-            parent_schema["vector_embedding"],
-
-            json.dumps(
-                parent_schema["child_chunks"]
-            )
+            parent_schema["embedding"],
+            json.dumps(parent_schema["child_chunks"])
         )
     )
 
@@ -214,37 +181,31 @@ def insert_parent_chunk(
 # Insert Child
 # =====================================================
 
-def insert_child_chunks(
-    cursor,
-    conn,
-    child_schemas
-):
-
+def insert_child_chunks(cursor, conn, child_schemas: List[Dict[str, Any]]) -> None:
+    """
+    Insert multiple child chunks into the database.
+    """
     for child in child_schemas:
-
         cursor.execute(
             """
             INSERT INTO child_chunks
             (
-                document_id,
                 id,
+                document_id,
                 section,
                 subsection,
                 actual_text_data,
                 embedding
             )
-            VALUES
-            (
-                %s,%s,%s,%s,%s,%s
-            )
+            VALUES (%s, %s, %s, %s, %s, %s)
             """,
             (
-                child["document_id"],
                 child["id"],
+                child["document_id"],
                 child["section"],
                 child["subsection"],
                 child["actual_text_data"],
-                child["vector_embedding"]
+                child["embedding"]
             )
         )
 
