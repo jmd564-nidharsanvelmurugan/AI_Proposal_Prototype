@@ -128,7 +128,7 @@ Enter Choice:
     pretty_print_metadata(result)
 
     # =================================================
-    # Build Parent + Child Schemas
+    # Generate Document ID
     # =================================================
 
     document_id = (
@@ -136,6 +136,27 @@ Enter Choice:
         f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_"
         f"{uuid4().hex[:6].upper()}"
     )
+
+    # =================================================
+    # Build Proposal Schema
+    # =================================================
+
+    proposal_schema = build_proposal_schema(
+        document_id=document_id,
+        business_offering=result.business_offering,
+        solution=result.solution,
+        region=result.region,
+        project_type=result.project_type,
+        commercial_use_case=result.commercial_use_case,
+        technical_use_case=result.technical_use_case,
+        business_model=result.business_model,
+        existing_infra="Yes" if result.existing_infra_has_data_platform else "No",
+        pe_relationship=result.pe_relationship
+    )
+
+    # =================================================
+    # Build Parent + Child Schemas
+    # =================================================
 
     parent_chunks = []
     child_chunks = []
@@ -180,7 +201,7 @@ Enter Choice:
         )
 
         # ==========================================
-        # Updated: Build Parent Schema with ALL metadata fields
+        # Build Parent Schema with ALL metadata fields
         # ==========================================
 
         parent_schema = build_parent_schema(
@@ -229,16 +250,13 @@ Enter Choice:
         child_chunks.extend(current_childs)
 
     # =================================================
-    # Print
+    # Print Schemas
     # =================================================
 
-    print_schemas(
-        parent_chunks,
-        child_chunks
-    )
+    print_schemas(parent_chunks, child_chunks)
 
     # =================================================
-    # Insert
+    # Insert into Database
     # =================================================
 
     print("\n" + "=" * 100)
@@ -252,25 +270,24 @@ Enter Choice:
         conn = get_db_connection()
         cursor = conn.cursor()
 
-        # Insert child chunks first (no dependencies)
-        insert_child_chunks(
-            cursor,
-            conn,
-            child_chunks
-        )
+        # Insert proposal data first (parent record)
+        insert_proposal_data(cursor, conn, proposal_schema)
+        print(f"✅ Inserted proposal record: {document_id}")
 
-        # Insert parent chunks
+        # Insert child chunks (no dependencies on parent_chunks)
+        insert_child_chunks(cursor, conn, child_chunks)
+        print(f"✅ Inserted {len(child_chunks)} child chunks")
+
+        # Insert parent chunks (references document_id in proposals table)
         for parent in parent_chunks:
-            insert_parent_chunk(
-                cursor,
-                conn,
-                parent
-            )
+            insert_parent_chunk(cursor, conn, parent)
+        print(f"✅ Inserted {len(parent_chunks)} parent chunks")
 
         cursor.close()
         conn.close()
 
-        print(f"\n✅ Successfully stored:")
+        print(f"\n✅ Successfully stored all data:")
+        print(f"   - 1 proposal record")
         print(f"   - {len(parent_chunks)} parent chunks")
         print(f"   - {len(child_chunks)} child chunks")
 

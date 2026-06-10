@@ -38,12 +38,79 @@ def get_db_connection():
 
 
 # =====================================================
-# Parent Builder
+# Proposal Builder
 # =====================================================
 
-def build_proposal_schema():
+def build_proposal_schema(
+    document_id: str,
+    business_offering: str,
+    solution: str,
+    region: str,
+    project_type: str,
+    commercial_use_case: str,
+    technical_use_case: str,
+    business_model: str,
+    existing_infra: str,
+    pe_relationship: str
+) -> Dict[str, Any]:
+    """
+    Build proposal schema for the proposals table.
+    """
+    return {
+        "document_id": document_id,
+        "business_offering": business_offering,
+        "solution": solution,
+        "region": region,
+        "project_type": project_type,
+        "commercial_use_case": commercial_use_case,
+        "technical_use_case": technical_use_case,
+        "business_model": business_model,
+        "existing_infra": existing_infra,
+        "pe_relationship": pe_relationship
+    }
 
 
+def insert_proposal_data(cursor, conn, proposal_schema: Dict[str, Any]) -> None:
+    """
+    Insert proposal data into the proposals table.
+    """
+    cursor.execute(
+        """
+        INSERT INTO proposals
+        (
+            document_id,
+            business_offering,
+            solution,
+            region,
+            project_type,
+            commercial_use_case,
+            technical_use_case,
+            business_model,
+            existing_infra,
+            pe_relationship
+        )
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ON CONFLICT (document_id) DO NOTHING
+        """,
+        (
+            proposal_schema["document_id"],
+            proposal_schema["business_offering"],
+            proposal_schema["solution"],
+            proposal_schema["region"],
+            proposal_schema["project_type"],
+            proposal_schema["commercial_use_case"],
+            proposal_schema["technical_use_case"],
+            proposal_schema["business_model"],
+            proposal_schema["existing_infra"],
+            proposal_schema["pe_relationship"]
+        )
+    )
+    conn.commit()
+
+
+# =====================================================
+# Parent Builder
+# =====================================================
 
 def build_parent_schema(
     document_id: str,
@@ -119,10 +186,6 @@ def build_child_schemas(
     return child_schemas
 
 
-
-
-def insert_proposal_data():
-    
 # =====================================================
 # Insert Parent
 # =====================================================
@@ -173,7 +236,6 @@ def insert_parent_chunk(cursor, conn, parent_schema: Dict[str, Any]) -> None:
             json.dumps(parent_schema["child_chunks"])
         )
     )
-
     conn.commit()
 
 
@@ -208,5 +270,4 @@ def insert_child_chunks(cursor, conn, child_schemas: List[Dict[str, Any]]) -> No
                 child["embedding"]
             )
         )
-
     conn.commit()
