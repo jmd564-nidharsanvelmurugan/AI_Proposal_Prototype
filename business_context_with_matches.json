@@ -264,17 +264,18 @@
         "section_name": "Business Context",
         "subsections": [
             {
-                "subsection": "Industry Trends",
-                "query": "Financial services performance visibility and business intelligence solutions"
+                "subsection": "Financial Trends",
+                "query": "Financial performance visibility for executive leadership in banking sector"
             },
             {
-                "subsection": "Executive Decision-Making",
-                "query": "Financial performance visibility for executive decision making in banking sector"
-            },
-            {
-                "subsection": "Stakeholder Collaboration",
-                "query": "Financial performance visibility for executive leadership stakeholders"
+                "subsection": "Stakeholder Needs",
+                "query": "Financial performance visibility for executive leadership in banking sector"
             }
         ]
+    },
+    "user_preferences": {
+        "included_subsections": true,
+        "included_subsections_count": 2,
+        "queries_generated": true
     }
 }

@@ -162,6 +162,123 @@ def fetch_all_proposals() -> List[ProposalMetadataSchema]:
 
 
 # =====================================================
+# Get Parent Chunks for Specific Proposals and Section
+# =====================================================
+
+def get_parent_chunks_by_document_ids(document_ids: List[str], section_name: str = "Business Context") -> List[Dict[str, Any]]:
+    """
+    Fetch parent chunks for given document IDs and specific section.
+    """
+    if not document_ids:
+        return []
+    
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        dbname="proposal_retrieval",
+        user="postgres",
+        password="postgres"
+    )
+    
+    cur = conn.cursor()
+    
+    # Create placeholders for IN clause
+    placeholders = ','.join(['%s'] * len(document_ids))
+    
+    query = f"""
+        SELECT 
+            id,
+            document_id,
+            section,
+            actual_text_data,
+            child_chunks
+        FROM parent_chunks
+        WHERE document_id IN ({placeholders})
+        AND section = %s
+        ORDER BY document_id
+    """
+    
+    params = document_ids + [section_name]
+    
+    cur.execute(query, params)
+    
+    rows = cur.fetchall()
+    
+    parent_chunks = []
+    
+    for row in rows:
+        parent_chunks.append({
+            "id": row[0],
+            "document_id": row[1],
+            "section": row[2],
+            "actual_text_data": row[3],
+            "child_chunks": row[4]  # Already JSON
+        })
+    
+    cur.close()
+    conn.close()
+    
+    return parent_chunks
+
+
+# =====================================================
+# Get Child Chunks by IDs
+# =====================================================
+
+def get_child_chunks_by_ids(child_ids: List[str]) -> List[Dict[str, Any]]:
+    """
+    Fetch child chunks by their IDs.
+    """
+    if not child_ids:
+        return []
+    
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        dbname="proposal_retrieval",
+        user="postgres",
+        password="postgres"
+    )
+    
+    cur = conn.cursor()
+    
+    # Create placeholders for IN clause
+    placeholders = ','.join(['%s'] * len(child_ids))
+    
+    query = f"""
+        SELECT 
+            id,
+            document_id,
+            section,
+            subsection,
+            actual_text_data
+        FROM child_chunks
+        WHERE id IN ({placeholders})
+        ORDER BY document_id, section, subsection
+    """
+    
+    cur.execute(query, child_ids)
+    
+    rows = cur.fetchall()
+    
+    child_chunks = []
+    
+    for row in rows:
+        child_chunks.append({
+            "id": row[0],
+            "document_id": row[1],
+            "section": row[2],
+            "subsection": row[3],
+            "actual_text_data": row[4]
+        })
+    
+    cur.close()
+    conn.close()
+    
+    return child_chunks
+
+
+# =====================================================
 # Main Function: Get Top N Matching Proposals
 # =====================================================
 
@@ -172,13 +289,6 @@ def get_top_matching_proposals(
     """
     Get top N matching proposals based on weighted scoring.
     Only returns proposal metadata, not chunks.
-    
-    Args:
-        user_input: User's selection criteria
-        top_n: Number of top matching proposals to return
-    
-    Returns:
-        List of matching proposals with scores
     """
     
     print("\n" + "=" * 80)
@@ -223,32 +333,3 @@ def get_top_matching_proposals(
     print("=" * 80)
     
     return results
-
-
-# =====================================================
-# Example Usage
-# =====================================================
-
-if __name__ == "__main__":
-    # Example user input
-    user_input = {
-        "solution": ["Data Advisory", "Exit Prep"],
-        "business_offering": ["Professional Services"],
-        "commercial_use_case": ["Operational Reporting"],
-        "project_type": ["Design and Discovery"],
-        "existing_infra": ["Yes"],
-        "business_model": ["B2B"],
-        "region": ["UK"]
-    }
-    
-    # Get top 5 matching proposals
-    top_proposals = get_top_matching_proposals(
-        user_input=user_input,
-        top_n=5
-    )
-    
-    # Save to file
-    with open("top_matching_proposals.json", "w", encoding="utf-8") as f:
-        json.dump(top_proposals, f, indent=4, ensure_ascii=False)
-    
-    print("\n📁 Saved to: top_matching_proposals.json")
