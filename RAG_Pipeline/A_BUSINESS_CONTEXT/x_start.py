@@ -138,7 +138,7 @@ Questionnaire:
 
 
 # =====================================================
-# Business Context Generation Prompt
+# Business Context Generation Prompt (UPDATED)
 # =====================================================
 
 business_context_prompt = ChatPromptTemplate.from_template(
@@ -147,18 +147,30 @@ You are an expert Proposal Architect.
 
 Generate ONLY the Business Context section structure.
 
-The Business Context section MUST contain these subsections:
+The Business Context section MUST contain these 3 subsections:
 
-1. Industry Drivers
-2. Strategic Rationale
-3. Stakeholder Landscape
+1. Industry Trends (or Industry Drivers)
+2. Executive Decision-Making (or Strategic Rationale)  
+3. Stakeholder Collaboration (or Stakeholder Landscape)
 
-Rules:
-- Generate exactly 3 subsections as listed above.
-- Use questionnaire answers to create business-oriented subsection names.
-- Do not generate content.
-- Generate subsection names only.
-- Avoid generic subsection names.
+RULES FOR SUBSECTION NAMES:
+- Keep names SHORT (2-3 words maximum)
+- Be specific to the client's industry and situation
+- Examples of GOOD short names:
+  * "Industry Trends" (not "Navigating Financial Services Industry Trends")
+  * "Executive Decision-Making" (not "Enhancing Executive Decisions through Timely Insights")
+  * "Stakeholder Collaboration" (not "Collaboration from Key Stakeholders like CDO and CFO")
+
+- Examples of BAD long names to AVOID:
+  * "Navigating Financial Services Industry Trends and Regulatory Pressures"
+  * "Enhancing Executive Decision-Making through Timely Performance Insights"
+  * "Collaboration and Buy-In from Key Stakeholders: CDO, CFO, and Head of Operations"
+
+RULES:
+- Generate exactly 3 subsections.
+- Use questionnaire answers to create short business-oriented subsection names.
+- Do NOT generate content.
+- Generate subsection names only (2-3 words each).
 - Subsections should reflect the client's business situation.
 
 Questionnaire:

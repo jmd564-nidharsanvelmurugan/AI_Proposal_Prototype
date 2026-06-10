@@ -264,16 +264,16 @@
         "section_name": "Business Context",
         "subsections": [
             {
-                "subsection": "Navigating Financial Services Industry Trends and Regulatory Pressures",
-                "query": "Financial services performance visibility regulatory pressures executive leadership"
+                "subsection": "Industry Trends",
+                "query": "Financial services performance visibility and business intelligence solutions"
             },
             {
-                "subsection": "Enhancing Executive Decision-Making through Timely Performance Insights",
+                "subsection": "Executive Decision-Making",
                 "query": "Financial performance visibility for executive decision making in banking sector"
             },
             {
-                "subsection": "Collaboration and Buy-In from Key Stakeholders: CDO, CFO, and Head of Operations",
-                "query": "Financial performance visibility for CDO CFO and operations stakeholders"
+                "subsection": "Stakeholder Collaboration",
+                "query": "Financial performance visibility for executive leadership stakeholders"
             }
         ]
     }
