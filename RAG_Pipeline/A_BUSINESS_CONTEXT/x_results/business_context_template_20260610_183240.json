@@ -1,0 +1,19 @@
+{
+    "business_context": {
+        "section_name": "Business Context",
+        "subsections": [
+            {
+                "subsection_name": "Industry Trends",
+                "query": ""
+            },
+            {
+                "subsection_name": "Executive Decision",
+                "query": ""
+            },
+            {
+                "subsection_name": "Stakeholder Collaboration",
+                "query": ""
+            }
+        ]
+    }
+}
