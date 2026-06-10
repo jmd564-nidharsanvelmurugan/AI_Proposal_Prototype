@@ -129,7 +129,7 @@ OUTPUT RULES
 Return structured output in JSON format with the following fields:
 
 - business_offering (one of: SaaS, Financial Services, Field Services, Professional Services)
-- solution (comma-separated, choose from: Core Reporting, Due Diligence, Data Advisory, Value Creation, Exit Prep)
+- solution (comma-separated, choose from: Core Reporting, Due Diligence, Data Advisory, Value Creation, Exit Prep(don't take more than two, take the most appropriate))
 - region (one of: US, UK, Europe)
 - project_type (one of: Design and Discovery, Build, Both)
 - commercial_use_case (comma-separated, choose from: Revenue bridge, Pipeline, Churn, Upsell/Cross sell, Operational Reporting)
