@@ -128,15 +128,15 @@ OUTPUT RULES
  
 Return structured output in JSON format with the following fields:
 
-- business_offering (comma-separated, choose from: SaaS, Financial Services, Field Services, Professional Services)
+- business_offering (one of: SaaS, Financial Services, Field Services, Professional Services)
 - solution (comma-separated, choose from: Core Reporting, Due Diligence, Data Advisory, Value Creation, Exit Prep)
 - region (one of: US, UK, Europe)
 - project_type (one of: Design and Discovery, Build, Both)
-- commercial_use_case (one of: Revenue bridge, Pipeline, Churn, Upsell/Cross sell, Operational Reporting)
+- commercial_use_case (comma-separated, choose from: Revenue bridge, Pipeline, Churn, Upsell/Cross sell, Operational Reporting)
 - technical_use_case (one of: Data platform, Gen AI, Data science, Full-stack development)
 - business_model (comma-separated, choose from: B2B, B2C, D2C, C2C)
 - existing_infra_has_data_platform (boolean: true or false)
-- pe_relationship (one of: PE Firm, PE Portco, None)
+- pe_relationship (one of: PE Firm, PE Portco)
 - sections (EXACTLY 7 sections - ALL required)
 
 Each section MUST contain:

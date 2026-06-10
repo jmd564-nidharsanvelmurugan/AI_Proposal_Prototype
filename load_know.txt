@@ -1,3 +1,4 @@
+-> BP - done
 -> Sabio  - done
 -> Saffery -  done
 -> Netzero - done
@@ -5,6 +6,5 @@
 -> Prescient - done
 -> Harbor IT - done
 -> K2 - done
--> BIC - excel
--> Kroll  - on
+-> Kroll  - done
 

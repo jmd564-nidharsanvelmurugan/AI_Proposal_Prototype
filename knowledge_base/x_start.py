@@ -102,14 +102,7 @@ def print_schemas(parent_chunks, child_chunks):
 
 def main():
 
-    option = int(input(
-        """
-1 -> Document contains headings
-2 -> Document does not contain headings
-
-Enter Choice:
-"""
-    ))
+    option = 1
 
     passage_1, passage_2 = get_passages()
 

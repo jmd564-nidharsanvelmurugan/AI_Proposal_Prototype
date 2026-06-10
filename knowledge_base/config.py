@@ -70,424 +70,354 @@ def get_prompt(option: int):
 
 
 def get_passages():
-    passage_1 = """
-Context & Objectives 
+    passage_1 = """SOW Terms:  
+
+Scope of Work 
+
+Overview 
+
+Prescient Healthcare Group is a global pharmaceutical strategy and decision‑support consultancy founded in 2007 and headquartered in London, with additional offices in the US, India, and China. The firm works with multinational pharmaceutical companies and emerging biotech organisations to provide clinical, commercial, and competitive insights throughout the drug lifecycle. Prescient has undergone significant private equity ownership changes that have shaped its growth. Baird Capital first invested in the company in 2017, helping expand its data‑driven technology platform and international footprint, and in January 2021, the business was acquired by Bridgepoint. Under Bridgepoint’s ownership, Prescient has continued scaling in a global decision‑support market valued at over $1.4 billion and growing 10–12% annually. Prescient has also executed a buy‑and‑build strategy, acquiring Strategic North and more recently Uptake, with another acquisition expected to complete shortly. These integrations have expanded the organisation’s operational complexity and system landscape. Internally, the leadership team is preparing for a targeted exit within the next ~12 months, increasing the importance of creating a unified data and technology environment, consistent KPIs, and a strong value‑creation narrative for potential investors. 
+
+Current System Landscape 
+
+Prescient’s current technology environment reflects a combination of organic growth and multiple acquisitions, resulting in a fragmented and inconsistent system landscape. The core Prescient business uses Salesforce as its primary CRM platform, Sage Intacct for finance, and Concur for expenses and invoice approvals. Project financials are managed through Kantata, though its configuration and adoption are limited, and it is not widely used for delivery tracking. The HR function currently operates on Oracle, but due to significant data quality issues, including inconsistent organisational hierarchies, the company plans to migrate to BambooHR in the near-term. Reporting across these systems is inconsistent, with most analysis performed through manual Excel extraction and stitching.  
+
+The Uptake acquisition adds further complexity, operating on Xero for finance, CMAP for project management and CRM‑like functionality, and BambooHR for HR. Uptake will be moved onto Salesforce and Sage Intacct, with financial migration planned after its March year‑end close. The upcoming acquisition is expected to introduce another set of systems, including Xero for finance and bespoke internal tools for time, leave, and HR processes. Existing integrations between systems are limited. For example, Kantata and Sage Intacct share customer codes through an API for invoicing, but account setup remains manual, increasing the likelihood of mismatches or duplicates. Salesforce does not automatically push customer records to other systems, creating duplicated entry points and inconsistent customer identifiers. Historical data is spread across legacy systems such as Sage 50 and CMAP, with varying levels of completeness, and only partial migrations have been performed during past acquisitions. 
+
+Current Data Challenges 
+
+Prescient faces several critical data challenges across customers, financials, projects, HR, and drug/asset metadata. Customer and account data suffers from duplicate child accounts, inconsistent naming, and manual entry across multiple systems, leading to mismatch between Salesforce, Kantata, and Sage Intacct. There is no single customer master, and overlap across Prescient, Uptake, and the new acquisition requires complex mapping to understand the full client relationship landscape. Project and delivery data is fragmented between Kantata and CMAP, with Kantata used primarily for financial tracking rather than operational delivery, limiting its usefulness for utilisation or performance insights. 
+
+Financial data is split across Sage Intacct, multiple Xero instances, and legacy Sage 50, with the cleanest consistent data only available from January 2023 onward due to staggered migrations. HR data is also inconsistent: Oracle has significant accuracy issues, historical role and grade structures vary across entities, and older HR systems may no longer be accessible. This complicates historical calculation across key financial and operational KPIs including margin by role, cost per FTE, and utilisation metrics. Drug and asset metadata suffers from free‑text entry in Salesforce, resulting in inconsistent or incomplete INN, brand, and code name fields. Only one of the three asset fields is mandatory, and projects covering multiple assets lack standardised allocation rules, limiting the ability to tie revenue to specific assets or phases. Patent data is not captured systemically and is currently being compiled manually for only recent revenue. Finally, reporting is heavily Excel‑driven, with no central data warehouse or unified schema, making analytics slow, manual, and highly error‑prone. Prescient management are keenly aware of their data challenges and have identified and actioned multiple workstreams focused on data remediation. 
+
+Context 
+
+Prescient has engaged JMAN to provide a proposal for an initial scope of work which seeks to establish a foundation for high-quality commercial and operational data to support business decision-making and prepare for an eventual transaction. This will focus on designing reporting solutions that provide clear visibility on growth drivers and value creation levers while addressing the data quality and reconciliation challenges that currently exist. There is particular interest in tracking sales and revenue across the molecule lifecycle with a forward-looking view on patent end dates, cross-selling and synergy benefits after acquisitions, and demonstrating the long-tenured, repeatable nature of client relationships. Whilst focusing on key growth drivers and transaction preparedness, the reporting solutions will ultimately deliver operational insights in the hands of the people who need data on a day-to-day basis.  
 
  
 
-BP is an integrated energy company with a global portfolio, operating through three business groups: gas & low carbon energy, production & operations and customers & products. Over recent years, BP has made significant investment in a modern cloud-based data and analytics architecture to enhance financial reporting processes, including its financial data foundation on Azure and Databricks, alongside services such as Azure Synapse Analytics, Power BI and Microsoft Purview, while continuing to rely on a number of legacy and local systems. This has resulted in a diverse but fragmented data landscape for financial actuals, management information and reconciliation across the group. 
+Project Overview 
+
+JMAN will provide a roadmap and plan to build a core reporting suite. This will focus on delivering reporting for different user groups: from operational/partner-level reporting to management and board-level reporting, all the way up to investor-reporting. At time of exit, the dashboards can also support the demonstration of a compelling equity story for future investors, ensuring Prescient has one, single-source-of-truth for data and reporting. The reporting priorities and KPIs will be defined in collaboration with key Client stakeholders, absorbing existing requirements already defined and will incorporate JMAN’s recommendations from previous work building reporting for professional services businesses. 
+
+JMAN recognises that Prescient has already made some progress with Power BI implementation but has not made investment in a single-source-of-truth (SSoT) data platform. Our approach will build upon current reporting, ensuring that our data architecture and infrastructure recommendations integrate with and enhance these existing platforms and technology rather than replacing them. Additionally, JMAN will be mindful of the upcoming system migrations, including BambooHR and a decision on Kantata vs. CMAP, to ensure our recommendations align with and complement these strategic initiatives. 
+
+The proposal is broken into two phases. This proposal and statement of work covers the Design & Discovery Phase (outlined below). On completion of the Design & Discovery Phase, one of the deliverables will be a proposal and implementation plan for a Reporting Build Phase 2. 
 
  
 
-The FP&A function is progressing Project Lighthouse to harmonise financial data, simplify the underlying technology stack and standardise reporting and planning processes across the organisation, with a clear focus on controlling tech stack proliferation and strengthening end-to-end data governance. Nevertheless, this project faces several key challenges in fully integrating data across the business groups, converging overlapping tools and embedding common data models and ways of working across the business.  
+Phase 1 – Design & Discovery 
 
  
 
-Challenges: 
+Outputs - Part I (Align on target narratives, corresponding Value Levers, use cases and Metrics that matter) 
 
-Currently, BP faces significant challenges in fully leveraging its data infrastructure to deliver accurate, streamlined financial reporting. The FP&A leadership is looking for support to efficiently progress financial data harmonisation and improve reconciliation, reporting accuracy, and forecasting reliability. From our initial discussions we understand the core issues to include: 
+Equity Story & Growth Levers: Align with the business (and Bridgepoint) on the key narratives the business will want to present at exit. Ensure these are aligned with the reporting and contextual business requirements of the management team to operationally run and track performance. Translate these narratives into a broad set of KPIs and reporting dimensions. 
 
- 
+Reporting use cases, including prioritisation: On the back of Target equity narratives, work with the business to align on key value drivers that allow the management team to track business performance and evidence target narratives, leading to a prioritised set of use cases that have the most impact on the valuation and are relatively easy to implement. The prioritisation is to be agreed by the end of week 2, to support further development of Part II of outputs.  
 
-Fragmented source of truth – Multiple systems (mentioned above) produce conflicting "headline" numbers for the same KPIs, with no single reconciled actuals dataset consumable by downstream reports or teams. 
+Reporting suite design, including roadmap: Work collaboratively with key business stakeholders to align on the “north-star” vision of the end-state reporting landscape for Prescient, and develop a delivery roadmap for reporting, ensuring priority reports are delivered as part of Phase 2. This involves defining: 
 
-Manual, error-prone reconciliation processes – Org/account/segment mappings scattered across Excel files, plus manual CSV edits for eliminations and top-down adjustments, and inherited Power BI logic – all driving ~20-day CFO actuals close cycles and key-person dependency. 
+User-groups: Who are the different user groups that will consume reporting at different levels of the business – e.g. Board/Investor, Management, and Operators (i.e. Partner/Division-leads, or Teams etc.) 
 
-Mapping and ETL complexity – Incomplete mappings (especially business-group nuances), different transformation logic across pipelines, and legacy BPS constraints (quarterly inputs, 2-year horizon, aggregate org structure) prevent scalable, auditable group consolidation. 
+Reporting pillars/verticals: Agreeing on the key reporting pillars and their prioritisation across the business that will surface the relevant insights – e.g. finance, customer, people/HR, project/operational, sales, etc. 
 
-Limited scalability for future needs – Current Power BI reconciliation tool serves a small central team but will be difficult to evolve into the governed shared dataset business leaders are planning for, aligned to IBP changes, S/4HANA migration, and downstream planning/analytics use cases. 
+Reports & tools: Across the different user-groups and reporting pillars/verticals, how will these be divided/presented in specific tools to allow the different user-groups visibility of what they require – e.g. a board report will likely aggregate the top-level KPIs across finance, customer, people etc. Whereas a partner report, might only include the relevant operational reporting, or a CFO pack only include the finance pillar of reporting. 
 
- 
-
-Overarching Objectives: 
-
-JMAN can support the BP FP&A leadership in addressing these challenges and help Project Lighthouse as it works towards achieving the following overarching objectives: 
-
-Deliver fully reconciled and trusted financial actuals – Establish a unified, transparent view of actuals across all entities to strengthen confidence in financial reporting and decision-making. 
-
-Harmonise and modernise finance systems – Integrate FDF, FBW, and BPS into a consistent data and process framework that supports future modernisation, scalability, and migration readiness. 
-
-Streamline and govern data and consolidation flows – Build efficient, well-governed data processes that effectively combine automation and oversight to improve consolidation speed, accuracy, and control. 
+Data architecture and infrastructure design: A recommendation for the augmentation and development of data infrastructure to support the deployment of the platform for connection, ingestion, and consolidation of legacy, current, and new systems. The design will be cognizant of Prescient's ongoing buy-and-build strategy, its existing technology landscape, and will align with the planned system changes (e.g., Bamboo, Kantata). We will work in close collaboration with Prescient technical teams on recommendations, to ensure the data platform and reporting suite can be owned and maintained by internal teams following delivery of the platform and reporting in Phase 2. 
 
  
 
-Immediate Objectives: 
+Outputs - Part II (Build further details on prioritised use case(s), targeting specific value levers) 
 
-JMAN proposes a focused 4-week discovery phase to assess and map the end-to-end actuals landscape, quantify reconciliation drivers, and determine feasibility for automation integration that will both: 
+“Metrics that Matter” & dimension dictionary: A clearly defined list of metrics including data points required & proposed calculation methodology. This will be accompanied by the target dimensions with which Prescient wants to slice the business. The dictionary will be focused on the requirements of the priority use cases(s) identified at the end of week 2 - additional metrics beyond this will be noted down for future reference & development.  
 
-Serve as an operational foundation – Identify and prioritise the key drivers behind current actuals misalignment for the two pilot entities and define a sequenced roadmap for stabilisation 
+Dashboard mock-ups: Design of the insights & reports for the priority metrics agreed as the priority use case. These visual mock-ups will capture layout, structure, and functionality requirements and will serve as the blueprint in the implementation phase. 
 
-Where feasible, evaluate structured automation opportunities – Assess whether existing mapping logic can be formalised into rule-based processes and whether recurring exceptions can be systematically identified. 
+Conceptual data model: A high-level, conceptual group data model that outlines the structure and flow of data needed to deliver the agreed reporting requirements for the priority reporting use case. 
+
+Data gap assessment and process recommendations: High-level assessment of data availability for priority reporting, identifying gaps in coverage to conduct a feasibility assessment during roadmap prioritisation. Where data is not (or poorly) available, work with stakeholders to provide data recommendations and identify areas for process improvement to improve quality and availability over time. Recommendations will be cognisant and work alongside currently planned/ongoing data remediation efforts and will consider changes required to unlock additional or future value-add use cases, where relevant.  
+
+Implementation plan: A detailed plan outlining build phase activities, milestones, and timelines for developing the priority data assets and reports. The roadmap will be structured into prioritised, sprint-based phases to enable incremental delivery of use cases and value throughout the build. This implementation plan will include integration of go-forward systems as well as historical data. 
+
+ 
+
+Benefits of Approach 
+
+Service Provider Professional Services Expertise – extensive experience building data platforms for PE-backed professional services businesses, including Pharmaceuticals, across multiple industries and geographies. Our work with similar businesses enables tailored insights on organic revenue growth, quality of earnings, customer acquisition costs, product profitability and service line profitability, all critical to Prescient's growth. 
+
+M&A Platform – final deliverables of a Build phase provide Prescient with a data and reporting suite for rapid data integration playbook for new acquisitions without immediate system migrations. This supports Prescient's strategy of 2-3 add-on acquisitions annually and ensures consistent reporting despite potential legacy system differences. 
+
+Lasting Data Asset – a data platform and reporting suite is a lasting data asset for Prescient, this serves as a foundation for M&A and insights/reporting, ensuring Prescient is a mature, data-driven management team. 
+
+Single-Source-of-Truth Data & Reporting – across the complex data landscape and multiple entities, this approach leaves Prescient with a consolidated, trusted, single-source-of-truth data asset that is the foundation for data-led decision-making. 
+
+Leveraged for a Future Transaction – a data platform and reporting suite can serve as a data asset for future transactions, with two-fold effects: (i) easily serve up data for buy- and sell-side diligence, (ii) helps present the business as a data mature company with valuable data assets. 
+
+Expertise in Diverse Data Maturity Landscape – JMAN has extensive experience working with extremely acquisitive businesses, with a broad range of data maturities (e.g. Excel-based to system-based reporting) and challenges in cross-system reconciliation. 
+
+ 
 
 Approach 
 
-Our approach to analysing financial actuals reporting deltas focuses on understanding and deep diving into the end-to-end data flows for two priority entities within an agreed business vertical.  
+Week 0: Pre-kick off 
 
-Using this foundation, JMAN will conduct an in-depth review of: 
+Ensure JMAN has what they need to hit the ground running and are not blocked during the five-week project 
 
-Data discrepancies within the two pilot entities for the production & operations business to have targeted analysis. Both business unit and chosen entities are flexible and can be agreed upfront. 
+Data access: Work with Prescient to arrange full access to required systems (Salesforce, Sage, Kantata, CMAP), containing customer/revenue/operational data, plus any existing reports being generated on this data 
 
-A light-touch, high-level overview of current intercompany consolidation processes in that unit to provide contextual insight. 
+Meetings schedule: Work with Prescient to book the required workshops and meeting cadences 
 
-This analysis will inform the design and planning of targeted next steps, highlighting improvement opportunities for BP while remaining aligned with the broader financial consolidation and reporting landscape. The suggested focus on the production & operations business follows BP’s strategic interests and builds on previous conversations. 
-
-JMAN will deliver this discovery as follows: 
-
-Understand the current end-to-end mapping and data flow by conducting stakeholder interviews, workshops, accessing source systems, and existing mapping artefacts to establish full transparency over processes, ownership, and key pain points 
-
-Assess the different source systems and data granularity to validate hypotheses behind the actuals reconciliation deltas.  
-
-Mapping Logic Design a potential target state addressing the identified key issues across the selected priority entity and business vertical. 
-
-Plan next steps to implement the designed solution and providing recommendations between immediate stabilisation actions vs longer-term structural improvements 
-
-This practical assessment of systems, data, and mapping artifacts will ensure that efforts to resolve mapping and broader system unification are targeted and effective, while directly supporting mappings for a subset of entities to inform possible automation solutions.  
-
-Activities & Deliverables 
-
-Scoping & Preparation (Week 0) 
-
-The following activities will ensure timely delivery of the project, establishing the foundations for a smooth execution and an efficient discovery phase. 
-
-BP to share access to necessary documentation – including current reconciliation results 
-
-BP to provide access to relevant source systems, extracts & reporting layers 
-
-Select priority business vertical – suggesting Production & Operations (upstream business) based on previous conversations, operational and strategic importance for BP 
-
-Select 2 priority entities within the selected vertical – assessing entities by revenue contribution, strategic importance and expected complexity of data availability 
-
-Create relevant stakeholder map + simplified RACI 
-
-Schedule required interviews 
-
-Review required documentation 
-
-Validate access to relevant source systems, extracts & reporting layers (local ERPs, FBW, FDF, BPS, Power BI) 
+Data architecture / infrastructure documentation: Liaise with internal technical stakeholders to receive all the existing documentation for reporting, infrastructure & systems landscape, and tech stack configurations, where these exist 
 
  
 
-Understand (Week 1 - 2) 
+Weeks 1-2: Requirements, reporting design, and platform recommendation 
 
-During the first few weeks, we will focus on conducting targeted stakeholder interviews and evaluating existing mappings while documenting findings, to gain a deep understanding of the data, processes and pain points within the selected scope and inform our assessment through defining clear hypotheses. 
+Define reporting suite end-state, capture, assess and prioritise use cases, and align on KPIs to support central management and operational reporting, driving a data model that ensures accurate KPI calculations and effective data management. Assess current technology infrastructure, define requirements, and recommend a scalable data platform, including available market options and pricing, both one-time and ongoing. 
 
-Activities: 
+Equity narratives and articulation using data: Workshops with Prescient Management and Bridgepoint to understand the Prescient equity narratives and translate these into a set of metrics and reporting cuts that can support their articulation. 
 
-Inter-company – conduct interviews with relevant stakeholders across finance on how inter-company consolidation is conducted in the selected business unit to understand:  
+Reporting suite design: Workshops with Prescient to define the report suite design end-state (user-groups, reporting pillars/verticals, reports and tools). Capture full set of use cases across the business working with Prescient stakeholders, and define priority based on both EBITDA and Exit Valuation impact. For the agreed highest priority use cases, define key performance indicators (KPIs) for priority reporting. JMAN’s expectation based on discussions to date and our experience is the primary priority will be customer and revenue reporting – this will be confirmed with Prescient in workshops. JMAN will build upon the ‘Metrics that Matter’ for pharma commercialisation platforms that were discussed in detail during the scoping workshops. 
 
-High-level intercompany consolidation processes 
+Existing reporting and requirements: Spend time understanding existing reports shared, including meetings with report owners to understand existing process, and understanding further ‘wish list’ of future KPIs Prescient wants to report on. 
 
-High-level requirements from data sources  
+Going more granular: Confirming the required level of granularity for metrics and key segments/dimensions (i.e. entities, geographies, brands, partners, etc.). JMAN will have an initial sense of these based on the scoping workshop. 
 
-Current pain points 
+Define the data and analytics roadmap: Starting with the highest priority use cases, define a roadmap utilising the agreed prioritisation scoring for the long list of use cases, working in parallel with Prescient timelines for data remediation, system changes, and transaction. 
 
-Business Vertical (Priority entities) – conduct interviews with relevant stakeholders from the 2 priority entities within the selected business vertical to: 
+Data architecture workshop: Review any existing data infrastructure, tooling, softwares, and recommend a data platform design to meet the reporting requirements and serve as a scalable foundation for future use-cases. 
 
-Understand data flows, systems and mapping artifacts 
-
-Perform an initial high-level trace of end-to-end data flows to locate key transformation points and granularity gaps 
-
-Evaluate the existing mapping logic and its feasibility for rule-based formalisation, identify exception patterns, and assess the operational feasibility of reducing manual intervention 
-
-Document the process, people, tools and data sources involved 
-
-Deliverables: 
-
-Documentation of processes, systems and mappings – complete inventory of mapping artifacts (adjustment files, tables, code, models) with rules, rationale and risks captured for team continuity and reduced key-man risk 
-
-Assess (Week 2 - 3) 
-
-During the assessment we will test our hypotheses formed after the targeted interviews and documentation review by diving deep into the provided files and systems while assessing automation potential. 
-
-Activities: 
-
-Review financial adjustment files and existing org/account/segment mapping tables for the two priority entities to assess sources, transformations and current granularity gaps 
-
-Highlight the occasions of manual interpretation, workarounds, leading to data quality constraints. Distinguishing between: 
-
-Manual & rules-based processes with no tech supported workflow (high-automation potential) 
-
-Manual overlays which are not rule-based (low automation potential – but ideally should be based on standardised considerations) 
-
-Deliverables: 
-
-Detailed root-cause diagnosis of the reconciliation gap – clearly determined and quantified drivers of reconciliation deltas for 2 prioritised entities, prioritised by impact and fixability, giving BP evidence to focus investment where it matters most 
-
-Comprehensive end-to-end mapping of local ERPs, FBW, FDF, BPS and Power BI for 2 priority entities, showing data sources, granularity and handoffs 
+Data architecture recommendation: Develop a data architecture recommendation that builds upon Prescient's investment in Power BI and integrates with the existing technology stack. This will be developed in collaboration with Prescient technical teams and agreed prior to the final read out. 
 
  
 
-[ADDING DECISION POINT BREAK HERE – GO / NO GO + OPTIONS] 
+Decision Point: At the end of Week 2, there is a key Decision point meeting with Prescient management to align and agree on 
+
+Use case prioritisation, and data & analytics roadmap – this will be used to define the scope of the data gap assessment conducted in Weeks 3&4 which will define the data remediation plan. 
+
+Data platform recommendation – this will be used to define the platform of choice and inform the implementation planning (timing and cost) to be conducted in the Build Phase (Phase 2).  
 
  
 
-Mapping Logic Design (Week 3 - 4) 
+Week 3-4: Data source assessment and initial model design 
 
-The design phase will be condensing the results from interviews and assessments into targeted solution designs for data automation and reconciliation approach. 
+Gain a clear understanding of current data sources, data points, and reporting processes that will support priority reporting. Begin development of the target state data model. 
 
-Activities: 
+Current state: Understand the existing business terms, metric calculations, data sources, and reports being generated by Prescient, and revise KPIs / logic definition as required  
 
-Define a conceptual rule-based target mapping logic for the priority entities based on observed current practices 
+KPI Calculation logic: Define the formulas and calculations required to derive priority KPIs and metrics from the data 
 
-Assess which steps are standardisable and suitable for automation 
+Design initial dashboard mock-ups: Based on the agreed highest priority reporting use cases, draft dashboard mock-ups to help inform implementation plan and data model design. 
 
-Define required data structures, controls and process changes to reduce manual intervention 
+Dashboard mock up iteration & finalisation: Working with management, iterate and finalise mock ups for priority reporting use cases. 
 
-Deliverables: 
+Data source review: Identify relevant data sources (e.g., Sage, Salesforce, Kantata, CMAP) and tables that will feed into priority reporting. Specific focus on reconciliation between project management systems (Kantata, CMAP) and financial reporting systems (Sage). 
 
-Assessment of cross-system mapping processes – evaluation of current Excel/CSV processes versus programmatic alternatives (rules- or AI-based as suitable), quantifying coverage, accuracy and efficiency gains 
+Data gap assessment: Evaluate the availability of data for priority reporting, and where data is not available work with stakeholders to determine a path forward (e.g. automated extraction of data from invoices) 
 
-Proposed target-state approach for automated mapping (PoC scope) – defining the automated logic for the two priority entities (rules- or AI-based as suitable), including required data structures, control points, and process flow 
+Data availability prioritisation: Identify the most critical data coverage issues that need to be addressed to enable priority reporting and provide recommendations or develop plans for the Phase 2 build on how these can be enriched or cleaned.  
 
-Plan (Week 3 - 4) 
+Client & Product hierarchy framework: Building upon current hierarchy definitions, develop an initial framework for establishing a proper parent-child client and product hierarchy. 
 
-Concluding the discovery phase, we aim to provide a tangible and pragmatic approach by suggesting the most suitable PoC design and provide a clear roadmap for implementation. 
-
-Activities: 
-
-Condensing findings into a targeted roadmap and prioritised next steps 
-
-Testing assessment with key stakeholders  
-
-Deliverables: 
-
-Implementation Plan – detailed PoC action plan describing how the mapping use case will be deployed for the prioritised entities including the Technology requirement and level of resource (both internal and external) that would be required to achieve this 
+Data model: Highlight the required relationships between data sources in the platform to be able to execute and create the calculation logic for priority reporting. Design the data model that accounts for Prescient's key dimensions/reporting matrix (i.e. geographies, accounts, and service lines). 
 
  
 
-Project Management and Ways of Working 
+Week 5: Solution design and implementation plan development 
 
-Ways of Working 
+Finalise the data model design, develop implementation recommendations, and create a roadmap for execution of the data platform build/augmentation and priority use-case reporting build-out. 
 
-We collaborate closely with BP through a mix of in‑person and virtual engagement to ensure alignment and rapid progress. 
+Finalise data model: based on system learnings, feedback from management, and mock-up finalisation, confirm the end-state data model design. 
 
-Engagement – Face‑to‑face interviews, workshops, and regular check‑ins to validate insights and co‑develop solutions. 
+Data cleaning and enrichment recommendations: based on the data coverage and data gap assessment in Weeks 3&4, provide recommendations for and confirm approaches for tackling data challenges, cleaning, or enrichment in Phase 2 (e.g. external source, GenAI deployment). This will work in tandem with ongoing/planned data remediation efforts defined by Prescient and will look to scope in Phase 2 data remediation that can be handled directly by JMAN. 
 
-On‑Site Presence – JMAN will work from BP offices as needed to support close collaboration and smooth handovers. 
+Implementation plan: Based on the current infrastructure Prescient has, design a build plan to deliver the priority core reporting. The implementation plan will align with timelines for planned system upgrades and existing reporting. 
 
-Cross‑Location Working – Chennai team members will spend two weeks in London to accelerate delivery and strengthen joint analysis. 
-
-Governance – Weekly progress sessions and shared materials will maintain transparency and drive consistent momentum. 
+Other use cases: Highlight how the data platform design will support second priority reporting and additional use cases, for example entity-level operational sales & pipelines reporting, project profitability analytics, or more advanced ML/AI expansion or retention prediction engines. 
 
  
-
-Interview & workshop schedule: 
-
-Timing 
-
-Description 
-
-Duration 
-
-Participants 
-
-Daily 
-
-(Optional) Stand-up Call 
-
-15 min 
-
-Client project team 
-
-Weekly 
-
-Steering committees 
-
-30 min 
-
-Key BP stakeholders 
-
-Bi-Weekly 
-
-Deep-dive workshops (2 x per week) 
-
-60 min 
-
-Daniel, Dan & other relevant stakeholders 
-
-Week 1 
-
-Kick-off with key stakeholders 
-
-90 min 
-
-Key BP stakeholders 
-
-Intercompany consolidation & reporting requirement interview 
-
-60 min 
-
-Finance stakeholders 
-
-Priority entity #1 – Initial stakeholder interview 
-
-60 min 
-
-Entity #1 stakeholders 
-
-Priority entity #1 – Process & system deep-dive 
-
-120 min 
-
-Entity #1 stakeholders 
-
-Priority entity #2 – Initial stakeholder interview 
-
-60 min 
-
-Entity #2 stakeholders 
-
-Priority entity #2 – Process & system deep-dive 
-
-120 min 
-
-Entity #2 stakeholders 
-
-Week 2 
-
-Process & mapping file deep-dive 
-
-60 min 
-
-Daniel, Dan & Finance Stakeholders 
-
-Intercompany approach #1 – high-level process, tagging & mapping overview 
-
-60 min 
-
-Finance stakeholders 
-
-Intercompany approach #2 – existing challenges 
-
-60 min 
-
-Finance stakeholders 
-
-Priority entity #1 – Follow-up review & questions 
-
-60 min 
-
-Entity #1 stakeholders 
-
-Priority entity #2 – Follow-up review & questions 
-
-60 min 
-
-Entity #2 stakeholders 
-
-Week 3 
-
-Review of ‘Assess’ findings for Entity #1 and #2 
-
-60 min  
-
-Key BP stakeholders (and others where relevant) 
-
-Review of ‘Assess’ findings for inter-company consolidation 
-
-60 min 
-
-Key BP stakeholders (and others where relevant) 
-
-Mapping Design workshop 
-
-120 min 
-
-Finance stakeholders 
-
-Week 4  
-
-Initial review of ‘Design’ approach for mappings 
-
-60 min 
-
-Daniel, Dan & Finance Stakeholders 
-
-Follow-up review of ‘Design’ approach for mappings 
-
-60 min 
-
-Daniel, Dan & Finance Stakeholders 
-
-Review of the ‘Plan’ and recommendations 
-
-60 min 
-
-Daniel, Dan & relevant stakeholders 
-
-Final readout of findings, recommendations and next steps 
-
-60 min 
-
-Key BP stakeholders 
-
-Out of Scope and Assumptions 
-
-Out of Scope 
-
-Any complete or fully operationalised data mapping 
-
-Any optimisation to existing systems or implementation of new Solution identified part of this phase 
-
-Any work outside of the chosen 2 priority entities 
-
-Any additional entities must be captured by a Change Order as set out in Schedule 1 to the MSA. 
-
- 
-
-Assumptions 
-
-Any relevant data extracts where possible provided ahead of project kick-off including information about relevant FP&A processes and related excel tools 
-
-Access to systems and software as required for the work on this project 
-
-Time and input provided by the relevant stakeholders as per 3.2, with key meetings diarized prior to project kick off 
-
-Any delay for required access or data extracts may result in a billable timeline extension 
-
-Timelines, Resources, and Commercials 
 
 Timelines 
 
-As outlined above, this project will last 4-weeks for the initial Discovery Phase. 
+Week 0 Start Date: 
+
+16 March 2026 
+
+Week 1 Start Date: 
+
+23 March 2026 
+
+Timelines: 
+
+5-weeks 
+
+Services Completion Date: 
+
+24 April 2026 
 
  
 
-Resources 
+Assumptions & Requirements 
 
-Project oversight (Associate Partner)  
+Out of scope: 
 
-Technical oversight (Principal Architect) 
+JMAN will not start any technical development of the build phase during the initial engagement. This involves (but is not limited to) data cleansing, architecture set-up, tool provisions, system connectivity, or dashboard development. 
 
-Finance SME 
+Required support from data source owners: 
 
-2 x Data Science & AI SME 
+JMAN will have access to extracts and source systems ahead of kick off for the data sources included in scope 
 
-Engagement Manager (100%) 
+JMAN has access to data system owners / providers to resolve any clarifications around data availability and end points 
 
-2 x Consultant  
+Required support and time from the client: 
 
-Tech-Lead 
+These may be revised based on the pre-kick off sessions, but our current requirement from Prescient would be: 
 
-3 x Data Engineer 
+Jason McKenna, Rachael Farmer, Andy Clarke, Swati Kkatyal and other key members of the management team, and potentially Bridgepoint representation 
+
+Part I 
+
+Equity Story & Growth Levers: Week 1, Session 1 (90 mins): JMAN will prepare set of target equity narratives and underlying value levers to test and validate 
+
+Equity Story & Growth Levers: Week 1, Session 2 (90 mins): JMAN to present refined narratives specific to Prescient for sign off. JMAN to also present first draft of Metrics that Matter 
+
+Reporting Use cases & Suite: Week 1: 4 Sessions 60-minutes each with different functions: Commercial / Sales, Finance, Operations. People / HR to gather use-cases and current pain points  
+
+Reporting Use cases & Suite: Week 2 (60 mins): Use cases playback and Prioritisation framework output 
+
+Data Architecture Current State: Week 1, Session 1 (60 mins): Workshop to understand current state architecture and any in-flight changes or planned changes 
+
+Data Architecture Current State & Future Requirements: Week 1, Session 2 (60 mins): JMAN playback of understanding and requirements gathering for future platform across key areas 
+
+Data Architecture Requirements: Week 2, Session 1 (60 mins): Playback and validation 
+
+Data Architecture Recommendation: Week 2, Session 1 (60 mins): JMAN to present optionality alongside recommendation in accordance with gathered requirements 
+
+Part II 
+
+Metrics that Matter: Week 3, Session 1 (60 mins): JMAN to present typical definitions and calculation logic for priority use case KPIs and gather feedback 
+
+Metrics that Matter: Week 3, Session 2 (30 mins): JMAN to present refined KPIs definitions and calculations and gather feedback 
+
+Metrics that Matter: Week 3, Session 3 (30 mins): To be used as needed for final iterations 
+
+Reporting Mock-ups: Week 3, Session 1 (60 mins): JMAN to present initial mock ups and gather feedback 
+
+Reporting Mock-ups: Week 4, Session 2 (30 mins): JMAN to present refined mock ups and gather feedback 
+
+Reporting Mock-ups: Week 5, Session 3 (30 mins): To be used as needed for final iterations 
+
+Data Gap Assessment & Data Model: Week 4, Session 1 (60 mins): JMAN to present early findings from gap assessment 
+
+Data Gap Assessment & Data Model: Week 5, Session 2 (60 mins): JMAN to present final assessment & process recommendations  
+
+Final output alignment: Week 5 (45 mins): JMAN and Prescient management to review final output and align on messaging ahead of final readout 
+
+Final Readout: Week 5 (120 mins): Final readout and next steps 
+
+Data & Technical Leads 
+
+Where possible, bi-weekly check-ins with a nominated Client “technical lead” who can support in ensuring the design and planning for the data platform is aligned and feedback is incorporated 
+
+General support in coordinating data access and addressing blockers throughout engagement 
+
+Relevant system owners (incl. individual brands / billing systems) 
+
+Max. 30-minutes to complete a pre-workshop technical survey to minimise time required with individuals 
+
+1-hour deep dive workshop (per system) to understand their systems, data availability, data quality and reporting processes 
 
  
 
-Commercials 
+Resource Commitment 
 
-Weekly Run Rate: 
+Resources: 
 
-GBP 31,765 per week (+ VAT) 
-
-Total Project Price 
-
-GBP 127,060 (+ VAT)  
-
-Terms 
-
-Any expenses incurred will be agreed with the Client before and charged at cost 
+Blended team of Associate Partner, Architect, Engagement Manager, Consultants and Data Engineers 
 
  
+
+Location of Services 
+
+Location of Services: 
+
+ 
+
+It is expected the work will be completed remotely and/or from JMAN’s offices:   
+
+London Office: 10 Lloyds Avenue, London, EC3N 3AJ  
+
+Chennai Office: Module 0104 (A), First Floor, C Block South, Tidel Park, 4 Rajiv Gandhi Salai, Taramani, Chennai-600 113, India  
+
+New York Office: 1500 Broadway, New York, NY 10036 
+
+ 
+
+Fees and Payment 
+
+List Price Weekly Run Rate: 
+
+£24,976 (+VAT) 
+
+Engagement Total: 
+
+£124,884 (+VAT) 
+
+Discount: 
+
+JMAN would be willing to offer a 30% first engagement discount as an investment in the relationship with Prescient. 
+
+Discounted Weekly rate: 
+
+£17,483 (+VAT) 
+
+Discounted Engagement Total: 
+
+£87,419 (+VAT) 
+
+ 
+
+Contacts 
+
+Client Engagement Manager: 
+
+Rachael Farmer (rfarmer@prescienthg.com) 
+
+Service Provider Engagement Manager(s): 
+
+Harrison Tull (harrisontull@jmangroup.com) 
+
+Gerard Pieterse (gerardpieterse@jmangroup.com) 
+
+ 
+
+Subsequent Tasks 
+
+Any subsequent tasks must be captured by a Change Order as set out in Schedule 1 to the Agreement. 
+
+This SOW has been entered into by the parties on the Effective Date: 
+
+ 
+
+ 
+
+ 
+
+.................................... 
+
+Signed by Rachael Farmer for and on behalf of the Client. 
+
+ 
+
+ 
+
+.................................... 
+
+Signed by Richard Cowen for and on behalf of the Service Provider. 
+
+ 
+
 """
 
     passage_2 = ""
