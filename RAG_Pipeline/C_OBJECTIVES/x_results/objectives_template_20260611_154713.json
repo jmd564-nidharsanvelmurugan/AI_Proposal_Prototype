@@ -1,0 +1,19 @@
+{
+    "objectives": {
+        "section_name": "Objectives",
+        "subsections": [
+            {
+                "subsection_name": "Marketing ROI",
+                "query": "Business Objectives (or Strategic Goals)"
+            },
+            {
+                "subsection_name": "Data Integration",
+                "query": "Technical Objectives (or System Capabilities)"
+            },
+            {
+                "subsection_name": "Reporting Automation",
+                "query": "Operational Objectives (or Process Improvements)"
+            }
+        ]
+    }
+}

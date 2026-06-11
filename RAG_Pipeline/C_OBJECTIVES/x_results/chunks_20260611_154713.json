@@ -1,0 +1,115 @@
+{
+    "parent_chunks": [
+        {
+            "id": "PROP_20260610_142917_CCCA3B_OBJECTIVES",
+            "document_id": "PROP_20260610_142917_CCCA3B",
+            "section": "Objectives",
+            "actual_text_data": "JMAN will provide a roadmap and plan to build a customer cube, a customer-centric multi-dimensional data model, focusing on delivering historic customer reporting for a transaction eventdifferent user groups: from operational/partner-level reporting to management and board-level reporting, all the way up to investor-reporting. The dashboards will support what is required for transaction diligence, ensuring Saffery has one, single-source-of-truth for data and reporting.  The reporting priorities and KPIs will be defined in collaboration with key Client stakeholders, absorbing existing requirements, and will incorporate JMAN’s recommendations from previous work building clientcustomer reporting for professional services businesses.",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_142917_CCCA3B_OBJECTIVES_SUB_001",
+                    "subsection": "Strategic Goals",
+                    "subsection_name": "Strategic Goals"
+                }
+            ],
+            "child_chunks_count": 1
+        },
+        {
+            "id": "PROP_20260610_143512_CBC723_OBJECTIVES",
+            "document_id": "PROP_20260610_143512_CBC723",
+            "section": "Objectives",
+            "actual_text_data": "JMAN will provide a roadmap and plan to build a core reporting suite. This will focus on delivering reporting for different user groups: from operational/partner-level reporting to management and board-level reporting, all the way up to investor-reporting. At time of exit, the dashboards can also support the demonstration of a compelling equity story for future investors, ensuring Prescient has one, single-source-of-truth for data and reporting. The reporting priorities and KPIs will be defined in collaboration with key Client stakeholders, absorbing existing requirements already defined and will incorporate JMAN’s recommendations from previous work building reporting for professional services businesses.\n\nJMAN recognises that Prescient has already made some progress with Power BI implementation but has not made investment in a single-source-of-truth (SSoT) data platform. Our approach will build upon current reporting, ensuring that our data architecture and infrastructure recommendations integrate with and enhance these existing platforms and technology rather than replacing them. Additionally, JMAN will be mindful of the upcoming system migrations, including BambooHR and a decision on Kantata vs. CMAP, to ensure our recommendations align with and complement these strategic initiatives.\n\nThe proposal is broken into two phases. This proposal and statement of work covers the Design & Discovery Phase (outlined below). On completion of the Design & Discovery Phase, one of the deliverables will be a proposal and implementation plan for a Reporting Build Phase 2.",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_143512_CBC723_OBJECTIVES_SUB_001",
+                    "subsection": "Project Overview and Goals",
+                    "subsection_name": "Project Overview and Goals"
+                }
+            ],
+            "child_chunks_count": 1
+        },
+        {
+            "id": "PROP_20260610_143714_22A64D_OBJECTIVES",
+            "document_id": "PROP_20260610_143714_22A64D",
+            "section": "Objectives",
+            "actual_text_data": "Therefore, Harbor is seeking an experienced data partner to provide recommendations for industry best practices and support with the design & build of a scalable, single source of truth (SSOT) data platform, which consolidates accurate information across subsidiaries and provides accurate reporting & insights on business performance. Establishing this business-wide single source of truth will also serve as a data asset for future transaction, when the time comes.\n\nValue drivers and supporting KPIs: JMAN will leverage extensive experience working with MSPs alongside Harbor IT interviews to deliver a clear set of value drivers / exit narratives, their backing KPIs and dashboard capabilities, facilitating confidence in reporting views and derivative decision making.\n\nSingle source of truth data & reporting: The data platform & reporting suite will provide a consolidated, trusted, single-source-of-truth data asset that is the foundation for data-led decision-making and board reporting. This will eliminate reliance on fragmented data sources and establish consistent KPI definitions across branches and standardized reporting workflows that provide visibility across Harbor’s entities.\n\nAbility to support M&A & quickly realize synergies from acquisitions: The data platform will be M&A-focused and include an acquisition playbook that enables rapid integration (3-4 weeks) of past acquisitions into reporting, without requiring system migrations and accommodating for varying levels of data maturity within the acquired entity. By integrating data directly into the data warehouse, reporting will no longer be dependent on system integration or manual workflows, allowing for greater visibility into subsidiary performance.\n\nSemi Real-time visibility into operations and financial performance: The platform will provide real-time visibility into operational metrics and financial performance, eliminating reliance on legacy or incomplete data sets. Trusted, self-service dashboards will enable managers to access consistent data on demand and drill into performance drivers, enabling them to independently drive operational process adherence & efficiency.\n\nGreater clarity on reporting & analytics opportunities to achieve target state and drive value creation plan: Identification of the analytics and reporting target state, assessment of data & AI use cases, and a recommended roadmap will enable the business to understand where data can be leveraged to drive the value creation plan.\n\nSupport a future transaction: The data platform and reporting suite will serve as a critical data asset for future transactions, with three-fold effects: (i) defend and support exit narratives that have been driven throughout the hold period, (ii) easily serve up data for buy- and sell-side diligence, and (iii) help present the business as a data mature company with valuable data assets.",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_143714_22A64D_OBJECTIVES_SUB_001",
+                    "subsection": "Strategic Objectives",
+                    "subsection_name": "Strategic Objectives"
+                },
+                {
+                    "id": "PROP_20260610_143714_22A64D_OBJECTIVES_SUB_002",
+                    "subsection": "Value Drivers and KPIs",
+                    "subsection_name": "Value Drivers and KPIs"
+                },
+                {
+                    "id": "PROP_20260610_143714_22A64D_OBJECTIVES_SUB_003",
+                    "subsection": "Single Source of Truth",
+                    "subsection_name": "Single Source of Truth"
+                },
+                {
+                    "id": "PROP_20260610_143714_22A64D_OBJECTIVES_SUB_004",
+                    "subsection": "M&A Support and Synergy Realization",
+                    "subsection_name": "M&A Support and Synergy Realization"
+                },
+                {
+                    "id": "PROP_20260610_143714_22A64D_OBJECTIVES_SUB_005",
+                    "subsection": "Operational Visibility",
+                    "subsection_name": "Operational Visibility"
+                },
+                {
+                    "id": "PROP_20260610_143714_22A64D_OBJECTIVES_SUB_006",
+                    "subsection": "Analytics and Reporting Target State",
+                    "subsection_name": "Analytics and Reporting Target State"
+                },
+                {
+                    "id": "PROP_20260610_143714_22A64D_OBJECTIVES_SUB_007",
+                    "subsection": "Future Transaction Support",
+                    "subsection_name": "Future Transaction Support"
+                }
+            ],
+            "child_chunks_count": 7
+        },
+        {
+            "id": "PROP_20260610_143837_ADB523_OBJECTIVES",
+            "document_id": "PROP_20260610_143837_ADB523",
+            "section": "Objectives",
+            "actual_text_data": "The Assessment and Design Phase will lay the foundations and design for the following end-state objectives. Ultimately, by the conclusion of the data programme as a whole, the target outcomes for K2 are:\n\nClarity on existing data functionality and assets – Obtain a clear view of the firm’s current data capabilities, reporting outputs and systems, identifying strengths, gaps, and areas for improvement.\n\nAgreed and defined long-term KPIs and reporting framework – Establish a clearly defined set of long-term KPIs and standardised business reporting structures aligned to K2’s strategic objectives, once initial analysis is complete, consistent across the global business.\n\nDefined roadmap with clear prioritisation – Sequence data, reporting, and AI initiatives based on value, risk and feasibility to enable phased delivery and minimise disruption.\n\nEstablish a single source of truth for commercial performance – Design a reporting architecture that ensures consistent definitions, and aligned data & reporting across sales, finance, and operational teams.\n\nLive, automated, and scalable reporting – Establish efficient, automated, and scalable reporting processes to provide timely and reliable views of business performance, reducing manual reporting effort.\n\nFuture-proofed data infrastructure – Build infrastructure and data models that ensure scalability and ongoing reporting quality, support predictive and prescriptive analytics & AI use-cases.\n\nExploratory and value-driven analysis – Perform exploratory analysis to answer key business questions, surface insights, and identify value creation opportunities, with a particular focus on sales performance data to drive pipeline hygiene and proactive management.\n\nEnhanced team structure and data culture – Strengthen internal ownership of data and reporting, embedding consistent processes and behaviours to maximise the value of data across the organisation.\n\nLower data risk profile – Reduce person-dependency, manual errors, and control gaps through governed processes, auditability, and system-based reporting.\n\nBuilding a lasting data asset will drive value throughout the hold and beyond by providing the management team with actionable insights to guide day-to-day operations and allow for the clear articulation of equity narratives and the growth story during a future exit transaction/event.",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_143837_ADB523_OBJECTIVES_SUB_001",
+                    "subsection": "Strategic Goals",
+                    "subsection_name": "Strategic Goals"
+                },
+                {
+                    "id": "PROP_20260610_143837_ADB523_OBJECTIVES_SUB_002",
+                    "subsection": "Key Results",
+                    "subsection_name": "Key Results"
+                },
+                {
+                    "id": "PROP_20260610_143837_ADB523_OBJECTIVES_SUB_003",
+                    "subsection": "Baseline Metrics",
+                    "subsection_name": "Baseline Metrics"
+                }
+            ],
+            "child_chunks_count": 3
+        },
+        {
+            "id": "PROP_20260610_144200_F3BBC3_OBJECTIVES",
+            "document_id": "PROP_20260610_144200_F3BBC3",
+            "section": "Objectives",
+            "actual_text_data": "No content found in proposal",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_144200_F3BBC3_OBJECTIVES_SUB_001",
+                    "subsection": "Objectives",
+                    "subsection_name": "Objectives"
+                }
+            ],
+            "child_chunks_count": 1
+        }
+    ],
+    "child_chunks_count": 13
+}
