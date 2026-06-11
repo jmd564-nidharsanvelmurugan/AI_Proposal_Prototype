@@ -1,0 +1,39 @@
+{
+    "semantic_filtered": [
+        {
+            "chunk_id": "PROP_20260610_143837_ADB523_OUTCOMES_SUB_001",
+            "subsection": "Expected Results",
+            "text": "At the conclusion of this project phase, we will deliver the core outputs discussed in section “Key Outputs for the Assessment and Design Phase” via a comprehensive workshop with the senior management team. This workshop will drive a retrospective on current data maturity, alongside a comprehensive plan towards data-driven decision making.",
+            "similarity_score": 0.5682576298713684,
+            "match_type": "semantic_query"
+        },
+        {
+            "chunk_id": "PROP_20260610_142917_CCCA3B_OUTCOMES_SUB_001",
+            "subsection": "Expected Results",
+            "text": "No explicit outcomes section found in proposal; however, the expected results are implied through the deliverables and approach, including a clear roadmap for a customer cube design, improved KPI framework, and enhanced data architecture for reporting and transaction readiness.",
+            "similarity_score": 0.5181703567504883,
+            "match_type": "semantic_query"
+        },
+        {
+            "chunk_id": "PROP_20260610_143512_CBC723_OUTCOMES_SUB_001",
+            "subsection": "Outcomes",
+            "text": "No content found in proposal",
+            "similarity_score": 0.48014312982559204,
+            "match_type": "semantic_query"
+        },
+        {
+            "chunk_id": "PROP_20260610_143714_22A64D_OUTCOMES_SUB_001",
+            "subsection": "Expected Results",
+            "text": "No content found in proposal",
+            "similarity_score": 0.48014312982559204,
+            "match_type": "semantic_query"
+        },
+        {
+            "chunk_id": "PROP_20260610_144200_F3BBC3_OUTCOMES_SUB_001",
+            "subsection": "Outcomes",
+            "text": "No content found in proposal",
+            "similarity_score": 0.48014312982559204,
+            "match_type": "semantic_query"
+        }
+    ]
+}

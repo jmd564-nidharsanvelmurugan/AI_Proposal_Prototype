@@ -1,0 +1,261 @@
+{
+    "timestamp": "20260612_004142",
+    "questionnaire_metadata": {
+        "business_offering": "Financial Services",
+        "solution": "Core Reporting",
+        "region": "US",
+        "project_type": "Both",
+        "commercial_use_case": "Pipeline",
+        "technical_use_case": "Data Platform",
+        "business_model": "B2C",
+        "existing_infra": "Yes",
+        "pe_relationship": "PE Portco"
+    },
+    "top_matching_proposals": [
+        {
+            "rank": 1,
+            "document_id": "PROP_20260610_143837_ADB523",
+            "score": 7.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Data Advisory",
+                    "Core Reporting"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Revenue bridge",
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "Yes"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 2,
+            "document_id": "PROP_20260610_142917_CCCA3B",
+            "score": 7.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "Yes"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 3,
+            "document_id": "PROP_20260610_143714_22A64D",
+            "score": 6.0,
+            "properties": {
+                "business_offering": [
+                    "SaaS"
+                ],
+                "solution": [
+                    "Data Advisory",
+                    "Core Reporting"
+                ],
+                "region": [
+                    "US"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting",
+                    "Revenue bridge"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 4,
+            "document_id": "PROP_20260610_144200_F3BBC3",
+            "score": 5.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 5,
+            "document_id": "PROP_20260610_143512_CBC723",
+            "score": 5.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        }
+    ],
+    "kpi_metrics": {
+        "kpis": [
+            "Lead-to-AUM conversion metrics and Customer Acquisition Cost KPIs."
+        ],
+        "success_metrics": [
+            "Accurate, automated, and insightful L2A and CAC reporting integrated into Power BI.",
+            "Lead-to-AUM conversion metrics and Customer Acquisition Cost KPIs."
+        ],
+        "business_outcomes": [
+            "Enhanced L2A and CAC reporting providing actionable insights into pipeline performance and marketing ROI."
+        ],
+        "risk_mitigations": [
+            "Limited visibility into marketing effectiveness and pipeline performance."
+        ]
+    },
+    "outcomes": {
+        "section_name": "Outcomes",
+        "subsections": [],
+        "section_query": "Automated L2A and CAC reporting insights improving pipeline performance, marketing ROI, and data integration"
+    },
+    "retrieved_chunks": {
+        "semantic_filtered": [
+            {
+                "chunk_id": "PROP_20260610_143837_ADB523_OUTCOMES_SUB_001",
+                "subsection": "Expected Results",
+                "text": "At the conclusion of this project phase, we will deliver the core outputs discussed in section “Key Outputs for the Assessment and Design Phase” via a comprehensive workshop with the senior management team. This workshop will drive a retrospective on current data maturity, alongside a comprehensive plan towards data-driven decision making.",
+                "similarity_score": 0.5682576298713684,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_142917_CCCA3B_OUTCOMES_SUB_001",
+                "subsection": "Expected Results",
+                "text": "No explicit outcomes section found in proposal; however, the expected results are implied through the deliverables and approach, including a clear roadmap for a customer cube design, improved KPI framework, and enhanced data architecture for reporting and transaction readiness.",
+                "similarity_score": 0.5181703567504883,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143512_CBC723_OUTCOMES_SUB_001",
+                "subsection": "Outcomes",
+                "text": "No content found in proposal",
+                "similarity_score": 0.48014312982559204,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143714_22A64D_OUTCOMES_SUB_001",
+                "subsection": "Expected Results",
+                "text": "No content found in proposal",
+                "similarity_score": 0.48014312982559204,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_144200_F3BBC3_OUTCOMES_SUB_001",
+                "subsection": "Outcomes",
+                "text": "No content found in proposal",
+                "similarity_score": 0.48014312982559204,
+                "match_type": "semantic_query"
+            }
+        ]
+    },
+    "generated_content": "## OUTCOMES\n\n### 1. Business Outcomes\n\n1. **Enhanced L2A and CAC Reporting Accuracy (within 12 weeks)**  \n   Deliver automated, validated Lead-to-AUM (L2A) and Customer Acquisition Cost (CAC) reports integrated into Power BI, improving accuracy and timeliness of marketing and pipeline performance insights.\n\n2. **Improved Marketing ROI Visibility (within 3 months post-implementation)**  \n   Enable leadership to assess marketing effectiveness through unified reporting across Salesforce, QuickBooks, and Fabric/Synapse data sources, driving data-backed investment decisions.\n\n3. **Accelerated Decision-Making through Automation (by end of Phase 3B)**  \n   Reduce manual reporting effort by at least 50% through automated data pipelines and dashboards, allowing teams to focus on analysis rather than data preparation.\n\n4. **Optimized Lead Conversion and Cost Efficiency (within 6 months)**  \n   Provide actionable insights that improve lead-to-AUM conversion rates and reduce CAC by identifying high-performing channels and underperforming segments.\n\n5. **Strengthened Data Governance and Integration Readiness (ongoing)**  \n   Establish a consistent data model and integration framework across Salesforce, QuickBooks, and the existing data platform, ensuring scalability for future analytics initiatives.\n\n---\n\n### 2. Key Performance Indicators (KPIs)\n\n| **KPI Name** | **Definition / Calculation Logic** | **Primary Data Source** | **Target Value** | **Reporting Frequency** |\n|---------------|------------------------------------|--------------------------|------------------|--------------------------|\n| **Lead-to-AUM Conversion Rate (L2A)** | % of qualified leads converted to managed assets | Salesforce CRM | ≥ 15% improvement over baseline | Monthly |\n| **Customer Acquisition Cost (CAC)** | Total marketing and sales spend ÷ number of new customers acquired | QuickBooks, Salesforce | ≤ 10% reduction over 6 months | Monthly |\n| **Marketing ROI** | (Revenue from new AUM – Marketing Spend) ÷ Marketing Spend | Power BI (aggregated) | ≥ 20% ROI improvement | Quarterly |\n| **Data Accuracy Rate** | % of records validated and error-free across integrated systems | Fabric/Synapse | ≥ 98% accuracy | Monthly |\n| **Report Delivery Timeliness** | % of reports delivered on or before scheduled date | Power BI | 100% on-time delivery | Monthly |\n| **Automation Efficiency** | Reduction in manual reporting hours post-implementation | Internal time tracking | ≥ 50% reduction | Quarterly |\n| **User Adoption Rate** | % of target users actively using Power BI dashboards | Power BI usage logs | ≥ 80% adoption | Monthly |\n\n---\n\n### 3. Success Metrics\n\n**Quantitative Metrics**\n- 15% improvement in L2A conversion within 3 months of go-live.  \n- 10% reduction in CAC within 6 months.  \n- 50% reduction in manual reporting time.  \n- 98%+ data accuracy across integrated systems.  \n- 100% on-time delivery of automated reports.\n\n**Qualitative Metrics**\n- Stakeholder confidence in marketing and pipeline data increases, as measured by post-implementation survey.  \n- Leadership reports improved ability to make data-driven investment decisions.  \n- Enhanced collaboration between marketing, finance, and operations teams through shared reporting environment.\n\n---\n\n### 4. Risk Mitigation & Value Protection\n\n| **Risk** | **Potential Impact** | **Mitigation Strategy** |\n|-----------|----------------------|--------------------------|\n| **Limited Data Access** | Delays in integration and reporting automation | Secure early access approvals and data-sharing agreements with Salesforce and QuickBooks administrators. |\n| **Data Quality Issues** | Inaccurate or incomplete reporting | Implement data validation rules and automated quality checks within Fabric/Synapse pipelines. |\n| **Dependency on QuickBooks Integration** | Potential delays in CAC reporting | Develop interim manual data import process to maintain reporting continuity. |\n| **Timeline Slippage (Phase 3B)** | Delayed realization of business outcomes | Apply agile delivery with milestone-based progress reviews every two weeks. |\n| **User Adoption Resistance** | Underutilization of Power BI dashboards | Conduct user training and change management sessions to ensure adoption and confidence. |\n\n---\n\n### 5. Outcomes Summary Table\n\n| **Outcome Category** | **Expected Result** | **Measurement Method** | **Timeline** |\n|-----------------------|--------------------|------------------------|---------------|\n| **Reporting Accuracy** | Automated, validated L2A and CAC dashboards | Data validation and audit logs | 12 weeks |\n| **Marketing ROI Visibility** | Unified view of marketing performance | Power BI ROI dashboard | 3 months |\n| **Operational Efficiency** | 50% reduction in manual reporting effort | Time tracking and user feedback | End of Phase 3B |\n| **Conversion Optimization** | 15% improvement in L2A conversion | Salesforce conversion metrics | 6 months |\n| **Cost Efficiency** | 10% reduction in CAC | QuickBooks and Salesforce data | 6 months |\n| **Data Governance** | Consistent, integrated data model | Data quality reports | Ongoing |\n\n---\n\n**In summary**, the outcomes of this engagement will deliver a fully integrated, automated, and insight-driven reporting environment that enhances visibility into marketing performance, optimizes lead conversion, and strengthens data-driven decision-making across the client’s financial services operations.",
+    "user_preferences": {
+        "included_subsections": false,
+        "included_subsections_count": 0,
+        "queries_generated": true,
+        "use_query_filter": "yes",
+        "section_query_used": "Automated L2A and CAC reporting insights improving pipeline performance, marketing ROI, and data integration",
+        "total_child_chunks": 5
+    }
+}

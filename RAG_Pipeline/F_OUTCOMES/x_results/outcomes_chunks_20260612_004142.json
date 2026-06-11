@@ -1,0 +1,75 @@
+{
+    "parent_chunks": [
+        {
+            "id": "PROP_20260610_142917_CCCA3B_OUTCOMES",
+            "document_id": "PROP_20260610_142917_CCCA3B",
+            "section": "Outcomes",
+            "actual_text_data": "No explicit outcomes section found in proposal; however, the expected results are implied through the deliverables and approach, including a clear roadmap for a customer cube design, improved KPI framework, and enhanced data architecture for reporting and transaction readiness.",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_142917_CCCA3B_OUTCOMES_SUB_001",
+                    "subsection": "Expected Results",
+                    "subsection_name": "Expected Results"
+                }
+            ],
+            "child_chunks_count": 1
+        },
+        {
+            "id": "PROP_20260610_143512_CBC723_OUTCOMES",
+            "document_id": "PROP_20260610_143512_CBC723",
+            "section": "Outcomes",
+            "actual_text_data": "No content found in proposal",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_143512_CBC723_OUTCOMES_SUB_001",
+                    "subsection": "Outcomes",
+                    "subsection_name": "Outcomes"
+                }
+            ],
+            "child_chunks_count": 1
+        },
+        {
+            "id": "PROP_20260610_143714_22A64D_OUTCOMES",
+            "document_id": "PROP_20260610_143714_22A64D",
+            "section": "Outcomes",
+            "actual_text_data": "No content found in proposal",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_143714_22A64D_OUTCOMES_SUB_001",
+                    "subsection": "Expected Results",
+                    "subsection_name": "Expected Results"
+                }
+            ],
+            "child_chunks_count": 1
+        },
+        {
+            "id": "PROP_20260610_143837_ADB523_OUTCOMES",
+            "document_id": "PROP_20260610_143837_ADB523",
+            "section": "Outcomes",
+            "actual_text_data": "At the conclusion of this project phase, we will deliver the core outputs discussed in section “Key Outputs for the Assessment and Design Phase” via a comprehensive workshop with the senior management team. This workshop will drive a retrospective on current data maturity, alongside a comprehensive plan towards data-driven decision making.",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_143837_ADB523_OUTCOMES_SUB_001",
+                    "subsection": "Expected Results",
+                    "subsection_name": "Expected Results"
+                }
+            ],
+            "child_chunks_count": 1
+        },
+        {
+            "id": "PROP_20260610_144200_F3BBC3_OUTCOMES",
+            "document_id": "PROP_20260610_144200_F3BBC3",
+            "section": "Outcomes",
+            "actual_text_data": "No content found in proposal",
+            "child_chunks": [
+                {
+                    "id": "PROP_20260610_144200_F3BBC3_OUTCOMES_SUB_001",
+                    "subsection": "Outcomes",
+                    "subsection_name": "Outcomes"
+                }
+            ],
+            "child_chunks_count": 1
+        }
+    ],
+    "child_chunks_count": 5
+}
