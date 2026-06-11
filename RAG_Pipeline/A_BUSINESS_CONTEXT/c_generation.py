@@ -19,7 +19,7 @@ prompt = ChatPromptTemplate.from_template(
 """
 You are a senior consulting proposal writer specializing in Business Context sections.
 
-CLIENT QUESTIONNAIRE (Business Context Section Only)
+CLIENT QUESTIONNAIRE 
 --------------------------------------------------
 {questionnaire}
 
@@ -42,11 +42,7 @@ Instructions for BUSINESS CONTEXT section:
 2. Use the CLIENT QUESTIONNAIRE (Business Context section) as the primary source of truth.
 3. Ignore questions from other sections (Overview, Understanding, Objectives, etc.).
 4. Use the retrieved knowledge only as supporting evidence and examples.
-5. Cover these key areas naturally within a single cohesive narrative:
-   - Industry landscape and market trends affecting the client
-   - The client's current business situation and strategic position
-   - Key stakeholders and their roles in the engagement
-   - Business drivers and rationale for this engagement
+5. Cover these key areas naturally within a single cohesive narrative.
 6. Do not create subsection headings, bullet points, or numbered lists.
 7. Maintain professional, proposal-ready consulting language.
 8. Write in paragraphs with natural flow between topics.

@@ -1,0 +1,259 @@
+{
+    "timestamp": "20260611_153027",
+    "questionnaire_metadata": {
+        "business_offering": "Financial Services",
+        "solution": "Core Reporting",
+        "region": "US",
+        "project_type": "Both",
+        "commercial_use_case": "Pipeline",
+        "technical_use_case": "Data Platform",
+        "business_model": "B2C",
+        "existing_infra": "Yes",
+        "pe_relationship": "PE Portco"
+    },
+    "top_matching_proposals": [
+        {
+            "rank": 1,
+            "document_id": "PROP_20260610_143837_ADB523",
+            "score": 7.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Data Advisory",
+                    "Core Reporting"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Revenue bridge",
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "Yes"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 2,
+            "document_id": "PROP_20260610_142917_CCCA3B",
+            "score": 7.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "Yes"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 3,
+            "document_id": "PROP_20260610_143714_22A64D",
+            "score": 6.0,
+            "properties": {
+                "business_offering": [
+                    "SaaS"
+                ],
+                "solution": [
+                    "Data Advisory",
+                    "Core Reporting"
+                ],
+                "region": [
+                    "US"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting",
+                    "Revenue bridge"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 4,
+            "document_id": "PROP_20260610_144200_F3BBC3",
+            "score": 5.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 5,
+            "document_id": "PROP_20260610_143512_CBC723",
+            "score": 5.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        }
+    ],
+    "problem_statement": {
+        "section_name": "Problem Statement",
+        "subsections": [],
+        "section_query": "limited pipeline visibility fragmented CAC data lack of QuickBooks integration granular reporting gaps"
+    },
+    "retrieved_chunks": {
+        "semantic_filtered": [
+            {
+                "chunk_id": "PROP_20260610_143714_22A64D_PROBLEM_STATEMENT_SUB_001",
+                "subsection": "Core Challenges",
+                "text": "This presents 5 core challenges:\n\nNo single source of truth & consistent and reliable view of performance: Board, management and operators do not have a reliable and consolidated view of financial performance, as there is no single source of truth platform & dataset. Therefore, the business is not able to track performance and progress against the value creation plan and identify opportunities to drive value across the business.\n\nLack of Consistent KPIs and Data Quality Issues: Current reporting does not always align with industry standard best practices, limiting confidence in decision making. Historic data is incomplete, and there are known data quality issues in subbranches, reducing the consistency of KPIs and reporting.\n\nLimited financial reporting scalability: Each past acquisition contains additional datasets of varying quality, produced by different process and with nuanced definitions and logic. Therefore, a single source of truth data platform designed & optimized to support & scale with M&A is required.\n\nReporting dependency on system migrations: Acquired entities operate across different systems at and after the point of acquisition, with data sitting in multiple source systems prior to migration. Existing financial reporting leverages data from NetSuite, where some entities have not yet been migrated from QuickBooks. Migration timelines can take up to a year. This prevents rapid consolidated reporting across entities and create dependency on lengthy system migrations before reporting can be easily unified.\n\nLack of real time visibility into operational efficiency & process adherence: Management & operators are reliant on after-the-fact, manual reports and cannot drill down into operational metrics in real-time to support on-the-ground & rapid decision making. This limits the ability to monitor & identify opportunities to improve operational efficiency, a key value lever for the business.",
+                "embedding_preview": "[0.02...",
+                "similarity_score": 0.7315304279327393,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143837_ADB523_PROBLEM_STATEMENT_SUB_001",
+                "subsection": "Data Quality Issues",
+                "text": "The reporting and data landscape is highly fragmented and manual with financial and operational data spread across multiple systems. Numerous operational and management reports have been created to meet specific regional or business needs, resulting in inconsistent KPI definitions, limited quality control, and frequent discrepancies between outputs.",
+                "embedding_preview": "[0.00...",
+                "similarity_score": 0.7209692001342773,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143837_ADB523_PROBLEM_STATEMENT_SUB_002",
+                "subsection": "Integration Gaps",
+                "text": "Pipeline data is not integrated into core finance reporting and is not consistently trusted as a forward-looking revenue indicator. The absence of governance, stage definitions, reporting rules and a single source of truth for core commercial metrics makes the pipeline difficult to interpret and limits leadership’s ability to rely on it for forecasting and decision making.",
+                "embedding_preview": "[0.01...",
+                "similarity_score": 0.6803625226020813,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143512_CBC723_PROBLEM_STATEMENT_SUB_001",
+                "subsection": "Current Data Challenges",
+                "text": "Prescient faces several critical data challenges across customers, financials, projects, HR, and drug/asset metadata. Customer and account data suffers from duplicate child accounts, inconsistent naming, and manual entry across multiple systems, leading to mismatch between Salesforce, Kantata, and Sage Intacct. There is no single customer master, and overlap across Prescient, Uptake, and the new acquisition requires complex mapping to understand the full client relationship landscape. Project and delivery data is fragmented between Kantata and CMAP, with Kantata used primarily for financial tracking rather than operational delivery, limiting its usefulness for utilisation or performance insights.\n\nFinancial data is split across Sage Intacct, multiple Xero instances, and legacy Sage 50, with the cleanest consistent data only available from January 2023 onward due to staggered migrations. HR data is also inconsistent: Oracle has significant accuracy issues, historical role and grade structures vary across entities, and older HR systems may no longer be accessible. This complicates historical calculation across key financial and operational KPIs including margin by role, cost per FTE, and utilisation metrics. Drug and asset metadata suffers from free‑text entry in Salesforce, resulting in inconsistent or incomplete INN, brand, and code name fields. Only one of the three asset fields is mandatory, and projects covering multiple assets lack standardised allocation rules, limiting the ability to tie revenue to specific assets or phases. Patent data is not captured systemically and is currently being compiled manually for only recent revenue. Finally, reporting is heavily Excel‑driven, with no central data warehouse or unified schema, making analytics slow, manual, and highly error‑prone. Prescient management are keenly aware of their data challenges and have identified and actioned multiple workstreams focused on data remediation.",
+                "embedding_preview": "[0.00...",
+                "similarity_score": 0.6688822507858276,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_142917_CCCA3B_PROBLEM_STATEMENT_SUB_001",
+                "subsection": "Exit Preparation Challenges",
+                "text": "As Saffery enters a period of exit preparation, the firm is focused on sharpening how its performance and value creation story are articulated to prospective investors. Central to this is building a clear, defensible view of customer and revenue dynamics that evidence revenue quality, client durability, margin drivers, and scalability within its partner-led model. Enhanced reporting and analytics will enable management to translate deep client relationships and sector expertise into a compelling, data-backed equity narrative ahead of exit.",
+                "embedding_preview": "[0.01...",
+                "similarity_score": 0.5809646844863892,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_144200_F3BBC3_PROBLEM_STATEMENT_SUB_001",
+                "subsection": "Problem Statement",
+                "text": "No content found in proposal",
+                "embedding_preview": "[0.00...",
+                "similarity_score": 0.5307749509811401,
+                "match_type": "semantic_query"
+            }
+        ]
+    },
+    "generated_content": "PURE FINANCIAL ADVISORS LLC operates within the U.S. financial advisory and wealth management sector, where data-driven insights are critical to understanding client acquisition efficiency and overall business performance. Currently, the firm’s data and reporting environment spans multiple systems—Salesforce, Tamarac, Azure Blob Storage, Microsoft Fabric, Azure Synapse, and QuickBooks—without a unified framework to connect and interpret information across these platforms. This fragmented landscape limits the organization’s ability to produce a consistent and reliable view of its lead pipeline and asset growth, leaving leadership without a single source of truth for evaluating marketing effectiveness and conversion performance.  \n\nThe existing pipeline reporting lacks the granularity needed to trace the full journey from lead generation to assets under management (AUM). Customer acquisition cost (CAC) insights are incomplete due to missing integrations, particularly with QuickBooks, and data quality issues further erode confidence in the accuracy of reported metrics. As a result, marketing and data teams face challenges in aligning their reporting outputs, and leadership cannot easily assess the return on marketing spend or identify which acquisition channels are most effective. These gaps mirror common industry challenges in financial services, where inconsistent KPI definitions and fragmented data sources often lead to misaligned decision-making and limited visibility into growth drivers.  \n\nThe absence of integrated, trustworthy reporting creates tangible business risks. Without a consolidated view of pipeline performance and acquisition costs, Pure’s management cannot reliably forecast revenue, optimize marketing investments, or measure progress against strategic growth objectives. Decision-making becomes reactive rather than data-informed, and opportunities to improve conversion efficiency or reduce acquisition costs may go unnoticed. In a competitive, data-intensive industry, this lack of clarity undermines Pure’s ability to scale its operations and achieve the level of data maturity required to support sustained growth and investor confidence.",
+    "user_preferences": {
+        "included_subsections": false,
+        "included_subsections_count": 0,
+        "queries_generated": true,
+        "use_query_filter": "yes",
+        "section_query_used": "limited pipeline visibility fragmented CAC data lack of QuickBooks integration granular reporting gaps",
+        "total_child_chunks": 6
+    }
+}
