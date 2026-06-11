@@ -801,7 +801,7 @@ print("\n" + "=" * 60)
 print("STEP 7: Generating Objectives Content")
 print("=" * 60)
 
-from c_generation_objectives import generate_objectives_content
+from c_generation import generate_objectives_content
 
 objectives_content = generate_objectives_content(
     questionnaire=questionnaire,

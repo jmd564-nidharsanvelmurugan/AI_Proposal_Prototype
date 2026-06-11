@@ -5,7 +5,8 @@ import json
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from typing import List, Dict, Any, Optional
-
+from dotenv import load_dotenv
+load_dotenv()
 
 model = SentenceTransformer(
     "BAAI/bge-large-en-v1.5"
@@ -42,7 +43,7 @@ def get_filtered_chunks_by_semantic_query(
         return get_filtered_chunks_for_section(child_ids, [], search_type=1, top_k_per_subsection=top_k)
     
     conn = psycopg2.connect(
-        "postgresql://neondb_owner:npg_newiIELXDz02@ep-snowy-resonance-aor957h7-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+        os.getenv('DB')
     )
     
     cur = conn.cursor()
@@ -154,7 +155,7 @@ def subsection_filter(
         return []
     
     conn = psycopg2.connect(
-        "postgresql://neondb_owner:npg_newiIELXDz02@ep-snowy-resonance-aor957h7-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+        os.getenv('DB')
     )
     
     cur = conn.cursor()

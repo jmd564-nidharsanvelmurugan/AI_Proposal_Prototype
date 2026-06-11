@@ -2,6 +2,9 @@ import psycopg2
 import json
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 # =====================================================
 # Schema Definitions
@@ -108,7 +111,7 @@ def fetch_all_proposals() -> List[ProposalMetadataSchema]:
     Fetch all proposals from the database.
     """
     conn = psycopg2.connect(
-        "postgresql://neondb_owner:npg_newiIELXDz02@ep-snowy-resonance-aor957h7-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+        os.getenv('DB')
     )
     
     cur = conn.cursor()
@@ -168,7 +171,7 @@ def get_parent_chunks_by_document_ids(document_ids: List[str], section_name: str
         return []
     
     conn = psycopg2.connect(
-        "postgresql://neondb_owner:npg_newiIELXDz02@ep-snowy-resonance-aor957h7-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+        os.getenv('DB')
     )
     
     cur = conn.cursor()
@@ -224,7 +227,7 @@ def get_child_chunks_by_ids(child_ids: List[str]) -> List[Dict[str, Any]]:
         return []
     
     conn = psycopg2.connect(
-        "postgresql://neondb_owner:npg_newiIELXDz02@ep-snowy-resonance-aor957h7-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+        os.getenv('DB')
     )
     
     cur = conn.cursor()
