@@ -12,6 +12,112 @@ model = SentenceTransformer(
 )
 
 
+
+
+def get_filtered_chunks_by_semantic_query(
+    child_ids: List[str],
+    query: str,
+    top_k: int = 10
+) -> Dict[str, List[Dict[str, Any]]]:
+    """
+    Filter child chunks using a semantic query (no subsection names).
+    Returns chunks with similarity scores based on full text content.
+    
+    Args:
+        child_ids: List of child chunk IDs
+        query: Semantic query string
+        top_k: Number of top chunks to return
+    
+    Returns:
+        Dictionary with "semantic_filtered" key containing list of scored chunks
+    """
+    
+    if not child_ids:
+        print("⚠️ No child IDs provided. Returning empty list.")
+        return {"semantic_filtered": []}
+    
+    if not query or query.strip() == "":
+        print("⚠️ No query provided. Returning all chunks.")
+        # Fall back to returning all chunks
+        return get_filtered_chunks_for_section(child_ids, [], search_type=1, top_k_per_subsection=top_k)
+    
+    conn = psycopg2.connect(
+        host="localhost",
+        port=5432,
+        dbname="proposal_retrieval",
+        user="postgres",
+        password="postgres"
+    )
+    
+    cur = conn.cursor()
+    
+    # Fetch all child chunks by IDs
+    cur.execute("""
+        SELECT
+            id,
+            subsection,
+            actual_text_data,
+            embedding
+        FROM child_chunks
+        WHERE id = ANY(%s)
+    """, (child_ids,))
+    
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+    
+    if not rows:
+        print("⚠️ No child chunks found for the given IDs.")
+        return {"semantic_filtered": []}
+    
+    print(f"📝 Applying semantic query filter: '{query}'")
+    
+    # Generate query embedding
+    query_emb = model.encode(query)
+    
+    results = []
+    
+    for row in rows:
+        # Get the chunk text (use actual_text_data for semantic comparison)
+        chunk_text = row[2] if row[2] else ""
+        subsection_name = row[1] if row[1] else "unknown"
+        
+        if not chunk_text:
+            continue
+        
+        # Generate embedding for chunk text
+        chunk_emb = model.encode(chunk_text)
+        
+        # Calculate cosine similarity
+        similarity = cosine_similarity(
+            [query_emb],
+            [chunk_emb]
+        )[0][0]
+        
+        results.append({
+            "chunk_id": row[0],
+            "subsection": subsection_name,
+            "text": chunk_text,
+            "embedding_preview": str(row[3][:5]) + "..." if row[3] else None,
+            "similarity_score": float(similarity),
+            "match_type": "semantic_query"
+        })
+        
+    
+    # Sort by similarity score (higher = better match)
+    results.sort(key=lambda x: x["similarity_score"], reverse=True)
+    
+    top_results = results[:top_k]
+    
+    print(f"✅ Found {len(results)} matching chunks (returning top {len(top_results)})")
+    for i, r in enumerate(top_results[:3], 1):
+        print(f"   {i}. Score: {r['similarity_score']:.3f} | Subsection: {r['subsection']}")
+    
+    return {"semantic_filtered": top_results}
+
+
+
+
 def ensure_results_folder():
     """Ensure the x_results folder exists."""
     if not os.path.exists("x_results"):

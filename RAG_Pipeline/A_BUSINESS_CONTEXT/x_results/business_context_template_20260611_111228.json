@@ -4,15 +4,15 @@
         "subsections": [
             {
                 "subsection_name": "Industry Trends",
-                "query": ""
+                "query": "Financial Trends"
             },
             {
-                "subsection_name": "Executive Decision",
-                "query": ""
+                "subsection_name": "Executive Decision-Making",
+                "query": "Executive Decision"
             },
             {
                 "subsection_name": "Stakeholder Collaboration",
-                "query": ""
+                "query": "Stakeholder Collaboration"
             }
         ]
     }
