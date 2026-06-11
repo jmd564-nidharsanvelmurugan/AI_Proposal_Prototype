@@ -1,0 +1,281 @@
+{
+    "timestamp": "20260611_151841",
+    "questionnaire_metadata": {
+        "business_offering": "Financial Services",
+        "solution": "Core Reporting",
+        "region": "US",
+        "project_type": "Both",
+        "commercial_use_case": "Pipeline",
+        "technical_use_case": "Data Platform",
+        "business_model": "B2C",
+        "existing_infra": "Yes",
+        "pe_relationship": "PE Portco"
+    },
+    "top_matching_proposals": [
+        {
+            "rank": 1,
+            "document_id": "PROP_20260610_143837_ADB523",
+            "score": 7.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Data Advisory",
+                    "Core Reporting"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Revenue bridge",
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "Yes"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 2,
+            "document_id": "PROP_20260610_142917_CCCA3B",
+            "score": 7.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "Yes"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 3,
+            "document_id": "PROP_20260610_143714_22A64D",
+            "score": 6.0,
+            "properties": {
+                "business_offering": [
+                    "SaaS"
+                ],
+                "solution": [
+                    "Data Advisory",
+                    "Core Reporting"
+                ],
+                "region": [
+                    "US"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting",
+                    "Revenue bridge"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 4,
+            "document_id": "PROP_20260610_144200_F3BBC3",
+            "score": 5.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        },
+        {
+            "rank": 5,
+            "document_id": "PROP_20260610_143512_CBC723",
+            "score": 5.0,
+            "properties": {
+                "business_offering": [
+                    "Professional Services"
+                ],
+                "solution": [
+                    "Core Reporting",
+                    "Data Advisory"
+                ],
+                "region": [
+                    "UK"
+                ],
+                "project_type": [
+                    "Design and Discovery"
+                ],
+                "commercial_use_case": [
+                    "Operational Reporting"
+                ],
+                "technical_use_case": [
+                    "Data platform"
+                ],
+                "business_model": [
+                    "B2B"
+                ],
+                "existing_infra": [
+                    "No"
+                ],
+                "pe_relationship": [
+                    "PE Portco"
+                ]
+            }
+        }
+    ],
+    "deliverables": {
+        "section_name": "Deliverables",
+        "subsections": [],
+        "section_query": "KPI book, Power BI mockups, data model design, gap assessment, technical approach, implementation plan"
+    },
+    "retrieved_chunks": {
+        "semantic_filtered": [
+            {
+                "chunk_id": "PROP_20260610_142917_CCCA3B_DELIVERABLES_SUB_005",
+                "subsection": "Data Gap Assessment and Process Recommendations",
+                "text": "Data Gap Assessment and Process Recommendations: Assessment of data availability for Client Cube build and reporting, identifying gaps in coverage to conduct a feasibility assessment during implementation planning. Where data is not (or poorly) available, work with stakeholders to provide data recommendations and identify areas for process improvement to improve quality and availability over time. This will consider changes required to unlock additional or future value-add use cases, where relevant.",
+                "similarity_score": 0.6938019394874573,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143837_ADB523_DELIVERABLES_SUB_001",
+                "subsection": "Phase 1 Deliverables",
+                "text": "Key Outputs for the Assessment and Design Phase:\n\n1. Foundational Assessment Framework: a high-level, comparative assessment of K2’s current data architecture, systems and capabilities that benchmarks data maturity across key dimensions and identifies key foundational capability improvements to enable best-in-class, data-driven decision making.\n\n2. Holistic view of Reporting Requirements & Data Use-Cases: a comprehensive understanding of current and future reporting needs - spanning day-to-day management reporting, lead to cash process reporting, and transaction-ready investor grade outputs (e.g., ARR bridge, pipeline visibility, cohort performance), up to requirements for a successful exit process.\n\n3. 'Metrics that matter': a clearly defined list of priority KPIs with consistent industry standard definitions that are understood and accepted across the business. Includes alignment to industry benchmarks and identification of key data attributes and dimensions (e.g., customer segment, product, cohort).\n\n4. KPI Feasibility & Data Assessment: a review of K2’s ability to report on the defined KPIs, based on the quality, completeness, and granularity of data captured in source systems. Highlights key data gaps and recommendations to address them, stemming from the Foundational Assessment Framework.\n\n5. Tech Architecture Review & Design: recommendations sourced from findings of the data maturity assessment for a best-in-class design of future state architecture leveraging any current technology stack, including data model enhancements, scalable pipeline design, and governance structures that future-proof reporting infrastructure.\n\n6. Quick Wins Identification: immediate, high-impact actions to improve reporting quality and speed.\n\n7. Strategic Roadmap: a clear, time-bound plan to deliver against K2’s reporting ambitions - from establishing best-in-class data foundations through to dashboard development and governance implementation. Considers other strategic business priorities, resourcing, scalability, futureproofing, and timing for a potential future exit deadline.",
+                "similarity_score": 0.6717995405197144,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_144200_F3BBC3_DELIVERABLES_SUB_001",
+                "subsection": "Phase 1 Deliverables",
+                "text": "Target narratives and KPIs – A list of target exit narratives and associated KPIs to be incorporated into the Revenue, Sales and AUA insights pack\n\nOutput Design– Confirm format and function of final output highlighting, for example, Revenue, Sales and AUA insights (dashboards, cubes, supporting documentation), aligned to exit narratives and transaction requirements. This will include confirmation of data range to cover.\n\nTooling & Technical Approach Agreement – Confirmation of the data preparation and visualisation tools (e.g., Alteryx, Power BI) to be used in Phase 2 development\n\nReconciliation Approach Agreement - Outline of the reconciliation requirements and ways of working with the Finance teams to collaborate on the process (e.g. revenue, AUA, channels and loan types, maturity dates)\n\nDetailed Project Plan – A detailed plan for Phases 2, setting out approach, deliverables, timelines, and ways of working; factoring in other timings & requirements for the process",
+                "similarity_score": 0.6671904921531677,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143512_CBC723_DELIVERABLES_SUB_002",
+                "subsection": "Phase 1 – Design & Discovery Outputs Part II",
+                "text": "“Metrics that Matter” & dimension dictionary: A clearly defined list of metrics including data points required & proposed calculation methodology. This will be accompanied by the target dimensions with which Prescient wants to slice the business. The dictionary will be focused on the requirements of the priority use cases(s) identified at the end of week 2 - additional metrics beyond this will be noted down for future reference & development. \n\nDashboard mock-ups: Design of the insights & reports for the priority metrics agreed as the priority use case. These visual mock-ups will capture layout, structure, and functionality requirements and will serve as the blueprint in the implementation phase.\n\nConceptual data model: A high-level, conceptual group data model that outlines the structure and flow of data needed to deliver the agreed reporting requirements for the priority reporting use case.\n\nData gap assessment and process recommendations: High-level assessment of data availability for priority reporting, identifying gaps in coverage to conduct a feasibility assessment during roadmap prioritisation. Where data is not (or poorly) available, work with stakeholders to provide data recommendations and identify areas for process improvement to improve quality and availability over time. Recommendations will be cognisant and work alongside currently planned/ongoing data remediation efforts and will consider changes required to unlock additional or future value-add use cases, where relevant.\n\nImplementation plan: A detailed plan outlining build phase activities, milestones, and timelines for developing the priority data assets and reports. The roadmap will be structured into prioritised, sprint-based phases to enable incremental delivery of use cases and value throughout the build. This implementation plan will include integration of go-forward systems as well as historical data.",
+                "similarity_score": 0.654699981212616,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_142917_CCCA3B_DELIVERABLES_SUB_004",
+                "subsection": "Client Cube Design",
+                "text": "Client Cube Design: Work collaboratively with key business stakeholders to align on the vision of the Client Cube and associated reporting landscape for Saffery. This involves defining: \n\nUser Groups: Who are the different user groups that will consume reporting at different levels of the business – e.g. Board/Investor, Management, and Operators (i.e. Partner/Division-leads, or Teams etc.) \n\nReports: Across the different user-groups how will specific, relevant and valuable insights be divided/presented to allow visibility to the different user groups. \n\nDashboard mock-ups: For the priority Client reporting suite/dashboard areas, ensure that the display of these KPIs and metrics provides the right level of granularity, insights are actionable, and provides the data clarity on an end-state goal for the data model and dashboards \n\nData model: Design a data model that would satisfy all the reporting/insight requirements irrespective of order or phasing of delivery.",
+                "similarity_score": 0.6360419988632202,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_142917_CCCA3B_DELIVERABLES_SUB_002",
+                "subsection": "KPI Framework",
+                "text": "“Metrics that Matter” KPI framework: Recommended metrics to provide critical reporting across the business and visibility on the “metrics that matter”, to help support the key equity narratives ahead of a future investment process. These KPIs will critically also provide management and operational visibility to support decision-making and value creation throughout the remainder of the hold. These metrics will be mapped across the reporting suite design, to identify at which level these should be surfaced, measured, and tracked. The KPI framework will absorb existing reporting requirements already shared with JMAN including the Finance Board Report, CPO Report and Power BI reports and future requirements e.g. revenue / client metrics, staff and partners.",
+                "similarity_score": 0.6263590455055237,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143714_22A64D_DELIVERABLES_SUB_001",
+                "subsection": "Phase 1 – Design & Discovery Deliverables",
+                "text": "JMAN is proposing a two-phase approach, with a four week ‘Design & Discovery’ phase which:\n\nDesigns a future state for reporting suite, focused on the ‘metrics that matter’ both for the operational running of the business and for an executive audience\n\nDeep dives into a priority insight suite for immediate execution and delivery post Phase One (ex a diligence grade and fully automated financial and operations cubes, including key metrics such as new sales, recurring/nonrecurring revenue, and gross profit)\n\nAssesses the existing tech landscape & provide fully costed recommendations for new or augmentation of data infrastructure to support the deployment of a central data platform for connection, ingestion & consolidation of information into a single source of truth\n\nPresent dashboard mock-ups to test outputs with future end users and validate requirements and functionality\n\nDesign the data model (the critical component of a data platform) that would satisfy all the reporting requirements irrespective of order or phasing of delivery\n\nDesigns an implementation roadmap for the prioritized use case and wider reporting opportunities, with the focus on delivering components in the reporting suites incrementally, whilst harnessing and potentially growing internal capability",
+                "similarity_score": 0.6157597303390503,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_143512_CBC723_DELIVERABLES_SUB_001",
+                "subsection": "Phase 1 – Design & Discovery Outputs Part I",
+                "text": "Equity Story & Growth Levers: Align with the business (and Bridgepoint) on the key narratives the business will want to present at exit. Ensure these are aligned with the reporting and contextual business requirements of the management team to operationally run and track performance. Translate these narratives into a broad set of KPIs and reporting dimensions.\n\nReporting use cases, including prioritisation: On the back of Target equity narratives, work with the business to align on key value drivers that allow the management team to track business performance and evidence target narratives, leading to a prioritised set of use cases that have the most impact on the valuation and are relatively easy to implement. The prioritisation is to be agreed by the end of week 2, to support further development of Part II of outputs.\n\nReporting suite design, including roadmap: Work collaboratively with key business stakeholders to align on the “north-star” vision of the end-state reporting landscape for Prescient, and develop a delivery roadmap for reporting, ensuring priority reports are delivered as part of Phase 2. This involves defining:\n\nUser-groups: Who are the different user groups that will consume reporting at different levels of the business – e.g. Board/Investor, Management, and Operators (i.e. Partner/Division-leads, or Teams etc.)\n\nReporting pillars/verticals: Agreeing on the key reporting pillars and their prioritisation across the business that will surface the relevant insights – e.g. finance, customer, people/HR, project/operational, sales, etc.\n\nReports & tools: Across the different user-groups and reporting pillars/verticals, how will these be divided/presented in specific tools to allow the different user-groups visibility of what they require – e.g. a board report will likely aggregate the top-level KPIs across finance, customer, people etc. Whereas a partner report, might only include the relevant operational reporting, or a CFO pack only include the finance pillar of reporting.\n\nData architecture and infrastructure design: A recommendation for the augmentation and development of data infrastructure to support the deployment of the platform for connection, ingestion, and consolidation of legacy, current, and new systems. The design will be cognizant of Prescient's ongoing buy-and-build strategy, its existing technology landscape, and will align with the planned system changes (e.g., Bamboo, Kantata). We will work in close collaboration with Prescient technical teams on recommendations, to ensure the data platform and reporting suite can be owned and maintained by internal teams following delivery of the platform and reporting in Phase 2.",
+                "similarity_score": 0.5895687341690063,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_142917_CCCA3B_DELIVERABLES_SUB_001",
+                "subsection": "Equity Story and Reporting Requirements",
+                "text": "Equity Story, Future Narratives, and Reporting Requirements: align with the business (and investors) on the key narratives the business will want to present at exit. Ensure these are aligned with the reporting and contextual business requirements of the management team to operationally run and track performance. These narratives and reporting areas will be the foundation to develop the KPI framework.",
+                "similarity_score": 0.5862505435943604,
+                "match_type": "semantic_query"
+            },
+            {
+                "chunk_id": "PROP_20260610_142917_CCCA3B_DELIVERABLES_SUB_006",
+                "subsection": "Data Architecture and Infrastructure Design",
+                "text": "Data architecture and infrastructure design: Recommendation for new or augmentation of data infrastructure to support the deployment of the platform for connection, ingestion and consolidation of legacy, current and new systems. The design will be cogniszant of Saffery’s ongoing buy-and-build strategy.",
+                "similarity_score": 0.5828306674957275,
+                "match_type": "semantic_query"
+            }
+        ]
+    },
+    "generated_content": "**Deliverables**\n\nThe following deliverables are expected from the discovery phase:\n\n1. **KPI Book**\n\t* Description: A comprehensive document outlining the key performance indicators (KPIs) for the client, including metrics that matter and their calculation methodology.\n\t* Format: Excel or Word\n\t* Key components: List of priority KPIs, data points required, proposed calculation methodology, and target dimensions for slicing the business.\n\t* [TO BE ENRICHED with Problem Statement] to ensure alignment with client objectives\n2. **Power BI Mock-ups**\n\t* Description: Limited to 8 views, these mock-ups will provide a visual representation of the insights and reports for the priority metrics, capturing layout, structure, and functionality requirements.\n\t* Format: Power BI\n\t* Key components: Dashboard design, layout, and functionality requirements\n\t* [TO BE ENRICHED with Objectives] to ensure alignment with client goals\n3. **Data Model Design**\n\t* Description: A high-level, conceptual data model outlining the structure and relationships between data entities.\n\t* Format: Word or PowerPoint\n\t* Key components: Entity-relationship diagram, data entity descriptions, and data flow diagrams\n\t* [TO BE ENRICHED with Business Context] to ensure alignment with industry and client context\n4. **Data Gap Assessment**\n\t* Description: An assessment of data availability for the client cube build and reporting, identifying gaps in coverage and providing recommendations for process improvement.\n\t* Format: Word or PowerPoint\n\t* Key components: Data availability assessment, gap analysis, and process improvement recommendations\n\t* [TO BE ENRICHED with Problem Statement] to ensure alignment with client pain points\n5. **Technical Approach**\n\t* Description: A document outlining the technical approach for the QuickBooks integration, including data preparation and visualization tools.\n\t* Format: Word or PowerPoint\n\t* Key components: Technical architecture, data preparation and visualization tools, and integration approach\n\t* [TO BE ENRICHED with Business Context] to ensure alignment with industry and client context\n6. **Phase 3B Implementation Plan**\n\t* Description: A plan outlining the implementation approach for the next phase, including timelines, milestones, and resource allocation.\n\t* Format: Word or PowerPoint\n\t* Key components: Implementation timeline, milestones, resource allocation, and risk management plan\n\t* [TO BE ENRICHED with Objectives] to ensure alignment with client goals\n\n**Summary Table**\n\n| Deliverable Name | Format | Due |\n| --- | --- | --- |\n| KPI Book | Excel or Word | [TO BE DETERMINED] |\n| Power BI Mock-ups | Power BI | [TO BE DETERMINED] |\n| Data Model Design | Word or PowerPoint | [TO BE DETERMINED] |\n| Data Gap Assessment | Word or PowerPoint | [TO BE DETERMINED] |\n| Technical Approach | Word or PowerPoint | [TO BE DETERMINED] |\n| Phase 3B Implementation Plan | Word or PowerPoint | [TO BE DETERMINED] |\n\nNote: The due dates for the deliverables will be determined based on the project timeline and milestones. [TO BE ENRICHED with Problem Statement, Business Context, and Objectives] to ensure alignment with client objectives and context.",
+    "user_preferences": {
+        "included_subsections": false,
+        "included_subsections_count": 0,
+        "queries_generated": true,
+        "use_query_filter": "yes",
+        "section_query_used": "KPI book, Power BI mockups, data model design, gap assessment, technical approach, implementation plan",
+        "total_child_chunks": 14
+    }
+}

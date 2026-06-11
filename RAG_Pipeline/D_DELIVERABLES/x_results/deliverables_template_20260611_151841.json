@@ -1,0 +1,27 @@
+{
+    "deliverables": {
+        "section_name": "Deliverables",
+        "subsections": [
+            {
+                "subsection_name": "Current State Assessment",
+                "query": ""
+            },
+            {
+                "subsection_name": "KPI and Data Model Design",
+                "query": ""
+            },
+            {
+                "subsection_name": "Power BI Reporting Mock-ups",
+                "query": ""
+            },
+            {
+                "subsection_name": "Technical Architecture and Integration Plan",
+                "query": ""
+            },
+            {
+                "subsection_name": "Implementation Roadmap and Cost Estimates",
+                "query": ""
+            }
+        ]
+    }
+}

@@ -1,10 +1,12 @@
-1. Business Context 
-2. Problem Statement 
-3. Objectives 
-4. Deliverables
-5. Approach
-6. Outcomes
-7. Business Impact
+1. Business Context - prag ()
+2. Problem Statement - prag ()
+3. Objectives - prag ()
+
+
+4. Deliverables - nidh
+5. Approach - nidh
+6. Outcomes - nidh
+7. Business Impact - nidh
 
 
 

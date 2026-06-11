@@ -1,0 +1,19 @@
+                    ┌─────────────────────────────────────┐
+                    │      OBJECTIVES (WHERE TO GO)       │
+                    └─────────────────┬───────────────────┘
+                                      │
+                                      ▼
+                    ┌─────────────────────────────────────┐
+                    │   DELIVERABLES (WHAT TO PRODUCE)    │
+                    │                                     │
+                    │   First, define what outputs are    │
+                    │   needed to achieve objectives      │
+                    └─────────────────┬───────────────────┘
+                                      │
+                                      ▼
+                    ┌─────────────────────────────────────┐
+                    │     APPROACH (HOW TO PRODUCE)       │
+                    │                                     │
+                    │   Then, define the methodology to   │
+                    │   create those deliverables         │
+                    └─────────────────────────────────────┘

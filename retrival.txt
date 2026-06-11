@@ -1,0 +1,13 @@
+| User Choice                          | Parent Chunks Retrieved? | Child Chunks Retrieved? | Filter Applied     | What's Returned       |
+| ------------------------------------ | ------------------------ | ----------------------- | ------------------ | --------------------- |
+| Subsections = Yes                    | ✅ Yes                    | ✅ Yes                   | By subsection name | Chunks per subsection |
+| Subsections = No, Query Filter = Yes | ✅ Yes                    | ✅ Yes                   | Semantic query     | Top K relevant chunks |
+| Subsections = No, Query Filter = No  | ✅ Yes                    | ✅ Yes                   | None               | All chunks            |
+
+
+
+Template Generation	❌ Skipped	✅ Generated first
+User Selection	Query filter (yes/no)	Which subsections to include
+Query Generation	1 query for entire section	1 query PER subsection
+Number of Filters	1 global filter	N filters (N = selected subsections)
+Top K Setting	10 total chunks	5 chunks PER subsection

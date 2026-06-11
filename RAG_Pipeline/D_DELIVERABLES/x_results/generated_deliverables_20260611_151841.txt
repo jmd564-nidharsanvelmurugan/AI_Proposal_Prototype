@@ -1,0 +1,47 @@
+**Deliverables**
+
+The following deliverables are expected from the discovery phase:
+
+1. **KPI Book**
+	* Description: A comprehensive document outlining the key performance indicators (KPIs) for the client, including metrics that matter and their calculation methodology.
+	* Format: Excel or Word
+	* Key components: List of priority KPIs, data points required, proposed calculation methodology, and target dimensions for slicing the business.
+	* [TO BE ENRICHED with Problem Statement] to ensure alignment with client objectives
+2. **Power BI Mock-ups**
+	* Description: Limited to 8 views, these mock-ups will provide a visual representation of the insights and reports for the priority metrics, capturing layout, structure, and functionality requirements.
+	* Format: Power BI
+	* Key components: Dashboard design, layout, and functionality requirements
+	* [TO BE ENRICHED with Objectives] to ensure alignment with client goals
+3. **Data Model Design**
+	* Description: A high-level, conceptual data model outlining the structure and relationships between data entities.
+	* Format: Word or PowerPoint
+	* Key components: Entity-relationship diagram, data entity descriptions, and data flow diagrams
+	* [TO BE ENRICHED with Business Context] to ensure alignment with industry and client context
+4. **Data Gap Assessment**
+	* Description: An assessment of data availability for the client cube build and reporting, identifying gaps in coverage and providing recommendations for process improvement.
+	* Format: Word or PowerPoint
+	* Key components: Data availability assessment, gap analysis, and process improvement recommendations
+	* [TO BE ENRICHED with Problem Statement] to ensure alignment with client pain points
+5. **Technical Approach**
+	* Description: A document outlining the technical approach for the QuickBooks integration, including data preparation and visualization tools.
+	* Format: Word or PowerPoint
+	* Key components: Technical architecture, data preparation and visualization tools, and integration approach
+	* [TO BE ENRICHED with Business Context] to ensure alignment with industry and client context
+6. **Phase 3B Implementation Plan**
+	* Description: A plan outlining the implementation approach for the next phase, including timelines, milestones, and resource allocation.
+	* Format: Word or PowerPoint
+	* Key components: Implementation timeline, milestones, resource allocation, and risk management plan
+	* [TO BE ENRICHED with Objectives] to ensure alignment with client goals
+
+**Summary Table**
+
+| Deliverable Name | Format | Due |
+| --- | --- | --- |
+| KPI Book | Excel or Word | [TO BE DETERMINED] |
+| Power BI Mock-ups | Power BI | [TO BE DETERMINED] |
+| Data Model Design | Word or PowerPoint | [TO BE DETERMINED] |
+| Data Gap Assessment | Word or PowerPoint | [TO BE DETERMINED] |
+| Technical Approach | Word or PowerPoint | [TO BE DETERMINED] |
+| Phase 3B Implementation Plan | Word or PowerPoint | [TO BE DETERMINED] |
+
+Note: The due dates for the deliverables will be determined based on the project timeline and milestones. [TO BE ENRICHED with Problem Statement, Business Context, and Objectives] to ensure alignment with client objectives and context.
