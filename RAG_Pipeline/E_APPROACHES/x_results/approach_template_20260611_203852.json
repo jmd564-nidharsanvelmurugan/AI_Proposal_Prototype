@@ -1,0 +1,27 @@
+{
+    "approach": {
+        "section_name": "Approach",
+        "subsections": [
+            {
+                "subsection_name": "Project Mobilization & Discovery",
+                "query": "Pre-kick-off activities, stakeholder alignment, and current state analysis."
+            },
+            {
+                "subsection_name": "Requirements & KPI Definition",
+                "query": "Capture business and technical requirements, define L2A and CAC KPIs."
+            },
+            {
+                "subsection_name": "Data Model & Integration Design",
+                "query": "Design data model and integration approach for Salesforce and QuickBooks."
+            },
+            {
+                "subsection_name": "Data Quality & Feasibility Assessment",
+                "query": "Assess data gaps, validate data quality, and confirm technical feasibility."
+            },
+            {
+                "subsection_name": "Implementation Planning & Roadmap",
+                "query": "Develop phased implementation plan, timeline, and cost estimation."
+            }
+        ]
+    }
+}
