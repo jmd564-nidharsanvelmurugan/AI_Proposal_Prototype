@@ -1,0 +1,47 @@
+**Deliverables**
+
+Our approach will yield the following key deliverables, each designed to address specific problems and achieve the stated objectives:
+
+1. **KPI Book**
+	* Description: A comprehensive document outlining the key performance indicators (KPIs) for Pure Financial Advisors, including definitions, calculation logic, and reporting requirements.
+	* Key components: KPI definitions, calculation methodology, and reporting templates.
+	* Addresses problem statement: Establishes consistent KPI definitions across teams, addressing the issue of inconsistent KPI definitions.
+	* Achieves objectives: Supports the development of automated L2A and CAC reporting frameworks, enabling granular visibility into pipeline performance and marketing ROI.
+2. **Power BI Mock-ups**
+	* Description: Limited to 8 views, these mock-ups will provide a visual representation of the proposed Power BI reporting suite, including L2A pipeline and CAC dashboards.
+	* Key components: Wireframes of the proposed dashboards, including layout, structure, and functionality requirements.
+	* Addresses problem statement: Addresses the lack of integrated CAC visibility and limited granularity in pipeline reporting.
+	* Achieves objectives: Supports the development of a Power BI reporting suite, enabling self-service CAC metrics and real-time visibility into pipeline performance.
+3. **Data Model Design**
+	* Description: A unified data model that maps Salesforce lead data to QuickBooks financial data, enabling automated CAC calculation and integrated reporting.
+	* Key components: Entity-relationship diagrams, data flow diagrams, and data mapping documentation.
+	* Addresses problem statement: Addresses the issue of manual reporting processes and data quality gaps.
+	* Achieves objectives: Supports the integration of QuickBooks with the existing Azure Fabric/Synapse platform, enabling automated data ingestion and unified data modeling.
+4. **Data Gap Assessment**
+	* Description: An assessment of data availability and gaps in coverage, identifying areas for process improvement to ensure data quality and availability.
+	* Key components: Data gap analysis, process recommendations, and data validation rules.
+	* Addresses problem statement: Addresses the issue of data quality gaps and manual reporting processes.
+	* Achieves objectives: Supports the establishment of automated data validation rules, ensuring 99.5% data accuracy for CAC reporting.
+5. **Technical Approach**
+	* Description: A detailed technical approach document outlining the solution architecture, data integration, and reporting requirements.
+	* Key components: Technical architecture diagrams, data integration plans, and reporting templates.
+	* Addresses problem statement: Addresses the issue of limited technical detail in the current reporting framework.
+	* Achieves objectives: Supports the development of a comprehensive technical approach, enabling the integration of QuickBooks with the existing Azure Fabric/Synapse platform.
+6. **Phase 3B Implementation Plan**
+	* Description: A detailed plan outlining the implementation roadmap, including timelines, milestones, and resource allocation.
+	* Key components: Project schedule, resource allocation plan, and risk management plan.
+	* Addresses problem statement: Addresses the issue of delayed strategic decisions due to lack of real-time visibility.
+	* Achieves objectives: Supports the establishment of a phased implementation plan, enabling the delivery of automated L2A and CAC reporting frameworks within 12 weeks.
+
+**Summary Table**
+
+| Deliverable Name | Format | Due Date |
+| --- | --- | --- |
+| KPI Book | Word | Week 4 |
+| Power BI Mock-ups | Power BI | Week 6 |
+| Data Model Design | Excel | Week 8 |
+| Data Gap Assessment | PowerPoint | Week 10 |
+| Technical Approach | Word | Week 12 |
+| Phase 3B Implementation Plan | PowerPoint | Week 12 |
+
+Note: The due dates are inferred from the questionnaire timeline and may be subject to change based on the actual project schedule.

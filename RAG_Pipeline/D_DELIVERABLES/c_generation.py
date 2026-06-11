@@ -169,7 +169,6 @@ def format_knowledge_for_prompt(retrieved_chunks: dict) -> str:
 # =====================================================
 # Deliverables Generation Prompt
 # =====================================================
-
 prompt = ChatPromptTemplate.from_template(
 """
 You are a senior consulting proposal writer specializing in the Deliverables section.
@@ -178,15 +177,15 @@ CLIENT QUESTIONNAIRE (Deliverables Section Only)
 --------------------------------------------------
 {questionnaire}
 
-BUSINESS CONTEXT (For Context - May be Empty)
+BUSINESS CONTEXT
 --------------------------------------------------
 {business_context}
 
-PROBLEM STATEMENT (For Context - May be Empty)
+PROBLEM STATEMENT
 --------------------------------------------------
 {problem_statement}
 
-OBJECTIVES (For Context - May be Empty)
+OBJECTIVES
 --------------------------------------------------
 {objectives}
 
@@ -202,29 +201,41 @@ INSTRUCTIONS FOR DELIVERABLES SECTION:
 
 1. Generate content ONLY for the Deliverables section.
 2. Use the CLIENT QUESTIONNAIRE (Deliverables section) as the PRIMARY source.
-3. Use BUSINESS CONTEXT, PROBLEM STATEMENT, and OBJECTIVES to enrich deliverables when available.
-4. If any of these sections are empty or contain placeholders, generate using available information.
-5. Use retrieved knowledge only as supporting evidence and examples.
-6. Structure the deliverables logically (e.g., Assessment → Design → Planning)
-7. Include these components for each deliverable where applicable:
+
+3. For BUSINESS CONTEXT, PROBLEM STATEMENT, and OBJECTIVES:
+   
+   a) If the section contains actual content (not "[TO BE GENERATED..." or empty):
+      - INTEGRATE it directly into the deliverables
+      - Explain HOW each deliverable addresses the specific problems
+      - Explain HOW each deliverable achieves the stated objectives
+      - DO NOT add "[TO BE ENRICHED]" markers
+   
+   b) If the section is empty or contains "[TO BE GENERATED...":
+      - Use "[TO BE ENRICHED with Section Name]" as a placeholder
+
+4. Structure the deliverables logically (e.g., Assessment → Design → Planning)
+
+5. For each deliverable, include:
    - Deliverable name and description
-   - Format (PowerPoint, Excel, Word, etc.)
    - Key components or sections
-   - [TO BE ENRICHED] marker for elements that would benefit from missing sections
+   - How it addresses the problem statement (if available)
+   - How it achieves objectives (if available)
 
-8. Include a summary table with:
+6. Do NOT include "Format" for individual deliverables.
+
+7. Include a summary table at the end with:
    - Deliverable name
-   - Format
-   - Due (infer from questionnaire timeline if available)
+   - Format (e.g., PowerPoint, Excel, Word, Power BI)
+   - Due date (infer from questionnaire timeline if available)
 
-9. Do not invent facts not supported by the inputs.
+8. Do not invent facts not supported by the inputs.
 
-10. Maintain professional, proposal-ready consulting language.
+9. Maintain professional, proposal-ready consulting language.
 
 CRITICAL RULES:
 - If RETRIEVED KNOWLEDGE is "NO_KNOWLEDGE_AVAILABLE", generate using only questionnaire and other sections.
 - Always generate content - never return empty.
-- Use placeholders like [TO BE ENRICHED with Problem Statement] where other sections would add value.
+- NEVER add placeholders when actual content is provided.
 
 CONTENT:
 """

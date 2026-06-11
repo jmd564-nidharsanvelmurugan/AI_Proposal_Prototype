@@ -42,21 +42,21 @@ class ProposalMetadata(BaseModel):
 
 
 # =====================================================
-# Deliverables Template Schema
+# Business Impact Template Schema
 # =====================================================
 
-class DeliverablesSubSection(BaseModel):
+class BusinessImpactSubSection(BaseModel):
     subsection_name: str
     query: str = ""
 
 
-class DeliverablesSection(BaseModel):
-    section_name: str = "Deliverables"
-    subsections: List[DeliverablesSubSection]
+class BusinessImpactSection(BaseModel):
+    section_name: str = "Business Impact"
+    subsections: List[BusinessImpactSubSection]
 
 
-class DeliverablesTemplate(BaseModel):
-    deliverables: DeliverablesSection
+class BusinessImpactTemplate(BaseModel):
+    business_impact: BusinessImpactSection
 
 
 llm = AzureChatOpenAI(
@@ -72,8 +72,8 @@ metadata_llm = llm.with_structured_output(
     ProposalMetadata
 )
 
-deliverables_template_llm = llm.with_structured_output(
-    DeliverablesTemplate
+business_impact_template_llm = llm.with_structured_output(
+    BusinessImpactTemplate
 )
 
 
@@ -152,22 +152,23 @@ Questionnaire:
 
 
 # =====================================================
-# Deliverables Template Generation Prompt
+# Business Impact Template Generation Prompt
 # =====================================================
 
-deliverables_template_prompt = ChatPromptTemplate.from_template(
+business_impact_template_prompt = ChatPromptTemplate.from_template(
 """
 You are an expert Proposal Architect.
 
-Generate ONLY the Deliverables section structure.
+Generate ONLY the Business Impact section structure.
 
-The Deliverables section should have subsections that logically group the deliverables.
+The Business Impact section should have subsections that logically group the impact areas.
 
-Based on the questionnaire, common deliverable categories include:
+Based on best practices, common impact categories include:
 
-1. Assessment Deliverables (e.g., Gap Assessment, Current State Analysis)
-2. Design Deliverables (e.g., KPI Definition, Data Model, Mock-ups, Architecture)
-3. Planning Deliverables (e.g., Roadmap, Implementation Plan, Cost Estimates)
+1. Financial Impact (ROI, cost savings, revenue impact)
+2. Operational Impact (efficiency gains, time savings)
+3. Strategic Impact (competitive advantage, scalability)
+4. Risk Reduction (compliance, data quality, decision making)
 
 RULES:
 - Generate 3-5 business-oriented subsections.
@@ -205,7 +206,7 @@ Metadata:
 Rules:
 - Return ONLY the retrieval phrase.
 - Do NOT write a sentence, explanation, or use quotes.
-- Capture the overall business meaning of deliverables expected.
+- Capture the overall business meaning of business impact expected.
 - Maximum 15 words.
 
 Return only the retrieval phrase.
@@ -224,15 +225,11 @@ metadata_chain = (
     | metadata_llm
 )
 
-deliverables_template_chain = (
-    deliverables_template_prompt
-    | deliverables_template_llm
+business_impact_template_chain = (
+    business_impact_template_prompt
+    | business_impact_template_llm
 )
 
-
-# =====================================================
-# Sample Questionnaire (Deliverables Focus)
-# =====================================================
 
 # =====================================================
 # CORRECTED QUESTIONNAIRE (Proper Python Dict)
@@ -345,72 +342,8 @@ questionnaire = {
 # Placeholders for missing sections (to be filled later)
 # =====================================================
 
-# # These will be replaced with actual generated content later
-# business_context_placeholder = "[TO BE GENERATED - Business Context will provide industry and client context]"
-# problem_statement_placeholder = "[TO BE GENERATED - Problem Statement will help prioritize deliverables]"
-# objectives_placeholder = "[TO BE GENERATED - Objectives will define what deliverables must achieve]"
-
-business_context_placeholder = """
-Pure Financial Advisors LLC operates in the financial advisory and wealth management industry in the United States. The firm offers financial advisory services and asset management to individual clients (B2C business model). 
-
-The wealth management industry is undergoing rapid digital transformation, with increasing demand for data-driven client acquisition strategies and real-time performance visibility. Key stakeholders include Jason Carver (Client Engagement Manager) and investment partner Lee Equity Partners.
-
-The firm currently uses Salesforce for CRM, Tamarac for portfolio management, and Azure Fabric/Synapse for data platform. QuickBooks is used for financials but is not yet integrated with the reporting ecosystem. Power BI serves as the primary reporting tool.
-
-The initiative is driven by the need to develop enhanced Lead-to-AUM (L2A) pipeline and Customer Acquisition Cost (CAC) reporting to provide more granular visibility into the journey from lead to AUM and return on marketing spend.
-"""
-
-
-problem_statement_placeholder = """
-Pure Financial Advisors faces several critical reporting limitations:
-
-1. Limited Granularity in Pipeline Reporting: Current L2A reporting lacks detailed visibility into lead progression stages, conversion rates by marketing channel, and time-to-conversion metrics.
-
-2. No Integrated CAC Visibility: Customer Acquisition Cost reporting is manual and fragmented. Marketing spend data sits in QuickBooks while lead data is in Salesforce, with no integration between systems.
-
-3. Manual Reporting Processes: Current reporting requires manual data extraction and consolidation from multiple sources, taking 2-3 weeks to produce basic pipeline metrics.
-
-4. Inconsistent KPI Definitions: Different teams use different definitions for key metrics like "lead," "conversion," and "AUM," leading to reporting inconsistencies.
-
-5. Data Quality Gaps: CAC reporting requires data from QuickBooks that has not been validated for completeness or accuracy, creating risk of incorrect marketing ROI calculations.
-
-6. No Real-Time Visibility: Executive leadership cannot access up-to-date pipeline or CAC metrics, delaying strategic decisions on marketing spend.
-"""
-
-
-
-objectives_placeholder = """
-This engagement aims to achieve the following measurable objectives:
-
-**Business Objectives:**
-1. Establish automated L2A and CAC reporting framework providing granular visibility into pipeline performance and marketing ROI within 12 weeks.
-
-2. Reduce manual reporting effort by 80% (from 40 hours/week to 8 hours/week) through automated data pipelines.
-
-3. Enable executive leadership to access real-time L2A and CAC metrics with <24 hour data refresh.
-
-**Technical Objectives:**
-4. Integrate QuickBooks with existing Azure Fabric/Synapse platform for automated data ingestion.
-
-5. Develop unified data model mapping Salesforce lead data to QuickBooks financial data for CAC calculation.
-
-6. Create 8-page Power BI reporting suite with L2A pipeline and CAC dashboards.
-
-**Process Objectives:**
-7. Standardize KPI definitions across sales, marketing, and finance teams with documented calculation logic.
-
-8. Establish automated data validation rules to ensure 99.5% data accuracy for CAC reporting.
-
-9. Reduce reporting cycle time from 2-3 weeks to daily automated refresh.
-
-**User Objectives:**
-10. Enable marketing team to self-serve CAC metrics by channel without IT support.
-
-11. Provide executives with dashboard access to L2A conversion rates by lead source.
-
-12. Give Jason Carver (Client Engagement Manager) visibility into pipeline health and marketing ROI.
-"""
-
+# Outcomes placeholder (initially empty, will be filled later)
+outcomes_placeholder = "[TO BE GENERATED - Outcomes will define what results are achieved]"
 
 
 # =====================================================
@@ -483,7 +416,7 @@ print("=" * 60)
 document_ids = [prop["document_id"] for prop in top_proposals]
 print(f"📄 Document IDs: {document_ids}")
 
-parent_chunks = get_parent_chunks_by_document_ids(document_ids, "Deliverables")
+parent_chunks = get_parent_chunks_by_document_ids(document_ids, "Business Impact")
 print(f"✅ Found {len(parent_chunks)} parent chunks")
 
 all_child_ids = []
@@ -508,25 +441,25 @@ save_to_json({"parent_chunks": parent_chunks_safe, "child_chunks_count": len(chi
 
 
 # =====================================================
-# Step 3 - Generate Deliverables Template
+# Step 3 - Generate Business Impact Template
 # =====================================================
 
 print("\n" + "=" * 60)
-print("STEP 3: Generating Deliverables Template")
+print("STEP 3: Generating Business Impact Template")
 print("=" * 60)
 
-deliverables_template = deliverables_template_chain.invoke(
+business_impact_template = business_impact_template_chain.invoke(
     {
         "questionnaire": questionnaire,
         "metadata": metadata.model_dump_json()
     }
 )
 
-template_dict = deliverables_template.model_dump()
-print("\n✅ Deliverables template generated:")
+template_dict = business_impact_template.model_dump()
+print("\n✅ Business Impact template generated:")
 print(json.dumps(template_dict, indent=2))
 
-save_to_json(template_dict, f"deliverables_template_{timestamp}.json")
+save_to_json(template_dict, f"business_impact_template_{timestamp}.json")
 
 
 # =====================================================
@@ -545,13 +478,13 @@ section_query = None
 
 if include_subsections == "yes":
     print("\n📋 Available Subsections:")
-    for i, subsection in enumerate(deliverables_template.deliverables.subsections, 1):
+    for i, subsection in enumerate(business_impact_template.business_impact.subsections, 1):
         print(f"   {i}. {subsection.subsection_name}")
     
     choice = input("\nDo you want to include (a)ll subsections or (s)pecific ones? (a/s): ").strip().lower()
     
     if choice in ["a", "all"]:
-        subsections_to_include = deliverables_template.deliverables.subsections.copy()
+        subsections_to_include = business_impact_template.business_impact.subsections.copy()
         print(f"\n✅ Including all {len(subsections_to_include)} subsections")
         
     elif choice in ["s", "specific"]:
@@ -561,8 +494,8 @@ if include_subsections == "yes":
         if selection:
             selected_indices = [int(x.strip()) - 1 for x in selection.split(",") if x.strip().isdigit()]
             for idx in selected_indices:
-                if 0 <= idx < len(deliverables_template.deliverables.subsections):
-                    subsections_to_include.append(deliverables_template.deliverables.subsections[idx])
+                if 0 <= idx < len(business_impact_template.business_impact.subsections):
+                    subsections_to_include.append(business_impact_template.business_impact.subsections[idx])
             
             if subsections_to_include:
                 print(f"\n✅ Selected {len(subsections_to_include)} subsections:")
@@ -593,7 +526,7 @@ Questionnaire:
 {questionnaire}
 
 Section:
-Deliverables
+Business Impact
 
 Subsection:
 {subsection.subsection_name}
@@ -641,9 +574,9 @@ else:
     use_query_filter = input("\n🔍 Do you want to use query-based semantic filtering? (yes/no): ").strip().lower()
     
     if use_query_filter == "yes":
-        print("\n📝 Generating semantic query for the entire Deliverables section...")
+        print("\n📝 Generating semantic query for the entire Business Impact section...")
         
-        section_query = generate_section_query(questionnaire, metadata_dict, "Deliverables")
+        section_query = generate_section_query(str(questionnaire), metadata_dict, "Business Impact")
         print(f"\n   ✅ Generated Query: {section_query}")
         
         print("\n" + "=" * 60)
@@ -686,23 +619,21 @@ save_to_json(filtered_results, f"filtered_chunks_{timestamp}.json")
 
 
 # =====================================================
-# Step 6 - Generate Deliverables Content
+# Step 6 - Generate Business Impact Content
 # =====================================================
 
 print("\n" + "=" * 60)
-print("STEP 6: Generating Deliverables Content")
+print("STEP 6: Generating Business Impact Content")
 print("=" * 60)
 
-from c_generation import generate_deliverables_content
+from c_generation import generate_business_impact_content
 
-# Generate content with placeholders for missing sections
-deliverables_content = generate_deliverables_content(
+# Generate content with outcomes placeholder (initially empty)
+business_impact_content = generate_business_impact_content(
     questionnaire=questionnaire,
     metadata=metadata_dict,
     retrieved_chunks=filtered_results,
-    business_context=business_context_placeholder,
-    problem_statement=problem_statement_placeholder,
-    objectives=objectives_placeholder
+    outcomes=outcomes_placeholder
 )
 
 
@@ -714,13 +645,13 @@ response = {
     "timestamp": timestamp,
     "questionnaire_metadata": metadata_dict,
     "top_matching_proposals": top_proposals,
-    "deliverables": {
-        "section_name": "Deliverables",
+    "business_impact": {
+        "section_name": "Business Impact",
         "subsections": subsections_list if subsections_list else [],
         "section_query": section_query if section_query else None
     },
     "retrieved_chunks": filtered_results,
-    "generated_content": deliverables_content,
+    "generated_content": business_impact_content,
     "user_preferences": {
         "included_subsections": include_subsections == "yes",
         "included_subsections_count": len(subsections_list),
@@ -736,19 +667,19 @@ response = {
 # Save Generated Content to File
 # =====================================================
 
-if deliverables_content:
-    content_file = os.path.join("x_results", f"generated_deliverables_{timestamp}.txt")
+if business_impact_content:
+    content_file = os.path.join("x_results", f"generated_business_impact_{timestamp}.txt")
     with open(content_file, "w", encoding="utf-8") as f:
-        f.write(deliverables_content)
+        f.write(business_impact_content)
     print(f"✅ Generated content saved to: {content_file}")
 else:
     print("⚠️ No content generated")
 
 print("\n" + "=" * 60)
-print("GENERATED DELIVERABLES PREVIEW")
+print("GENERATED BUSINESS IMPACT PREVIEW")
 print("=" * 60)
-if deliverables_content:
-    preview = deliverables_content[:500] + "..." if len(deliverables_content) > 500 else deliverables_content
+if business_impact_content:
+    preview = business_impact_content[:500] + "..." if len(business_impact_content) > 500 else business_impact_content
     print(preview)
 else:
     print("No content generated")
@@ -777,15 +708,15 @@ else:
     print(f"   - Query-based filtering: {'Yes' if use_query_filter == 'yes' else 'No'}")
     if use_query_filter == "yes":
         print(f"   - Section Query: {section_query}")
-print(f"   - Content generated: {'Yes' if deliverables_content else 'No'}")
+print(f"   - Content generated: {'Yes' if business_impact_content else 'No'}")
 
 print("\n📁 Output files saved in 'x_results' folder:")
 print(f"   - metadata_{timestamp}.json")
 print(f"   - top_matching_proposals_{timestamp}.json")
 print(f"   - chunks_{timestamp}.json")
-print(f"   - deliverables_template_{timestamp}.json")
+print(f"   - business_impact_template_{timestamp}.json")
 print(f"   - filtered_chunks_{timestamp}.json")
-print(f"   - generated_deliverables_{timestamp}.txt")
+print(f"   - generated_business_impact_{timestamp}.txt")
 print(f"   - final_response_{timestamp}.json")
 
 if top_proposals:
