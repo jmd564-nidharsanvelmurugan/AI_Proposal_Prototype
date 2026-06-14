@@ -1,0 +1,47 @@
+# Deliverables
+
+Throughout the engagement with PURE FINANCIAL ADVISORS LLC, the following key deliverables and artifacts will be provided to ensure a comprehensive and actionable outcome aligned with the project objectives:
+
+1. **KPI Book (“Metrics that Matter”)**  
+   - Comprehensive catalog of Lead‑to‑AUM (L2A) and Customer Acquisition Cost (CAC) KPIs, including definitions, calculation logic, and data source mapping.  
+   
+   - Dimension dictionary outlining key business dimensions (e.g., lead source, advisor, channel) and how they will be used to slice and analyze performance.  
+   
+   - Documentation of additional metrics identified for future development to support scalability and ongoing reporting maturity.  
+
+2. **Data Model Design**  
+   - Conceptual and logical data model defining relationships between Salesforce, Tamarac, QuickBooks, and Azure data sources.  
+   
+   - Entity definitions, data lineage, and transformation logic required to support L2A and CAC reporting.  
+   
+   - Technical specifications for integration and ingestion pipelines within Microsoft Fabric and Azure Synapse.  
+
+3. **Data Gap Assessment**  
+   - Evaluation of data completeness, quality, and availability across all relevant systems to support the proposed data model.  
+   
+   - Identification of data gaps and dependencies, with recommendations for remediation and process improvements.  
+   
+   - Feasibility assessment for QuickBooks integration and its impact on CAC reporting accuracy.  
+
+4. **Power BI Mock‑Ups (up to 8 Views)**  
+   - Visual prototypes of the L2A and CAC dashboards, illustrating layout, structure, and key insights for leadership and marketing teams.  
+   
+   - Alignment of visualizations with defined KPIs and business narratives to ensure clarity and usability.  
+   
+   - Design blueprint to guide the subsequent build phase and ensure consistency in user experience.  
+
+5. **Technical Approach Document**  
+   - Detailed outline of the technical architecture, data flow, and integration approach for QuickBooks and other core systems.  
+   
+   - Specification of batch processing pipelines, data refresh cadence, and governance considerations.  
+   
+   - Agreement on tooling, environments, and development standards to be used in the implementation phase.  
+
+6. **Phase 3B Implementation Plan**  
+   - Phased roadmap detailing activities, dependencies, and timelines for the build and deployment of the L2A and CAC reporting solution.  
+   
+   - Resource plan and sequencing of tasks to ensure efficient execution and risk mitigation.  
+   
+   - Definition of success criteria, testing checkpoints, and transition plan to operational ownership.  
+
+Each deliverable will be iteratively reviewed with PURE FINANCIAL ADVISORS LLC’s leadership and technical teams to ensure alignment with business goals and to incorporate feedback promptly. This structured approach guarantees transparency, accountability, and measurable value throughout the engagement lifecycle.
