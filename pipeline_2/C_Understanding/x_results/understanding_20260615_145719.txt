@@ -1,0 +1,9 @@
+# Understanding
+
+- PURE seeks to address limitations in its existing pipeline reporting by developing detailed Lead-to-AUM (L2A) and Customer Acquisition Cost (CAC) reporting to improve visibility into marketing and conversion performance.  
+- Current pain points include insufficient granularity in pipeline data and the absence of integrated CAC insights across systems.  
+- The business requires an enhanced L2A and CAC data model supported by Power BI reporting, ingestion of financial data from QuickBooks, and a structured data quality assessment.  
+- Automated data ingestion and transformation workflows are needed to reduce manual effort and ensure consistent, timely reporting updates.  
+- The system will be used by data and technology stakeholders, senior leadership, and marketing teams who rely on accurate performance metrics for decision-making.  
+- Mandatory integrations include Salesforce and QuickBooks to enable unified reporting across lead management and financial data sources.  
+- Security and compliance requirements are not specified in the available information.

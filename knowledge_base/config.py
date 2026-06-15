@@ -71,7 +71,10 @@ def get_prompt(option: int):
 
 def get_passages():
     passage_1 = """
-    Approach, Timelines, and Deliverables 
+
+ 
+
+Approach, Timelines, and Deliverables 
 
 Overview 
 
