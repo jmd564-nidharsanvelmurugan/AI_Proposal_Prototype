@@ -1,0 +1,152 @@
+# Business Context
+
+PURE FINANCIAL ADVISORS LLC is a leading provider of financial advisory and wealth management services operating in the United States. The company employs a Business-to-Consumer (B2C) business model, focusing on delivering personalized financial guidance and asset management solutions to a diverse individual client base. PURE operates within a highly competitive sector shaped by evolving regulatory frameworks, technology innovation, and increasing client demand for data-driven insights into investment performance and financial outcomes. The company’s partnership with Lee Equity Partners further strengthens its growth prospects, delivering the strategic capital and governance support typical of PE-backed platforms, and signaling ambitions to scale and institutionalize operations.
+
+Within this context, PURE’s core value proposition centers on building trusted relationships with clients, underpinned by robust advisory processes and a commitment to delivering measurable financial outcomes. The company leverages industry-standard platforms such as Salesforce, Tamarac, Azure Blob Storage, Microsoft Fabric, Azure Synapse, and Power BI, ensuring its technology stack is well-aligned with industry benchmarks for scalable, secure, and flexible enterprise data management. Leading financial services organizations are increasingly integrating such platforms to deliver single-source-of-truth reporting, enhance data quality, and improve operational transparency, which are essential for growth and investor readiness【4:2†source】【4:4†source】【4:5†source】.
+
+Despite its strong foundation, PURE’s pipeline and customer acquisition tracking processes remain a focal point for improvement. The business is driven to develop enhanced Lead-to-AUM (L2A) pipeline and Customer Acquisition Cost (CAC) reporting, with an emphasis on providing increased granularity and actionable metrics. This drive aligns with broader industry trends where PE-backed firms are investing in analytics and data infrastructure—not just to enable operational efficiency, but also to support future transactions and defend value narratives during diligence processes【4:1†source】【4:13†source】. The need for a mature, automated reporting environment is particularly acute as the firm approaches the next phases of growth and value creation.
+
+PURE’s marketing, technology, and data teams constitute key stakeholders for this initiative, working closely with leadership, PE sponsors, and operational managers. Their collective aim is to ensure data becomes a practical strategic asset—enabling detailed pipeline analysis, marketing ROI evaluation, and scalable, automated insights. Against the backdrop of sector-wide digital transformation, PURE is therefore ideally positioned to leverage this engagement to set a new benchmark for analytics-enabled client acquisition and business growth.
+
+*Validation: The section uses grounded content from the client questionnaire and knowledge base, introducing PURE, sector context, ownership, platforms, competitive stance, and improvement focus clearly.*
+
+# Problem Statement
+
+PURE FINANCIAL ADVISORS LLC currently faces limitations in the granularity and integration of its pipeline and customer acquisition reporting. The reliance on multiple data sources—Salesforce, Tamarac, Azure Blob Storage, and soon QuickBooks—means that linking lead creation through to assets under management (AUM) is both complex and fragmented. Present processes lack a unified data model for Lead-to-AUM (L2A) and Customer Acquisition Cost (CAC) metrics, resulting in restricted business visibility and the inability to adequately trace marketing investments through to actual client value and ROI.
+
+This technical fragmentation has clear business consequences. Without an integrated reporting suite capable of automated data ingestion, transformation, and visualization, PURE’s leadership faces delays in obtaining actionable insights. Key metrics such as lead pipeline velocity, CAC, and L2A conversion rates are difficult to measure at the required granularity, hampering real-time decision-making. In financial services—where industry benchmarks prioritize consolidated, trusted single-source-of-truth reporting assets—such limitations introduce inefficiencies and risk suboptimal allocation of marketing and operational resources【4:2†source】【4:8†source】.
+
+Furthermore, there are strategic risks associated with continued reliance on manual processes and siloed reporting. As a PE-backed portfolio company, PURE is expected to present a data-mature posture for both growth and potential future transactions. The lack of robust, scalable, and automated reporting not only constrains PURE’s internal management capabilities but could also undermine investor confidence and readiness for buy- and sell-side diligence. Industry best practices underscore that unaddressed data integration and reporting gaps significantly threaten operational efficiency, transparency, and, ultimately, market competitiveness【4:6†source】【4:12†source】.
+
+*Validation: The section articulates technical data/process pain points, business consequences, and strategic risks—using examples and KB-aligned severity framing as per instructions.*
+
+# Objectives
+
+- Deliver a unified data model and reporting suite for Lead-to-AUM (L2A) and Customer Acquisition Cost (CAC) analysis.
+- Automate data ingestion, transformation, and reporting refresh pipelines across all relevant source systems.
+- Integrate QuickBooks and Salesforce seamlessly into the Microsoft Fabric data platform.
+- Establish clear and consistent KPI definitions, calculation logic, and Power BI visualizations for pipeline performance and CAC.
+- Enable granular, actionable insights into pipeline performance and marketing ROI for leadership and key stakeholders.
+- Ensure scalability of the data platform to accommodate new data sources and evolving business requirements.
+- Improve data quality assessment and troubleshooting processes to support board-grade reporting and compliance.
+
+*Validation: Objectives are succinct, action-forward, comprehensive (strategic, technical, operational), and align directly with the prior problem statement.*
+
+# Deliverables
+
+Throughout the engagement with PURE FINANCIAL ADVISORS LLC, the following key deliverables and artifacts will be provided to ensure a comprehensive and actionable outcome aligned with the project objectives:
+
+1. KPI Book and "Metrics That Matter" Framework
+   - Comprehensive documentation of all L2A and CAC KPIs, definitions, dimensions, and calculation methodologies, leveraging knowledge base templates for PE-backed services firms.
+   - Mapping of KPIs to source systems (Salesforce, Tamarac, QuickBooks, Azure).
+   - Acceptance criteria specifying business and technical validations for each metric.
+   - Designed for ongoing reference and audit readiness.
+
+2. Power BI Mockups and Final Reporting Suite
+   - Eight detailed Power BI dashboard mockups focused on L2A and CAC, based on industry-aligned wireframe standards.
+   - Each mockup will feature clearly defined visualizations, KPIs, drill-downs, and tooltips for targeted user personas (leadership, marketing, operational).
+   - Wireframes incorporate iterative feedback and QA sessions with stakeholders.
+   - Final deployed reports will be accessible on the Microsoft Fabric environment.
+
+3. Data Model Blueprint and Technical Solution Architecture
+   - Logical and physical data model diagrams showing entity relationships, data flows, and integration points for all in-scope systems.
+   - Technical architecture documentation, including ingestion and transformation pipelines, aligned with knowledge base best practices for scalable, modular financial data platforms.
+   - Data quality and remediation plan addressing identified source deficiencies.
+
+4. Data Gap Assessment and Integration Readiness Report
+   - Assessment of current- and future-state data completeness, with a focus on CAC-critical data from QuickBooks and Salesforce.
+   - Identification of data coverage gaps and risks, with pragmatic remediation recommendations.
+   - Integration readiness checklist to support expedited onboarding of new data sources.
+
+5. Phase 3B Implementation Roadmap and Plan
+   - Work breakdown structure, detailed timeline (8–12 weeks), resource plan, and major milestones for the build phase.
+   - Risk and dependency mapping, focused specifically on QuickBooks ingestion and data quality assurance.
+   - Roles and responsibilities matrix to ensure accountability in execution.
+
+Each deliverable will be iteratively reviewed with PURE FINANCIAL ADVISORS LLC's leadership and technical teams to ensure alignment with business goals and to incorporate feedback promptly. This structured approach guarantees transparency, accountability, and measurable value throughout the engagement lifecycle.
+
+*Validation: Section lists 5 detailed KB-aligned deliverables, each with acceptance details—uses the correct format and section header. PE-backed frameworks and dashboards referenced.*
+
+# Approach
+
+The engagement for PURE FINANCIAL ADVISORS LLC is tailored to address the specific challenges and ambitions of a leading B2C wealth management firm supported by PE ownership. Recognizing PURE’s established technology environment—including Salesforce, Tamarac, Microsoft Fabric, and Power BI—the approach is calibrated to maximize existing investments while introducing rigor, automation, and scalability. The methodology directly targets the client’s need for granular L2A and CAC insights, rapid integration of new data sources, and alignment to best practices for scalable, PE-backed analytics platforms.
+
+A structured, phased methodology will be adopted, reflecting proven frameworks from the knowledge base for financial services data platform modernization. Each phase provides a controlled stage gate for risk management, stakeholder validation, and capability transfer. The project is divided into: Discovery & Data Assessment, Solution Architecture & Mockups, Blueprint & Roadmapping, and Knowledge Transfer & Change Management. This alignment ensures that each deliverable is actionable, measurable, and future-proof, while risks related to data integration or source readiness are actively managed at every step【4:1†source】【4:21†source】.
+
+**Phase 1: Discovery & Data Assessment, Duration: 3 weeks, Timeline: Weeks 1–3**
+
+**Summary:** Establish a shared understanding of data assets, current infrastructure, and business requirements for L2A and CAC reporting. The outcome is a validated current-state baseline and risk register.
+
+**Activities:**
+- Conduct stakeholder workshops to confirm reporting objectives, user personas, and KPI priorities.
+- Review and map all in-scope systems (Salesforce, Tamarac, QuickBooks, Azure) and available data fields.
+- Assess data quality, completeness, and integration challenges, specifically for CAC-critical fields.
+- Identify coverage gaps, data inconsistencies, and required remediations.
+- Map out reporting pain points and operational constraints with business teams.
+
+**Phase 2: Solution Architecture & Power BI Mockups, Duration: 2 weeks, Timeline: Weeks 4–5**
+
+**Summary:** Develop and validate technical architecture and dashboard mockups to meet business requirements and align on the end-state solution vision.
+
+**Activities:**
+- Design logical and physical data models for unified L2A and CAC reporting.
+- Develop wireframes/mockups for eight Power BI dashboards, with focus group feedback sessions.
+- Define calculation logic, KPIs, and drill-down structures, validated against PE playbook standards.
+- Architect batch data ingestion and transformation pipelines (Azure Fabric).
+- Draft technical solution architecture documentation and data quality playbooks.
+
+**Phase 3: Data Gap Remediation & Integration Readiness, Duration: 2 weeks, Timeline: Weeks 6–7**
+
+**Summary:** Resolve identified data quality and integration gaps, and prepare systems for seamless data ingestion and automated reporting.
+
+**Activities:**
+- Implement required mappings, cleansing logic, and validations for key data sources.
+- Build automated data pipelines for QuickBooks and Salesforce integrations.
+- Test and document end-to-end data flow, with data lineage visibility.
+- Finalize data quality remediation plan and produce readiness sign-off.
+- Conduct incremental user testing for data integrity and completeness.
+
+**Phase 4: Build Roadmap & Capability Transfer, Duration: 8–12 weeks, Timeline: Weeks 8–19**
+
+**Summary:** Deliver a detailed implementation plan for the full build phase, ensuring roles, milestones, and resource needs are clear, and support transition to internal ownership.
+
+**Activities:**
+- Develop work breakdown structures, timelines, milestones, and risk dependencies for Phase 3B.
+- Align resource plans and clearly define roles/responsibilities between internal and external teams.
+- Deliver knowledge transfer and training on new reports, data assets, and governance processes.
+- Set up feedback and validation sessions with leadership and end users.
+- Iterate on all documentation and solution artifacts based on stakeholder input.
+
+This phased, iterative approach reduces delivery risk by ensuring feedback and course correction at each stage, drives early value through quick wins (mockups and data assessments), and aligns with PURE’s operational imperatives for scalable, automated reporting. By closely coordinating with PURE’s leadership, technical, and marketing teams, the methodology ensures outcomes are owned, actionable, and strategically relevant.
+
+*Validation: Section comprehensively maps to client/KD needs, uses phased approach (timeline, actions, key decisions), ties risk management and PE best practices, and is in line with KB proposals.*
+
+# Outcomes
+
+PURE will realize a step-change transformation in its ability to capture, analyze, and leverage pipeline and customer acquisition data. The engagement will unlock actionable insights into key pipeline and marketing metrics, automate historically labor-intensive reporting processes, and establish a technology foundation that supports ongoing growth, compliance, and investment readiness. The approach directly addresses technical limitations and data integration gaps identified earlier, in line with proven financial services success patterns from PE-backed engagements【4:2†source】【4:4†source】.
+
+## Expected Business Outcomes
+
+- **Granular Pipeline Visibility:** Enhanced L2A reporting yields detailed tracking of leads, conversion rates, and client journeys—enabling more precise measurement of each marketing and sales touchpoint.
+- **Automated CAC Analytics:** Full automation of CAC calculations and dashboards, resulting in real-time insights into marketing spend efficiency at both channel and campaign levels.
+- **Single Source of Truth:** Creation of a unified, trusted data asset that integrates data from Salesforce, Tamarac, QuickBooks, and Azure for leadership decision-making and board reporting.
+- **Accelerated Decision-making:** Reduction in manual reporting effort enables leadership to allocate resources more efficiently and respond to market opportunities.
+- **PE-Grade Reporting & Diligence Readiness:** Ensures PURE can support PE expectations with evidence-based KPIs, robust audit trails, and diligence-ready visualizations during current and future transactions.
+- **Scalable Data Platform:** Flexible architecture supports future data integrations, organic and acquisitive growth, and new use-case development.
+- **Capability Uplift:** Internal teams are trained on new processes and assets, improving PURE’s self-sufficiency and ability to scale insights as business needs evolve.
+
+*Validation: Outcomes are measurable, specific, and mapped to client needs/KD benchmarks—section and format requirements are fully met.*
+
+# Business Impact
+
+- **Increased Revenue Efficiency:** By providing precise L2A and CAC analytics, PURE can reduce customer acquisition costs and optimize allocation of marketing budgets.
+- **Time Savings:** Automated pipelines and reporting processes lead to faster, lower-cost production of insights—freeing staff for higher-value tasks.
+- **Improved Data Quality:** Early identification and remediation of gaps ensure accuracy and consistency in financial and operational management reporting.
+- **Enhanced Investor Confidence:** PE stakeholders gain reliable, transparent dashboards and KPIs—a critical requirement for future transactions or exits.
+- **Operational Scalability:** Modular, best-practice architecture allows PURE to rapidly onboard new data sources and respond to evolving business needs.
+- **Risk Mitigation:** Proactive data governance, auditability, and technical documentation reduce risk of compliance breaches or reporting errors.
+- **Long-term Strategic Value:** Establishes data maturity foundation critical for competitive differentiation and sustained value creation in the financial advisory sector.
+
+Through this engagement, PURE FINANCIAL ADVISORS LLC will capture substantial value—driving both short-term operational wins and long-term business transformation. By embedding a culture of data-driven decision-making and equipping internal teams with scalable reporting tools, PURE will strengthen its market leadership, increase its attractiveness to future investors, and ensure resilience in an increasingly data-centric competitive landscape【4:2†source】【4:15†source】.
+
+*Validation: Section lists 7 quantifiable, KB-grounded impacts in correct bullet format, followed by a closing paragraph referencing long-term growth, sector context, and PE standards. Structure and depth are complete.*

@@ -1,0 +1,22 @@
+what iam going to include in the  ui are 
+
+1 - >  at the initial metadata filter  , get the top 1 st proposal then if the user says it ok to gerenate the propsal with the same structure and finally  preview it 
+
+2-> other that metadata , questionaerr , if user provide some of the input in promt also consider it 
+
+X   3 -> if no questionairee or something upload the MOM  trancscipttion - > answer for the questions -> if some question are not mentioned -> ask the user to fill it 
+
+4-> section wise generation status tracking  and also whole propsal status tracking (like rertiveing , generating , aligning , etc ) 
+
+5-> after generating each section groundness checking for each section with agent (input is questions  ,  generated section )  (representing as  percentage )
+
+6 -> Before generating each section (Ask user to enable websearch for the client data collection  in Business context section , approach section  (Arechitecure generation , gann chat from time lines ))
+
+
+7 -> Finally ask the user after generate the executive summary  after the proposal genertion 
+ask do you need execustive summary 
+finally the user gets the gnerated propsal + executivesummary  if they need it 
+
+
+
+give the descrpition  in more detailed descripiton 
