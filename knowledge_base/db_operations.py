@@ -3,6 +3,9 @@ import uuid
 import psycopg2
 from typing import List, Dict, Any
 from sentence_transformers import SentenceTransformer
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # =====================================================
@@ -29,11 +32,7 @@ def generate_embedding(text: str) -> List[float]:
 def get_db_connection():
     """Create and return database connection."""
     return psycopg2.connect(
-        host="localhost",
-        port="5432",
-        database="proposal_retrieval",
-        user="postgres",
-        password="postgres"
+        os.getenv('DB')
     )
 
 
@@ -57,6 +56,7 @@ def build_proposal_schema(
     Build proposal schema for the proposals table.
     """
     return {
+        "id": str(uuid.uuid4()),
         "document_id": document_id,
         "business_offering": business_offering,
         "solution": solution,
@@ -76,8 +76,9 @@ def insert_proposal_data(cursor, conn, proposal_schema: Dict[str, Any]) -> None:
     """
     cursor.execute(
         """
-        INSERT INTO proposals
+        INSERT INTO proposal_metadata
         (
+            id,
             document_id,
             business_offering,
             solution,
@@ -89,20 +90,21 @@ def insert_proposal_data(cursor, conn, proposal_schema: Dict[str, Any]) -> None:
             existing_infra,
             pe_relationship
         )
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         ON CONFLICT (document_id) DO NOTHING
         """,
         (
-            proposal_schema["document_id"],
-            proposal_schema["business_offering"],
-            proposal_schema["solution"],
-            proposal_schema["region"],
-            proposal_schema["project_type"],
-            proposal_schema["commercial_use_case"],
-            proposal_schema["technical_use_case"],
-            proposal_schema["business_model"],
-            proposal_schema["existing_infra"],
-            proposal_schema["pe_relationship"]
+            proposal_schema["id"],          # 1
+            proposal_schema["document_id"], # 2
+            proposal_schema["business_offering"],  # 3
+            proposal_schema["solution"],    # 4
+            proposal_schema["region"],      # 5
+            proposal_schema["project_type"], # 6
+            proposal_schema["commercial_use_case"], # 7
+            proposal_schema["technical_use_case"], # 8
+            proposal_schema["business_model"], # 9
+            proposal_schema["existing_infra"], # 10
+            proposal_schema["pe_relationship"] # 11
         )
     )
     conn.commit()
@@ -196,7 +198,7 @@ def insert_parent_chunk(cursor, conn, parent_schema: Dict[str, Any]) -> None:
     """
     cursor.execute(
         """
-        INSERT INTO parent_chunks
+        INSERT INTO parent_chunk
         (
             id,
             document_id,
@@ -250,7 +252,7 @@ def insert_child_chunks(cursor, conn, child_schemas: List[Dict[str, Any]]) -> No
     for child in child_schemas:
         cursor.execute(
             """
-            INSERT INTO child_chunks
+            INSERT INTO child_chunk
             (
                 id,
                 document_id,

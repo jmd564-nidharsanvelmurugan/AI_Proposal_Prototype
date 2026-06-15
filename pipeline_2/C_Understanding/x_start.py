@@ -1,5 +1,6 @@
 import os
 import json
+import glob
 from datetime import datetime
 from dotenv import load_dotenv
 from langchain_openai import AzureChatOpenAI
@@ -137,7 +138,7 @@ def load_questionnaire(filepath: str):
         content = f.read().strip()
     try:
         return json.loads(content)
-    except json.JSONDecodeError as e:
+    except json.JSONDecodeError:
         # Try JSON Lines (multiple objects)
         lines = [line.strip() for line in content.splitlines() if line.strip()]
         objects = []
@@ -148,17 +149,30 @@ def load_questionnaire(filepath: str):
                 pass
         if objects:
             return objects
-        raise ValueError(f"Could not parse questionnaire file: {e}")
+        raise ValueError(f"Could not parse questionnaire file")
 
 # ------------------------------------------------------------
-# Helper: generate a semantic retrieval query for the section
+# Helper: get the latest section file from a folder
+# ------------------------------------------------------------
+def get_latest_section_file(folder_path: str, pattern_prefix: str) -> Optional[str]:
+    """Return the most recent .txt file in folder_path matching pattern_prefix_*.txt"""
+    pattern = os.path.join(folder_path, f"{pattern_prefix}_*.txt")
+    files = glob.glob(pattern)
+    if not files:
+        return None
+    # Return the most recent by modification time
+    latest = max(files, key=os.path.getmtime)
+    return latest
+
+# ------------------------------------------------------------
+# Helper: generate a semantic retrieval query for Understanding section
 # ------------------------------------------------------------
 def generate_section_query(questionnaire_str: str, metadata: dict, section_name: str) -> str:
     prompt = ChatPromptTemplate.from_template("""
 You are an expert proposal retrieval specialist.
 
 Extract 3–5 key phrases from the questionnaire that best represent the core
-problems, pain points, and challenges for the **{section_name}** section.
+**business problems, pain points, and challenges** for the **{section_name}** section.
 
 Questionnaire:
 {questionnaire_str}
@@ -169,11 +183,11 @@ Metadata:
 Rules:
 - Return ONLY the concatenated phrase (spaces between words, no quotes).
 - Maximum 12 words.
-- Focus on concrete issues: data fragmentation, manual processes, lack of integration.
-- Avoid generic words like "inefficient" unless specific.
+- Focus on concrete: business problems, pain points, required capabilities, inefficiencies.
+- Avoid generic words like "issues" unless specific.
 
-Example for Problem Statement:
-"fragmented financial data manual reconciliation slow reporting"
+Example for Understanding:
+"pipeline reporting granularity integrated CAC insights automated ingestion"
 
 Return only the retrieval phrase.
 """)
@@ -186,9 +200,9 @@ Return only the retrieval phrase.
     return response.content.strip()
 
 # ------------------------------------------------------------
-# Helper: generate Problem Statement content (with previous context)
+# Helper: generate Understanding content (with Business Context and Overview as previous context)
 # ------------------------------------------------------------
-def generate_problem_statement_content(
+def generate_understanding_content(
     questionnaire_str: str,
     metadata: dict,
     retrieved_chunks: dict,
@@ -209,15 +223,17 @@ def generate_problem_statement_content(
             if texts:
                 knowledge_text = "\n".join(texts)
 
-    # Format previous sections (e.g., Business Context)
+    # Format previous sections (Business Context and Overview)
     prev_context = ""
     if previous_sections:
         prev_context = "\nPreviously written sections (do NOT repeat facts from them):\n"
         for name, content in previous_sections.items():
-            prev_context += f"\n--- {name} ---\n{content[:500]}...\n"
+            # Show only first 500 chars to keep prompt manageable
+            short = content[:600] + "..." if len(content) > 600 else content
+            prev_context += f"\n--- {name} ---\n{short}\n"
 
     prompt = ChatPromptTemplate.from_template("""
-You are a senior consulting proposal writer specializing in **Problem Statement** sections.
+You are a senior consulting proposal writer specializing in **Understanding** sections.
 
 CLIENT QUESTIONNAIRE:
 {questionnaire_str}
@@ -230,17 +246,25 @@ RETRIEVED KNOWLEDGE (supporting evidence):
 
 {prev_context}
 
-INSTRUCTIONS FOR PROBLEM STATEMENT SECTION:
-- Start with "# Problem Statement" as a level‑1 heading (Markdown).
-- Write 2–3 short paragraphs (max 250 words total).
+INSTRUCTIONS FOR UNDERSTANDING SECTION:
+- Start with "# Understanding" as a level‑1 heading (Markdown).
+- Then list the key points as **bullet points** (one bullet per point, starting with "- ").
 - Use the questionnaire as the ONLY source of client‑specific facts.
-- Focus on CURRENT problems, pain points, and consequences – not solutions.
-- Do NOT repeat facts already covered in previous sections (like Business Context).
-- Keep language factual, direct, and free of generic industry commentary.
-- Structure: first paragraph = specific technical/data problems; second = business impact.
-- If the questionnaire does not mention a problem, leave it out.
+- Focus on **business problems, pain points, required capabilities, and inefficiencies**, including:
+  * What business problem is the client trying to solve?
+  * What are the current pain points?
+  * What inefficiencies exist in the current process?
+  * What capabilities or features are required?
+  * What workflows should be automated?
+  * What user roles/personas will use the system?
+  * What security/compliance requirements exist?
+  * What integrations are mandatory?
+- Do NOT repeat facts already covered in previous sections (Business Context or Overview).
+- Keep each bullet point short, factual, direct, and free of generic industry commentary.
+- Aim for 4–8 bullet points covering the most important points.
+- If the questionnaire does not mention something, leave it out.
 
-CRITICAL: Do NOT mention deliverables, approach, or future state.
+CRITICAL: Do NOT mention solutions, deliverables, or future state – just describe the problems and requirements in bullet form.
 
 CONTENT:
 """)
@@ -255,35 +279,50 @@ CONTENT:
     return response.content.strip()
 
 # ------------------------------------------------------------
-# Main execution for Problem Statement
+# Main execution for Understanding
 # ------------------------------------------------------------
 def main():
+    # Get the directory where this script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
     # 1. Load questionnaire
-    questionnaire_file = "questionnaire.json"
+    questionnaire_file = os.path.join(script_dir, "questionnaire.json")
     if not os.path.exists(questionnaire_file):
         raise FileNotFoundError(f"File '{questionnaire_file}' not found.")
     questionnaire = load_questionnaire(questionnaire_file)
     questionnaire_str = json.dumps(questionnaire)
 
-    # 2. Extract metadata (or load from previous run to save time)
+    # 2. Extract metadata
     metadata = metadata_chain.invoke({"questionnaire": questionnaire_str})
     metadata_dict = metadata.model_dump()
     print("\n✅ Metadata extracted:")
     print(json.dumps(metadata_dict, indent=2))
 
-    # 3. (Optional) Load previous Business Context content
-    #    Assume it's saved in x_results/business_context_*.txt – for demo we hardcode a path.
+    # 3. Load previous sections (Business Context and Overview) using automatic latest file detection
     previous_sections = {}
-    bc_file = "../A_Business_Context/x_results/business_context_20260612_105529.txt"
-    if os.path.exists(bc_file):
+    
+    # Business Context: sibling folder ../A_Business_Context/x_results/
+    bc_folder = os.path.abspath(os.path.join(script_dir, "../A_Business_Context/x_results"))
+    bc_file = get_latest_section_file(bc_folder, "business_context")
+    if bc_file:
         with open(bc_file, "r", encoding="utf-8") as f:
             previous_sections["Business Context"] = f.read()
-        print("\n📄 Loaded previous Business Context for context.")
+        print(f"📄 Loaded previous Business Context from {bc_file}")
     else:
-        print("\n⚠️ No previous Business Context found – generating without it.")
+        print("⚠️ No previous Business Context found – generating without it.")
+    
+    # Overview: sibling folder ../B_Overview/x_results/
+    overview_folder = os.path.abspath(os.path.join(script_dir, "../B_Overview/x_results"))
+    overview_file = get_latest_section_file(overview_folder, "overview")
+    if overview_file:
+        with open(overview_file, "r", encoding="utf-8") as f:
+            previous_sections["Overview"] = f.read()
+        print(f"📄 Loaded previous Overview from {overview_file}")
+    else:
+        print("⚠️ No previous Overview found – generating without it.")
 
-    # 4. Get top matching proposals and child chunks for "Problem Statement"
-    section_name = "Problem Statement"
+    # 4. Get top matching proposals and child chunks for "Understanding"
+    section_name = "Understanding"
     user_input = {
         "solution": [metadata.solution],
         "business_offering": [metadata.business_offering],
@@ -304,7 +343,7 @@ def main():
                 all_child_ids.append(child_ref["id"])
     all_child_ids = list(set(all_child_ids))
 
-    # 5. Generate semantic query for Problem Statement
+    # 5. Generate semantic query for Understanding
     section_query = generate_section_query(questionnaire_str, metadata_dict, section_name)
     print(f"\n🔍 Generated query: {section_query}")
 
@@ -315,8 +354,8 @@ def main():
         top_k=10
     )
 
-    # 7. Generate content (with previous context)
-    content = generate_problem_statement_content(
+    # 7. Generate content (with Business Context and Overview as context)
+    content = generate_understanding_content(
         questionnaire_str=questionnaire_str,
         metadata=metadata_dict,
         retrieved_chunks=filtered_results,
@@ -324,7 +363,7 @@ def main():
     )
 
     print("\n" + "=" * 60)
-    print("PROBLEM STATEMENT")
+    print("UNDERSTANDING")
     print("=" * 60)
     print(content)
 
@@ -333,9 +372,9 @@ def main():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     save_to_json(metadata_dict, f"metadata_{timestamp}.json")
     save_to_json(filtered_results, f"filtered_chunks_{timestamp}.json")
-    with open(f"x_results/problem_statement_{timestamp}.txt", "w", encoding="utf-8") as f:
+    with open(f"x_results/understanding_{timestamp}.txt", "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"\n✅ Saved to x_results/problem_statement_{timestamp}.txt")
+    print(f"\n✅ Saved to x_results/understanding_{timestamp}.txt")
 
 if __name__ == "__main__":
     main()

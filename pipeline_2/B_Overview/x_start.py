@@ -1,6 +1,5 @@
 import os
 import json
-import glob
 from datetime import datetime
 from dotenv import load_dotenv
 from langchain_openai import AzureChatOpenAI
@@ -23,7 +22,7 @@ from b_subsection_filter import (
 load_dotenv()
 
 # ------------------------------------------------------------
-# Metadata schema
+# Metadata schema (must match your DB columns)
 # ------------------------------------------------------------
 class ProposalMetadata(BaseModel):
     business_offering: str
@@ -41,13 +40,13 @@ class ProposalMetadata(BaseModel):
 # ------------------------------------------------------------
 USE_AZURE = os.getenv("USE_AZURE", "true").lower() == "true"
 if USE_AZURE:
-    llm = AzureChatOpenAI(
-        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-        api_key=os.getenv("AZURE_OPENAI_KEY"),
-        azure_deployment=os.getenv("gpt-5"),
-        api_version="2024-02-15-preview",
-        temperature=0,
-    )
+  llm = AzureChatOpenAI(
+      azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+      api_key=os.getenv("AZURE_OPENAI_KEY"),
+      azure_deployment=os.getenv("gpt-5"),
+      api_version="2024-02-15-preview",
+      temperature=0,
+  )
 else:
     from langchain_groq import ChatGroq
     llm = ChatGroq(
@@ -152,39 +151,14 @@ def load_questionnaire(filepath: str):
         raise ValueError(f"Could not parse questionnaire file")
 
 # ------------------------------------------------------------
-# Helper: get the latest saved section file from sibling x_results
-# ------------------------------------------------------------
-def get_latest_section_file(section_name: str) -> Optional[str]:
-    """
-    Return path to the latest .txt file for a given section.
-    Looks in sibling folders:
-    - "Business Context" -> ../A_Business_Context/x_results/business_context_*.txt
-    - "Problem Statement" -> ../B_Problem_statement/x_results/problem_statement_*.txt
-    """
-    folder_map = {
-        "Business Context": ("../A_Business_Context/x_results", "business_context"),
-        "Problem Statement": ("../B_Problem_statement/x_results", "problem_statement"),
-    }
-    if section_name not in folder_map:
-        return None
-    folder, prefix = folder_map[section_name]
-    pattern = os.path.join(folder, f"{prefix}_*.txt")
-    files = glob.glob(pattern)
-    if not files:
-        return None
-    # Return the most recent (by file modification time)
-    latest = max(files, key=os.path.getmtime)
-    return latest
-
-# ------------------------------------------------------------
-# Helper: generate a semantic retrieval query for the section
+# Helper: generate a semantic retrieval query for Overview section
 # ------------------------------------------------------------
 def generate_section_query(questionnaire_str: str, metadata: dict, section_name: str) -> str:
     prompt = ChatPromptTemplate.from_template("""
 You are an expert proposal retrieval specialist.
 
 Extract 3–5 key phrases from the questionnaire that best represent the core
-**objectives, goals, and desired future state** for the **{section_name}** section.
+**current state, systems, teams, and infrastructure** for the **{section_name}** section.
 
 Questionnaire:
 {questionnaire_str}
@@ -195,11 +169,11 @@ Metadata:
 Rules:
 - Return ONLY the concatenated phrase (spaces between words, no quotes).
 - Maximum 12 words.
-- Focus on concrete outcomes: unified data, automated reporting, integrated systems.
-- Avoid generic words like "improve" unless specific.
+- Focus on concrete: affected teams, systems/platforms, data sources, infrastructure.
+- Avoid generic words like "current" unless specific.
 
-Example for Objectives:
-"unified L2A data model automated CAC reporting Power BI dashboards"
+Example for Overview:
+"data technology marketing teams Salesforce QuickBooks Azure Fabric Power BI"
 
 Return only the retrieval phrase.
 """)
@@ -212,13 +186,13 @@ Return only the retrieval phrase.
     return response.content.strip()
 
 # ------------------------------------------------------------
-# Helper: generate Objectives content (with previous sections context)
+# Helper: generate Overview content (with previous context)
 # ------------------------------------------------------------
-def generate_objectives_content(
+def generate_overview_content(
     questionnaire_str: str,
     metadata: dict,
     retrieved_chunks: dict,
-    previous_sections: dict
+    previous_sections: Optional[dict] = None
 ) -> str:
     # Format retrieved knowledge
     knowledge_text = "NO_KNOWLEDGE_AVAILABLE"
@@ -235,14 +209,15 @@ def generate_objectives_content(
             if texts:
                 knowledge_text = "\n".join(texts)
 
-    # Format previous sections to avoid repetition
-    prev_context = "\nPreviously written sections (do NOT repeat facts already stated):\n"
-    for name, content in previous_sections.items():
-        short = content[:600] + "..." if len(content) > 600 else content
-        prev_context += f"\n--- {name} ---\n{short}\n"
+    # Format previous sections (e.g., Business Context)
+    prev_context = ""
+    if previous_sections:
+        prev_context = "\nPreviously written sections (do NOT repeat facts from them):\n"
+        for name, content in previous_sections.items():
+            prev_context += f"\n--- {name} ---\n{content[:500]}...\n"
 
     prompt = ChatPromptTemplate.from_template("""
-You are a senior consulting proposal writer specializing in **Objectives** sections.
+You are a senior consulting proposal writer specializing in **Overview** sections.
 
 CLIENT QUESTIONNAIRE:
 {questionnaire_str}
@@ -255,18 +230,23 @@ RETRIEVED KNOWLEDGE (supporting evidence):
 
 {prev_context}
 
-INSTRUCTIONS FOR OBJECTIVES SECTION:
-- Start with "# Objectives" as a level‑1 heading (Markdown).
-- Then list the objectives as **bullet points** (one bullet per objective).
-- Each bullet should be a short, clear statement of a specific goal.
-- Use the questionnaire as the ONLY source of client‑specific goals.
-- Focus on the **desired future state** – what the client wants to achieve.
-- Do NOT repeat problems or context already covered in previous sections.
-- Keep language factual, direct, and solution‑oriented but not technical.
-- Aim for 4–6 bullet points covering strategic, technical, and operational objectives.
-- If the questionnaire does not mention a goal, leave it out.
+INSTRUCTIONS FOR OVERVIEW SECTION:
+- Start with "# Overview" as a level‑1 heading (Markdown).
+- Write 2–3 short paragraphs (max 250 words total).
+- Use the questionnaire as the ONLY source of client‑specific facts.
+- Focus on the **current state** of the client's operations, including:
+  * Affected teams and processes
+  * Systems and platforms currently being used
+  * Reporting and analytics tools that exist today
+  * Data sources and databases involved
+  * Existing cloud/platform infrastructure
+  * Current manual processes (if mentioned)
+  * Integration challenges (if mentioned)
+- Do NOT repeat facts already covered in previous sections (like Business Context).
+- Keep language factual, direct, and free of generic industry commentary.
+- If the questionnaire does not mention something, leave it out.
 
-CRITICAL: Do NOT mention deliverables, approach, or implementation details.
+CRITICAL: Do NOT mention problems, solutions, or future state – just describe what exists today.
 
 CONTENT:
 """)
@@ -281,7 +261,7 @@ CONTENT:
     return response.content.strip()
 
 # ------------------------------------------------------------
-# Main execution for Objectives
+# Main execution for Overview
 # ------------------------------------------------------------
 def main():
     # 1. Load questionnaire
@@ -297,19 +277,18 @@ def main():
     print("\n✅ Metadata extracted:")
     print(json.dumps(metadata_dict, indent=2))
 
-    # 3. Load previous sections (Business Context and Problem Statement)
+    # 3. Load previous Business Context content
     previous_sections = {}
-    for section_name in ["Business Context", "Problem Statement"]:
-        file_path = get_latest_section_file(section_name)
-        if file_path:
-            with open(file_path, "r", encoding="utf-8") as f:
-                previous_sections[section_name] = f.read()
-            print(f"📄 Loaded previous '{section_name}' from {file_path}")
-        else:
-            print(f"⚠️ No previous '{section_name}' file found – generating without it.")
+    bc_file = "../A_Business_Context/x_results/business_context_20260612_151414.txt"
+    if os.path.exists(bc_file):
+        with open(bc_file, "r", encoding="utf-8") as f:
+            previous_sections["Business Context"] = f.read()
+        print("\n📄 Loaded previous Business Context for context.")
+    else:
+        print("\n⚠️ No previous Business Context found – generating without it.")
 
-    # 4. Get top matching proposals and child chunks for "Objectives"
-    section_name = "Objectives"
+    # 4. Get top matching proposals and child chunks for "Overview"
+    section_name = "Overview"
     user_input = {
         "solution": [metadata.solution],
         "business_offering": [metadata.business_offering],
@@ -330,7 +309,7 @@ def main():
                 all_child_ids.append(child_ref["id"])
     all_child_ids = list(set(all_child_ids))
 
-    # 5. Generate semantic query for Objectives
+    # 5. Generate semantic query for Overview
     section_query = generate_section_query(questionnaire_str, metadata_dict, section_name)
     print(f"\n🔍 Generated query: {section_query}")
 
@@ -341,16 +320,16 @@ def main():
         top_k=10
     )
 
-    # 7. Generate content (with previous sections context)
-    content = generate_objectives_content(
+    # 7. Generate content (with previous context)
+    content = generate_overview_content(
         questionnaire_str=questionnaire_str,
         metadata=metadata_dict,
         retrieved_chunks=filtered_results,
-        previous_sections=previous_sections
+        previous_sections=previous_sections if previous_sections else None
     )
 
     print("\n" + "=" * 60)
-    print("OBJECTIVES")
+    print("OVERVIEW")
     print("=" * 60)
     print(content)
 
@@ -359,9 +338,9 @@ def main():
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     save_to_json(metadata_dict, f"metadata_{timestamp}.json")
     save_to_json(filtered_results, f"filtered_chunks_{timestamp}.json")
-    with open(f"x_results/objectives_{timestamp}.txt", "w", encoding="utf-8") as f:
+    with open(f"x_results/overview_{timestamp}.txt", "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"\n✅ Saved to x_results/objectives_{timestamp}.txt")
+    print(f"\n✅ Saved to x_results/overview_{timestamp}.txt")
 
 if __name__ == "__main__":
     main()

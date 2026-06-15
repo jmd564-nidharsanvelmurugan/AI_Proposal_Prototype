@@ -11,24 +11,21 @@
     "sections": [
         {
             "section_name": "Business Context",
+            "content": "No content found in proposal",
+            "subsections": []
+        },
+        {
+            "section_name": "Overview",
             "content": "",
             "subsections": [
                 {
                     "subsection_name": "Project Overview",
                     "content": "Kroll seek support in the delivery of a rapid, transaction-focused data cube and reporting solution to support a carve-out transaction process. We propose to break down the project into the following phases:"
-                },
-                {
-                    "subsection_name": "Engagement Requirements",
-                    "content": "What Service Provider needs from Client:\n\nAccess to relevant internal datasets (assumed csv extracts into a data room) by start of Phase 1. Require a Week 0 workshop to review data to be provided and refine SoW as required\n\nResponses to initial data queries shared in advanced of Week 1\n\nWhere manual cleaning or inputting of data is required, JMAN will support as much as possible to accelerate data cleaning with the use of data tool. However, we anticipate requiring time from the Client to fill any collaboratively identified gaps in input datasets. We are assuming we will not be reconciling with work of another vendor acting in parallel.\n\nWeekly steer meets to review progress, blockers and priorities – with CFO, finance leads, Stonepoint & relevant advisors/DD providers\n\nAccess to Finance teams and data/source system owners\n\nA SQL Environment provided by client, and relevant access, to host the technical solution. Can be hosted by JMAN if required."
-                },
-                {
-                    "subsection_name": "Engagement Required",
-                    "content": "Phase 1: Design & Data Assessment (2 weeks):\n\nData and finance team briefings: Meetings to understand current data availability, processes, reconciliation approach and reporting (~6+ hrs)\n\nNarratives & KPI Workshop: Workshop(s) to identify required KPIs and requirements for reporting suite (2 x ~2 hrs)\n\nPhase 2: Build (~8 weeks):\n\nSteering Group: Touchpoint to review progress, blockers and priorities, and sign off outputs (~1hr / week)\n\nWorking Group Sessions: Sessions to review outputs and unblock any challenges which might arise (~3 hrs / week)\n\nReconciliation: Dedicated time during the middle of the project to support with reconciliation of outputs from source data to reporting (time tbc)"
                 }
             ]
         },
         {
-            "section_name": "Problem Statement",
+            "section_name": "Understanding",
             "content": "No content found in proposal",
             "subsections": []
         },
@@ -56,35 +53,52 @@
             "content": "",
             "subsections": [
                 {
-                    "subsection_name": "Phase 1 Design & Data Assessment",
+                    "subsection_name": "Phase 1 Approach",
                     "content": "Ensure focus and success in delivery by defining the key narrative and metrics to present, as well as understanding data quality, remediation options and agreeing resulting priority for reports to produce\n\nCarry out spot checks on key metric reconciliation, to then agree sign off approach and ways of working with Kroll\n\nThe phase confirms scope and enables rolling straight onto a Phase 2; with JMAN having the supporting detail, access, and engagement plan with the business\n\nThis phase will involve meetings with management, finance and technical representatives as well as independent assessment of provided data extracts"
                 },
                 {
-                    "subsection_name": "Phase 2 Build",
+                    "subsection_name": "Phase 2 Approach",
                     "content": "Build of prioritised KPIs and associated data cubes, potentially covering:\n\nRevenue & Sales - Providing Kroll the ability to track both revenue and opportunities across various dimensions (region, service line, project, etc), and demonstrate their revenue quality, diversity and sustainability, and opportunity development over time\n\nAUA – Providing Kroll the ability to understand their AUAs over time\n\nThe scope, technology and format of cubes and reports to be determined in Phase 1\n\nThe approach will prioritise the production of raw data cubes to be produced by start of May to support IM production, and dashboard creation will likely be treated as a secondary priority\n\nThis phase will be split into sub-phases based on the priority reporting, with technology and approach to be confirmed in Phase 1"
+                },
+                {
+                    "subsection_name": "Assumptions and Client Inputs",
+                    "content": "What Service Provider needs from Client:\n\nAccess to relevant internal datasets (assumed csv extracts into a data room) by start of Phase 1. Require a Week 0 workshop to review data to be provided and refine SoW as required\n\nResponses to initial data queries shared in advanced of Week 1\n\nWhere manual cleaning or inputting of data is required, JMAN will support as much as possible to accelerate data cleaning with the use of data tool. However, we anticipate requiring time from the Client to fill any collaboratively identified gaps in input datasets. We are assuming we will not be reconciling with work of another vendor acting in parallel.\n\nWeekly steer meets to review progress, blockers and priorities – with CFO, finance leads, Stonepoint & relevant advisors/DD providers\n\nAccess to Finance teams and data/source system owners\n\nA SQL Environment provided by client, and relevant access, to host the technical solution. Can be hosted by JMAN if required."
+                },
+                {
+                    "subsection_name": "Engagement Requirements",
+                    "content": "Phase 1: Design & Data Assessment (2 weeks):\n\nData and finance team briefings: Meetings to understand current data availability, processes, reconciliation approach and reporting (~6+ hrs)\n\nNarratives & KPI Workshop: Workshop(s) to identify required KPIs and requirements for reporting suite (2 x ~2 hrs)\n\nPhase 2: Build (~8 weeks):\n\nSteering Group: Touchpoint to review progress, blockers and priorities, and sign off outputs (~1hr / week)\n\nWorking Group Sessions: Sessions to review outputs and unblock any challenges which might arise (~3 hrs / week)\n\nReconciliation: Dedicated time during the middle of the project to support with reconciliation of outputs from source data to reporting (time tbc)"
+                },
+                {
+                    "subsection_name": "Timelines and Milestones",
+                    "content": "Services start date:\n\n09/03/2026\n\nServices completion date:\n\n15/05/2026\n\nMilestones\n\nEnd of Week 1: Confirmation of target Metrics, Requirements, Data Profiling \n\nEnd of Week 2: Assessment of data limitations, date range coverage and reconciliation approach. Confirmation of scope of build; including metrics, dashboard structure, solution technology and format of output\n\nApril 30th: Target deadline for prioritised cubes to be shared with Baird and Stonepoint for their IM"
                 }
             ]
         },
         {
             "section_name": "Outcomes",
-            "content": "No content found in proposal",
-            "subsections": []
+            "content": "",
+            "subsections": [
+                {
+                    "subsection_name": "Resource Commitment",
+                    "content": "Resources:\n\nFull time analytics consultant, data engineer\n\nEngagement Manager & Principal oversight"
+                },
+                {
+                    "subsection_name": "Location of Services",
+                    "content": "Location of Services:\n\nJMAN Group Limited (London Office): 10 Lloyds Avenue, London, EC3N 3AJ, United Kingdom\n\nJMAN Digital Services Private Chennai Office: Module 0104 (A), First Floor, C Block South, Tidel Park, 4 Rajiv Gandhi Salai, Taramani, Chennai-600 113, India"
+                }
+            ]
         },
         {
             "section_name": "Business Impact",
             "content": "",
             "subsections": [
                 {
-                    "subsection_name": "Timelines and Milestones",
-                    "content": "Services start date:\n\n09/03/2026\n\nServices completion date:\n\n15/05/2026\n\nMilestones\n\nEnd of Week 1: Confirmation of target Metrics, Requirements, Data Profiling \n\nEnd of Week 2: Assessment of data limitations, date range coverage and reconciliation approach. Confirmation of scope of build; including metrics, dashboard structure, solution technology and format of output\n\nApril 30th: Target deadline for prioritised cubes to be shared with Baird and Stonepoint for their IM"
+                    "subsection_name": "Fees and Payment",
+                    "content": "Total Charges:\n\n$27,740 (+VAT) Weekly Run Rate\n\nOpportunity to review team and scale team/rate after Phase 1 to meet priority outputs"
                 },
                 {
-                    "subsection_name": "Resource Commitment and Fees",
-                    "content": "Resources:\n\nFull time analytics consultant, data engineer\n\nEngagement Manager & Principal oversight\n\nLocation of Services\n\nLocation of Services:\n\nJMAN Group Limited (London Office): 10 Lloyds Avenue, London, EC3N 3AJ, United Kingdom\n\nJMAN Digital Services Private Chennai Office: Module 0104 (A), First Floor, C Block South, Tidel Park, 4 Rajiv Gandhi Salai, Taramani, Chennai-600 113, India\n\nFees and Payment\n\nTotal Charges:\n\n$27,740 (+VAT) Weekly Run Rate\n\nOpportunity to review team and scale team/rate after Phase 1 to meet priority outputs"
-                },
-                {
-                    "subsection_name": "Administrative Details",
-                    "content": "Contacts\n\nClient Engagement Manager:\n\nDavid Blowers: david.blowers@kroll.com\n\nService Provider Engagement Manager:\n\nJamie Campbell jamiecampbell@jmangroup.com\n\nSubsequent Tasks\n\nAny subsequent tasks must be captured by a Change Order as set out in Schedule 1 to the Agreement.\n\nThis SOW has been entered into by the parties on the Effective Date:\n\n....................................\n\nSigned by David Blowers for and on behalf of the Client.\n\n....................................\n\nSigned by Richard Cowen for and on behalf of the Service Provider."
+                    "subsection_name": "Contacts and Administrative Details",
+                    "content": "Client Engagement Manager:\n\nDavid Blowers: david.blowers@kroll.com\n\nService Provider Engagement Manager:\n\nJamie Campbell jamiecampbell@jmangroup.com\n\nSubsequent Tasks\n\nAny subsequent tasks must be captured by a Change Order as set out in Schedule 1 to the Agreement.\n\nThis SOW has been entered into by the parties on the Effective Date:\n\n....................................\n\nSigned by David Blowers for and on behalf of the Client.\n\n....................................\n\nSigned by Richard Cowen for and on behalf of the Service Provider."
                 }
             ]
         }

@@ -4,16 +4,16 @@ You are an expert Proposal Knowledge Base Analyst.
 The provided document is a complete proposal.
 The proposal may contain missing headings, inconsistent formatting, or flattened content resulting from PDF extraction.
  
-Your objective is to reconstruct the proposal hierarchy and map ALL content into EXACTLY 7 allowed sections.
+Your objective is to reconstruct the proposal hierarchy and map ALL content into EXACTLY 8 allowed sections.
  
 ======================================================================
 STRICT SECTION ASSIGNMENT RULE — DO NOT VIOLATE
 ======================================================================
  
-You MUST assign ALL content from the proposal into EXACTLY these 7 sections.
+You MUST assign ALL content from the proposal into EXACTLY these 8 sections.
 No other section names are allowed.
  
-CRITICAL: You MUST return ALL 7 sections in your output, even if a section has no content.
+CRITICAL: You MUST return ALL 8 sections in your output, even if a section has no content.
 For sections with no matching content, return:
 - section_name: (the section name)
 - content: "No content found in proposal"
@@ -22,18 +22,20 @@ For sections with no matching content, return:
 Allowed sections (exact names):
  
 1. Business Context
-2. Problem Statement
-3. Objectives
-4. Deliverables
-5. Approach
-6. Outcomes
-7. Business Impact
+2. Overview
+3. Understanding
+4. Objectives
+5. Deliverables
+6. Approach
+7. Outcomes
+8. Business Impact
  
 ASSIGNMENT LOGIC:
  
 - Content describing background, industry context, business drivers, strategic reasons for the engagement → Business Context
 - Content describing current systems, processes, tools, workflows, existing capabilities, legacy infrastructure → Business Context
-- Content describing challenges, issues, pain points, gaps, risks, limitations → Problem Statement
+- Content describing current state of the client's operations, affected teams, systems landscape, existing tools → Overview
+- Content describing business problems, pain points, challenges, gaps, root causes, inefficiencies → Understanding
 - Content describing goals, success criteria, targets, desired outcomes (high-level) → Objectives
 - Content describing baseline metrics or current-state measurements that will be improved → Objectives
 - Content listing reports, documents, software, data sets, presentations, artifacts to be delivered → Deliverables
@@ -42,6 +44,8 @@ ASSIGNMENT LOGIC:
 - Content describing ROI, KPIs, cost savings, revenue impact, efficiency gains, financial metrics → Business Impact
 
 **SPECIFIC MAPPING FOR THIS PROPOSAL:**
+- The section labeled "Overview" in the proposal → map to "Overview" section
+- The section labeled "Understanding" in the proposal → map to "Understanding" section
 - The section labeled "Outcomes" in the proposal → map to "Outcomes" section
 - Content about benefits (e.g., "Benefits of Approach" with SSOT, De-risked Transaction Execution, Service Provider Expertise) → map to "Business Impact" section
  
@@ -60,7 +64,8 @@ Create a subsection when you detect:
 Subsection names should represent a specific business concept. Examples:
  
 - Business Context → "Industry Drivers", "Strategic Rationale", "Stakeholder Landscape", "Existing Architecture", "Current Workflows", "Legacy Systems"
-- Problem Statement → "Data Quality Issues", "Reporting Delays", "Manual Processes", "Integration Gaps"
+- Overview → "Affected Teams", "Current Systems", "Reporting Tools", "Data Sources", "Infrastructure"
+- Understanding → "Business Problems", "Pain Points", "Process Inefficiencies", "Integration Challenges", "Required Capabilities", "User Personas"
 - Objectives → "Strategic Goals", "Success Criteria", "Key Results", "Baseline Metrics"
 - Deliverables → "Phase 1 Deliverables", "Phase 2 Deliverables", "Final Artifacts"
 - Approach → "Discovery Phase", "Design Phase", "Implementation Phase"
@@ -129,7 +134,7 @@ OUTPUT RULES
 Return structured output in JSON format with the following fields:
 
 - business_offering (one of: SaaS, Financial Services, Field Services, Professional Services)
-- solution (comma-separated, choose from: Core Reporting, Due Diligence, Data Advisory, Value Creation, Exit Prep(don't take more than two, take the most appropriate))
+- solution (comma-separated, choose from: Core Reporting, Due Diligence, Data Advisory, Value Creation, Exit Prep - don't take more than two, take the most appropriate)
 - region (one of: US, UK, Europe)
 - project_type (one of: Design and Discovery, Build, Both)
 - commercial_use_case (comma-separated, choose from: Revenue bridge, Pipeline, Churn, Upsell/Cross sell, Operational Reporting)
@@ -137,10 +142,10 @@ Return structured output in JSON format with the following fields:
 - business_model (comma-separated, choose from: B2B, B2C, D2C, C2C)
 - existing_infra_has_data_platform (boolean: true or false)
 - pe_relationship (one of: PE Firm, PE Portco)
-- sections (EXACTLY 7 sections - ALL required)
+- sections (EXACTLY 8 sections - ALL required)
 
 Each section MUST contain:
-- section_name (exactly one of the 7 allowed names)
+- section_name (exactly one of the 8 allowed names)
 - content (empty string "" if subsections are populated, otherwise full content)
 - subsections (list of subsection objects - can be empty list)
 
@@ -148,7 +153,7 @@ Each subsection must contain:
 - subsection_name (generic, descriptive, no proper nouns)
 - content (full original text for that subsection)
 
-IMPORTANT: You MUST include ALL 7 sections. If a section has no matching content, use:
+IMPORTANT: You MUST include ALL 8 sections. If a section has no matching content, use:
 - content: "No content found in proposal"
 - subsections: []
 
@@ -159,4 +164,99 @@ PROPOSAL
 {passage}
 """
 
-PROMPT_WITHOUT_HEADINGS = """ """
+PROMPT_WITHOUT_HEADINGS = """
+You are an expert Proposal Knowledge Base Analyst.
+
+The provided document is a complete proposal WITHOUT clear headings.
+
+Your objective is to analyze the content and map it into EXACTLY 8 logical sections.
+
+======================================================================
+STRICT SECTION ASSIGNMENT RULE
+======================================================================
+
+You MUST assign ALL content into EXACTLY these 8 sections:
+
+1. Business Context
+2. Overview
+3. Understanding
+4. Objectives
+5. Deliverables
+6. Approach
+7. Outcomes
+8. Business Impact
+
+Use the same assignment logic as PROMPT_WITH_HEADINGS.
+
+======================================================================
+SUBSECTION IDENTIFICATION RULES
+======================================================================
+
+Create subsections based on:
+- Natural topic shifts in the content
+- Numbered or lettered groups
+- Thematic breaks in the text
+
+Subsection names should represent a specific business concept as shown in PROMPT_WITH_HEADINGS.
+
+======================================================================
+CONTENT PRESERVATION RULES
+======================================================================
+
+You MUST preserve ALL original content exactly as it appears:
+- Every sentence, paragraph, heading
+- Every bullet point, numbered item, and list
+- Every activity description and phase detail
+- Every table or structured data
+
+DO NOT:
+- Summarize, rewrite, paraphrase, shorten, or merge any content
+- Remove any bullet points, numbered items, or list elements
+- Reorder content within a section or subsection
+- Add any content that was not in the original proposal
+- Omit any content, no matter how minor
+
+======================================================================
+GENERIC NAMING RULES
+======================================================================
+
+Section names and subsection names MUST be reusable across multiple proposals.
+
+Remove any client names, company names, product names, or proper nouns from headings.
+
+======================================================================
+OUTPUT RULES
+======================================================================
+
+Return structured output in JSON format with the following fields:
+
+- business_offering (one of: SaaS, Financial Services, Field Services, Professional Services)
+- solution (comma-separated, choose from: Core Reporting, Due Diligence, Data Advisory, Value Creation, Exit Prep - don't take more than two)
+- region (one of: US, UK, Europe)
+- project_type (one of: Design and Discovery, Build, Both)
+- commercial_use_case (comma-separated, choose from: Revenue bridge, Pipeline, Churn, Upsell/Cross sell, Operational Reporting)
+- technical_use_case (one of: Data platform, Gen AI, Data science, Full-stack development)
+- business_model (comma-separated, choose from: B2B, B2C, D2C, C2C)
+- existing_infra_has_data_platform (boolean: true or false)
+- pe_relationship (one of: PE Firm, PE Portco)
+- sections (EXACTLY 8 sections - ALL required)
+
+Each section MUST contain:
+- section_name (exactly one of the 8 allowed names)
+- content (empty string "" if subsections are populated, otherwise full content)
+- subsections (list of subsection objects - can be empty list)
+
+Each subsection must contain:
+- subsection_name (generic, descriptive, no proper nouns)
+- content (full original text for that subsection)
+
+IMPORTANT: You MUST include ALL 8 sections. If a section has no matching content, use:
+- content: "No content found in proposal"
+- subsections: []
+
+======================================================================
+PROPOSAL
+======================================================================
+
+{passage}
+"""
