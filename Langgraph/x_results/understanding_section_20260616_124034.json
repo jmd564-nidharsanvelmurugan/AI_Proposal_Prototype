@@ -1,0 +1,15 @@
+{
+    "section": "Understanding",
+    "timestamp": "20260616_124034",
+    "retrieval_query": "limited pipeline granularity lack integrated CAC insights QuickBooks data ingestion automation",
+    "chunks_used": 7,
+    "document_ids": [
+        "PROP_20260615_125925_A5D918",
+        "PROP_20260615_130616_B3B1EF",
+        "PROP_20260615_141424_DAF85A",
+        "PROP_20260615_141210_E40BD0",
+        "PROP_20260615_140924_204B74",
+        "PROP_20260615_141604_23C03A"
+    ],
+    "content": "# Understanding\n\n- PURE FINANCIAL ADVISORS LLC seeks to address limited visibility and granularity in its existing pipeline reporting, specifically around tracking the journey from lead generation to assets under management (AUM) and understanding customer acquisition costs (CAC).  \n- Current reporting lacks integrated CAC insights, preventing a unified view of marketing efficiency and return on spend.  \n- The absence of automated data ingestion and transformation processes creates manual dependencies and delays in producing accurate L2A and CAC metrics.  \n- Enhanced data modeling and integration capabilities are required to support detailed L2A and CAC reporting across Salesforce, Tamarac, Azure data sources, and QuickBooks.  \n- Automated workflows are needed to streamline data ingestion, transformation, and refresh cycles for consistent and timely reporting.  \n- Key user groups include data and technology stakeholders responsible for data management, senior leadership requiring performance insights, and marketing teams tracking acquisition effectiveness.  \n- Mandatory integrations include Salesforce and QuickBooks to ensure complete visibility across lead, financial, and marketing data flows."
+}
