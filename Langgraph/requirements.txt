@@ -1,0 +1,9 @@
+langgraph
+langchain
+langchain-openai
+langchain-groq
+psycopg2-binary
+sentence-transformers
+scikit-learn
+python-dotenv
+pydantic
