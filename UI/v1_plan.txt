@@ -3,8 +3,7 @@ what iam going to include in the  ui are
 1 - >  at the initial metadata filter  , get the top 1 st proposal then if the user says it ok to gerenate the propsal with the same structure and finally  preview it 
 
 2-> other that metadata , questionaerr , if user provide some of the input in promt also consider it 
-
-X   3 -> if no questionairee or something upload the MOM  trancscipttion - > answer for the questions -> if some question are not mentioned -> ask the user to fill it 
+3 -> if no questionairee or something upload the MOM  trancscipttion - > answer for the questions -> if some question are not mentioned -> ask the user to fill it 
 
 4-> section wise generation status tracking  and also whole propsal status tracking (like rertiveing , generating , aligning , etc ) 
 

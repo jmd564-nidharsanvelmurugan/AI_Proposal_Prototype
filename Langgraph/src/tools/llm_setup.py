@@ -14,9 +14,9 @@ def get_llm(temperature: float = 0) -> BaseChatModel:
         return AzureChatOpenAI(
             azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
             api_key=os.getenv("AZURE_OPENAI_KEY"),
-            azure_deployment=os.getenv("AZURE_DEPLOYMENT", "gpt-4"),
+            azure_deployment=os.getenv("gpt-5"),
             api_version="2024-02-15-preview",
-            temperature=temperature,
+            temperature=0,
         )
     else:
         return ChatGroq(

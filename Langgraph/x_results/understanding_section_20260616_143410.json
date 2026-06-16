@@ -1,0 +1,15 @@
+{
+    "section": "Understanding",
+    "timestamp": "20260616_143410",
+    "retrieval_query": "pipeline reporting granularity integrated CAC insights QuickBooks data integration automated ingestion",
+    "chunks_used": 7,
+    "document_ids": [
+        "PROP_20260615_125925_A5D918",
+        "PROP_20260615_130616_B3B1EF",
+        "PROP_20260615_141424_DAF85A",
+        "PROP_20260615_141210_E40BD0",
+        "PROP_20260615_140924_204B74",
+        "PROP_20260615_141604_23C03A"
+    ],
+    "content": "# Understanding\n\n- PURE FINANCIAL ADVISORS LLC seeks to address limitations in its existing pipeline reporting by developing detailed Lead-to-AUM (L2A) and Customer Acquisition Cost (CAC) reporting to improve visibility into marketing and conversion performance.  \n- Current pain points include insufficient granularity in pipeline data and the absence of integrated CAC insights across systems.  \n- The firm requires an enhanced L2A and CAC data model capable of supporting comprehensive Power BI reporting and data quality assessment.  \n- Automated data ingestion and transformation workflows are needed to streamline L2A and CAC reporting processes.  \n- The system will be used by data and technology stakeholders, senior leadership, and marketing teams to analyze and interpret performance metrics.  \n- Mandatory integrations include Salesforce and QuickBooks to ensure complete data coverage for pipeline and cost reporting.  \n- Security and compliance requirements are not specified in the available documentation."
+}
