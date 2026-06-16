@@ -9,7 +9,8 @@ from src.nodes.objectives_node import generate_objectives_node
 from src.nodes.deliverables_node import generate_deliverables_node
 from src.nodes.approach_node import generate_approach_node
 from src.nodes.outcomes_node import generate_outcomes_node
-from src.nodes.business_impact_node import generate_business_impact_node  # ← ADD THIS
+from src.nodes.business_impact_node import generate_business_impact_node
+from src.nodes.assembly_node import assemble_proposal_node  # ← ADD THIS
 
 def create_proposal_graph():
     """Create the LangGraph workflow for proposal generation."""
@@ -26,7 +27,8 @@ def create_proposal_graph():
     workflow.add_node("generate_deliverables", generate_deliverables_node)
     workflow.add_node("generate_approach", generate_approach_node)
     workflow.add_node("generate_outcomes", generate_outcomes_node)
-    workflow.add_node("generate_business_impact", generate_business_impact_node)  # ← ADD THIS
+    workflow.add_node("generate_business_impact", generate_business_impact_node)
+    workflow.add_node("assemble_proposal", assemble_proposal_node)  # ← ADD THIS
     
     # Set entry point
     workflow.set_entry_point("extract_metadata")
@@ -40,8 +42,9 @@ def create_proposal_graph():
     workflow.add_edge("generate_objectives", "generate_deliverables")
     workflow.add_edge("generate_deliverables", "generate_approach")
     workflow.add_edge("generate_approach", "generate_outcomes")
-    workflow.add_edge("generate_outcomes", "generate_business_impact")  # ← ADD THIS
-    workflow.add_edge("generate_business_impact", END)  # ← ADD THIS
+    workflow.add_edge("generate_outcomes", "generate_business_impact")
+    workflow.add_edge("generate_business_impact", "assemble_proposal")  # ← ADD THIS
+    workflow.add_edge("assemble_proposal", END)  # ← ADD THIS
     
     # Compile
     return workflow.compile()
@@ -69,6 +72,7 @@ def run_proposal_generation(questionnaire: dict) -> dict:
         "approach": None,
         "outcomes": None,
         "business_impact": None,
+        "proposal": None,  # ← ADD THIS
         "current_section_index": 0,
         "sections_completed": [],
         "error": None

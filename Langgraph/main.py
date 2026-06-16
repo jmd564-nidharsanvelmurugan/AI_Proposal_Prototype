@@ -1,3 +1,4 @@
+# main.py
 import json
 import os
 from dotenv import load_dotenv
@@ -11,7 +12,6 @@ def main():
     
     if not os.path.exists(questionnaire_file):
         print(f"❌ Questionnaire file not found: {questionnaire_file}")
-        print("Please create data/questionnaire.json with your questionnaire data")
         return
     
     with open(questionnaire_file, "r", encoding="utf-8") as f:
@@ -32,14 +32,21 @@ def main():
         print("✅ PROPOSAL GENERATION COMPLETE!")
         print("=" * 80)
         
-        # Display generated business context
-        if final_state.get("business_context"):
-            print("\n📄 Generated Business Context:")
-            print("-" * 40)
-            print(final_state["business_context"]["content"])
-            print("-" * 40)
-        
-        print(f"\n📁 Check x_results/ folder for outputs")
+        # Display proposal info
+        if final_state.get("proposal"):
+            proposal = final_state["proposal"]
+            print(f"\n📄 Generated Proposal:")
+            print(f"   - Markdown: {proposal.get('markdown_path', 'N/A')}")
+            print(f"   - Word Doc: {proposal.get('word_path', 'N/A')}")
+            print(f"   - Summary: x_results/proposal_summary.json")
+            
+            # Display sections completed
+            sections = final_state.get("sections_completed", [])
+            print(f"\n📋 Sections Completed: {len(sections)}/9")
+            for i, section in enumerate(sections, 1):
+                print(f"   {i}. {section}")
+        else:
+            print("\n⚠️ No proposal was assembled. Check for errors.")
 
 if __name__ == "__main__":
     main()

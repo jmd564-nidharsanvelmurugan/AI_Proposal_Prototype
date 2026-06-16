@@ -1,0 +1,15 @@
+{
+    "section": "Deliverables",
+    "timestamp": "20260616_140432",
+    "retrieval_query": "KPI Book Power BI mock-ups data model gap assessment roadmap",
+    "chunks_used": 10,
+    "document_ids": [
+        "PROP_20260615_125925_A5D918",
+        "PROP_20260615_130616_B3B1EF",
+        "PROP_20260615_141424_DAF85A",
+        "PROP_20260615_141210_E40BD0",
+        "PROP_20260615_140924_204B74",
+        "PROP_20260615_141604_23C03A"
+    ],
+    "content": "# Deliverables\n\nThroughout the engagement with PURE FINANCIAL ADVISORS LLC, the following key deliverables and artifacts will be provided to ensure a comprehensive and actionable outcome aligned with the project objectives:\n\n1. **KPI Book**  \n- Comprehensive documentation of Lead‑to‑AUM (L2A) and Customer Acquisition Cost (CAC) KPIs, including definitions, calculation logic, and data sources.  \n\n- Alignment of KPI taxonomy with industry standards and Pure’s internal reporting framework.  \n\n- Clear mapping of KPIs to Power BI visualizations and data model fields for consistent interpretation.  \n\n2. **Power BI Mock‑Ups (8 Views)**  \n- Design of up to eight Power BI dashboard views illustrating L2A and CAC insights, pipeline performance, and marketing ROI.  \n\n- Visual prototypes capturing layout, navigation, and user experience requirements for leadership and marketing teams.  \n\n- Mock‑ups serving as the blueprint for subsequent implementation in the Build phase.  \n\n3. **Data Model Design**  \n- Detailed schema outlining relationships between Salesforce, Tamarac, QuickBooks, and Azure Fabric data sources.  \n\n- Logical and physical data model documentation supporting L2A and CAC reporting.  \n\n- Data lineage and transformation mapping to ensure traceability and accuracy across ingestion pipelines.  \n\n4. **Data Gap Assessment**  \n- Identification and evaluation of missing or inconsistent data elements impacting L2A and CAC reporting accuracy.  \n\n- Recommendations for remediation and data quality improvement across key systems.  \n\n- Summary of dependencies and readiness for QuickBooks integration.  \n\n5. **Technical Approach Document**  \n- Detailed explanation of the proposed architecture, data ingestion, and transformation processes within Microsoft Fabric and Synapse.  \n\n- Integration strategy for QuickBooks and Salesforce, including batch processing design.  \n\n- Technical standards and governance considerations for scalable and maintainable reporting.  \n\n6. **Phase 3B Implementation Plan**  \n- Sequenced roadmap outlining activities, milestones, and dependencies for the Build phase (8–12 weeks).  \n\n- Resource plan and timeline aligned with QuickBooks ingestion and data quality assessment.  \n\n- Defined success criteria and checkpoints for iterative validation and deployment.  \n\nEach deliverable will be iteratively reviewed with PURE FINANCIAL ADVISORS LLC's leadership and technical teams to ensure alignment with business goals and to incorporate feedback promptly. This structured approach guarantees transparency, accountability, and measurable value throughout the engagement lifecycle."
+}

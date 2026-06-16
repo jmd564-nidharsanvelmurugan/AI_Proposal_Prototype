@@ -50,3 +50,6 @@ class GraphState(TypedDict):
     current_section_index: int
     sections_completed: List[str]
     error: Optional[str]
+
+    # Proposal assembly
+    proposal: Optional[Dict[str, Any]]
