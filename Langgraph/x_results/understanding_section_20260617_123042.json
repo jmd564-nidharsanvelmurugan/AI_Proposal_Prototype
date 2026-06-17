@@ -1,0 +1,15 @@
+{
+    "section": "Understanding",
+    "timestamp": "20260617_123042",
+    "retrieval_query": "limited pipeline reporting granularity  \nlack of integrated customer acquisition cost insights  \nneed for enhanced lead to AUM and CAC data model  \nrequirement for QuickBooks data integration  \nautomated data ingestion and transformation pipelines",
+    "chunks_used": 7,
+    "document_ids": [
+        "PROP_20260615_125925_A5D918",
+        "PROP_20260615_130616_B3B1EF",
+        "PROP_20260615_141424_DAF85A",
+        "PROP_20260615_141210_E40BD0",
+        "PROP_20260615_140924_204B74",
+        "PROP_20260615_141604_23C03A"
+    ],
+    "content": "# Understanding\n\n- PURE seeks to address limitations in its existing pipeline reporting by developing detailed Lead-to-AUM (L2A) and Customer Acquisition Cost (CAC) reporting.  \n- Current pain points include insufficient granularity in pipeline data and the absence of integrated CAC insights across systems.  \n- Inefficiencies in the current process are not specified but are implied through fragmented data and limited visibility into lead conversion and marketing performance.  \n- Required capabilities include an enhanced L2A and CAC data model, integration of QuickBooks data, and a Power BI reporting suite supported by data quality assessment.  \n- Automated workflows are needed for data ingestion and transformation to streamline L2A and CAC reporting processes.  \n- Primary user roles include data and technology stakeholders, senior leadership, and marketing teams who rely on accurate and timely reporting.  \n- Security and compliance requirements are not mentioned in the provided information.  \n- Mandatory integrations include Salesforce and QuickBooks to enable comprehensive pipeline and cost reporting."
+}

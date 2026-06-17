@@ -1,6 +1,10 @@
 {
   "client_name": "Client",
+<<<<<<< HEAD
   "generated_date": "2026-06-16T17:13:08.761246",
+=======
+  "generated_date": "2026-06-17T12:32:27.275278",
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
   "sections_completed": [
     "Business Context",
     "Overview",
@@ -17,42 +21,74 @@
     "business_context": {
       "chunks_used": 10,
       "has_content": true,
+<<<<<<< HEAD
       "content_length": 1255
+=======
+      "content_length": 1443
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
     },
     "overview": {
       "chunks_used": 7,
       "has_content": true,
+<<<<<<< HEAD
       "content_length": 1105
+=======
+      "content_length": 1046
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
     },
     "understanding": {
       "chunks_used": 7,
       "has_content": true,
+<<<<<<< HEAD
       "content_length": 1242
+=======
+      "content_length": 1119
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
     },
     "objectives": {
       "chunks_used": 9,
       "has_content": true,
+<<<<<<< HEAD
       "content_length": 970
+=======
+      "content_length": 990
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
     },
     "deliverables": {
       "chunks_used": 10,
       "has_content": true,
+<<<<<<< HEAD
       "content_length": 2819
+=======
+      "content_length": 2721
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
     },
     "approach": {
       "chunks_used": 10,
       "has_content": true,
+<<<<<<< HEAD
       "content_length": 3272
+=======
+      "content_length": 3452
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
     },
     "outcomes": {
       "chunks_used": 7,
       "has_content": true,
+<<<<<<< HEAD
       "content_length": 1978
+=======
+      "content_length": 1906
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
     },
     "business_impact": {
       "chunks_used": 9,
       "has_content": true,
+<<<<<<< HEAD
       "content_length": 1776
+=======
+      "content_length": 1788
+>>>>>>> 72e04249caf401e6a4303585019ec29e9dd87354
     }
   },
   "metadata": {
