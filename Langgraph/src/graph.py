@@ -2,8 +2,8 @@ from langgraph.graph import StateGraph, END
 from src.state import GraphState
 from src.nodes.metadata_node import extract_metadata_node
 from src.nodes.retrieval_node import retrieve_proposals_node
-from src.nodes.business_context_node import generate_business_context_node
-from src.nodes.overview_node import generate_overview_node
+from src.nodes.business_context_node  import generate_business_context_node
+from src.nodes.overview_node          import generate_overview_node
 from src.nodes.understanding_node import generate_understanding_node
 from src.nodes.objectives_node import generate_objectives_node
 from src.nodes.deliverables_node import generate_deliverables_node

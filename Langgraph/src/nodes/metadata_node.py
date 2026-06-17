@@ -26,7 +26,7 @@ def extract_metadata_node(state: GraphState) -> GraphState:
     structured_llm = llm.with_structured_output(ProposalMetadataSchema)
     
     prompt = ChatPromptTemplate.from_template("""
-You are an expert Proposal Discovery Analyst.
+                                    You are an expert Proposal Discovery Analyst.
 
 Analyze the questionnaire responses and classify the engagement.
 
